@@ -1,0 +1,616 @@
+/** EOD pages header **/
+
+
+#eodForm #continue input { margin-left: 34%; }
+
+#eodForm .state-select #ajax_region_select,
+.bc-form fieldset .one-line #select_state.field{
+	width:200px; text-align:left;
+}
+
+.eod .list-head{
+	font-size:18px;
+	padding-top:12px;
+	color:#891122;
+}
+
+#eod-form .last-updated {
+	float: right;
+	margin-right: 41px;
+	line-height: 30px;
+}
+
+#eod-form h5, #eod-form h4 {
+	margin: 0px 0px 0px 20px;
+	padding:2px 0 1px;
+	font-size:16px;
+}
+
+#eod-form .corrections {
+	font-style:italic;
+}
+
+.error, #eod-corrections .instr {
+	margin: 10px 20px;
+}
+
+#eod-corrections .instr {
+	color: #000078;
+}
+
+sect {
+    background: transparent url(../img/backgrounds/506-w-col-bd.gif) left repeat-y;
+}
+
+.sect h4, .sect dl dt {
+    float: left;
+    display: block;
+    font-weight: bold;
+    width:225px; 
+    height: 1%;
+    margin: 0px; padding: 8px 10px 2px 10px;
+    font-size: 13px;
+	clear: both;
+}
+.sect p, .sect dl dd {
+    float: left;
+    display: block;
+    width: 275px;
+    margin: 0px; padding: 8px 10px 2px;
+}
+
+.sect p.note {
+    font-size: 75%;
+}
+.sect dl {
+    display: block;
+    float: left;
+    margin: 0px; padding: 0px 0px 0px 0px;
+}
+
+.sect .break {
+    height: 5px;
+    width: 650px;
+    line-height: 0px;
+    border-bottom: 1px solid #ddd;
+    background: none !important;
+    margin: 5px 1px;
+    padding: 5px 0;
+}
+
+
+.sect.first {
+    padding-top: 3px;
+    background: transparent url(../img/backgrounds/506-w-col-hd.gif);
+}
+.corrections {
+    padding: 0px 40px 40px 0px;
+    font-style: italic;
+    text-align: right;
+}
+.corrections a {
+    text-decoration: underline;
+}
+.sect.last {
+    padding: 0px 0px 15px 0px;
+    border-bottom: 0px;
+    background: transparent url(../img/backgrounds/506-w-col-ft.gif) bottom left no-repeat;
+}
+.sect.last .break {
+    border-bottom: 0px;
+}
+.sect .ctrl {
+    float: left;
+    width: 315px;
+    padding: 8px 50px 2px 10px;
+    min-height:18px;
+    height: auto;
+    cursor: pointer;
+    background: transparent url(../img/buttons/eod-edit-button.gif) right 6px no-repeat;
+}
+.sect .ctrl span {
+    display: block;
+    width: 230px;
+}
+.sect .ctrl p {
+    line-height: 16px;
+    padding: 2px 0px 5px 0px;
+}
+.sect .pnl {
+    clear: left;
+    width: 506px;
+    display: none;
+}
+.sect .pnl label {
+    height: 24px; 
+    line-height: 22px;
+    white-space: nowrap; 
+}
+.sect .pnl input, .sect .pnl .field-name {
+    float: left;
+    margin: 1px 0px;
+}
+.sect .pnl .field-name {
+    display: block;
+    width: 205px;
+    padding: 2px 10px 0px 0px;
+    height: 16px;
+    line-height: 14px;
+}
+.sect .pnl input {
+    width: 250px;
+    height: 16px;
+}
+.sect .pnl input.firstName {
+    width: 120px;
+}
+.sect .pnl input.lastName {
+    width: 120px;
+    margin-left: 5px;
+}
+.sect .pnl input.city {
+    float: none;
+    display: inline;
+    width: 100px;
+}
+.sect .pnl input.state {
+    float: none;
+    display: inline;
+    width: 20px;
+    margin-right: 5px;
+}
+.sect .pnl input.zip {
+    float: none;
+    display: inline;
+    width: 40px;
+}
+.sect .pnl input.zip4 {
+    float: none;
+    display: inline;
+    width: 33px;
+}
+.sect .pnl input.check {
+    float: none;
+    display: inline;
+    width: auto;
+}
+.sect textarea {
+   	height: 100px;
+    width: 500px;
+    border: 1px solid #888;
+}
+.sect.complete-status {
+}
+.sect.complete-status h4 {
+}
+.sect.complete-status label {
+    padding: 2px 10px 2px 220px;
+    display: block;
+    clear: both;
+}
+.sect.complete-status label span {
+    display: block;
+    float: left;
+    width: 100px;
+}
+.sect.complete-status label input {
+    display: block;
+    float: left;
+}
+
+.status-select {
+    margin: 0px 20px;
+    padding: 0px;
+}
+.status-select label span {
+    padding: 0px 10px 0px 0px;
+    font-weight: bold;
+    color: #c00;
+}
+.state-upload label {
+    display: block;
+    padding: 5px 100px;
+    height: 20px;
+}
+.state-upload label span {
+    display: block;
+    float: left;
+    font-weight: bold;
+    width: 110px;
+}
+.state-upload label select {
+    display: block;
+    float: left;
+    width: 180px;
+}
+
+.region-list .website a {
+    display: block;
+    width: 300px;
+}
+
+table td.correction {
+    background-color: #FDEEB9;
+}
+table td.correction em {
+    color: #c00;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+#eod-form .oneline span {
+	width: 120px;
+}
+#eod-form .oneline select {
+	width: 200px;
+}
+#eod-form #continue input, #eod-form #continue a {
+	margin-left: 215px;
+}
+#eod-form fieldset.state-select { padding: 20px 0px; }
+
+label.one-line.select { text-transform: capitalize; }
+
+#eod-form h3 {
+	margin-left: 20px;
+	color: #891122;
+	line-height: 30px;
+}
+
+#eod-form table.section {
+	margin-left:20px;
+	margin-top:1px;
+	width: 540px;
+	background-color:white;
+	border: solid #ccc 1px outset;
+}
+
+#eod-form table.section th, #eod-form table.section th {
+	vertical-align: top;
+}
+
+#eod-form table.section th {
+	width	  : 185px;
+	text-align: left;
+}
+
+#eod-form #corrections {
+	margin-left:20px;
+	margin-right:30px;
+	text-align:right;
+}
+
+#eod-form .section .ctrl {
+	background: transparent url('../img/buttons/eod-edit-button.gif') top right no-repeat;
+	padding-right: 20px;
+	cursor: pointer;
+	margin: 2px 0px;
+}
+
+#eod-form .section .pnl {
+	display: none;
+	background-color: #ffffc8; 
+	padding: 0px;
+}
+
+#eod-form .section .YAHOO-bc-ExpandingPanel-hidden .pnl textarea,
+#eod-form .section .YAHOO-bc-ExpandingPanel-hidden .pnl label,
+#eod-form .section .YAHOO-bc-ExpandingPanel-hidden .pnl div {
+/*	visibility: hidden; */
+}
+#eod-form .section .YAHOO-bc-ExpandingPanel-visible .ctrl {
+	background: transparent url('../img/buttons/eod-cancel-button.gif') top right no-repeat;
+}
+
+#eod-form .section .pnl label {
+	display: block;
+	padding: 1px 3px;
+	height: 23px;
+}
+/*
+#eod-form .section.address .pnl {
+	height: 100px;
+}
+*/
+
+#eod-form .section .pnl span.field-name {
+	display: block;
+	float: left;
+	font-weight: normal;
+	width:110px;
+	letter-spacing: -1px; 
+}
+
+#eod-form .section.address .pnl span.field-name {
+	width:100px;
+}
+
+#eod-form .section .pnl input {
+	width: 212px;
+	height: 16px;
+	border: 1px solid #e7e7e7;
+}
+
+#eod-form .section.address .pnl input {
+	width:217px;
+}
+
+#eod-form .section .pnl input.firstName {
+	width: 100px;
+}
+#eod-form .section .pnl input.lastName {
+	width: 102px;
+	margin-left:2px;
+}
+#eod-form .section .pnl input.city {
+	width: 100px;
+}
+#eod-form .section .pnl input.state {
+	width: 20px;
+	margin-right: 2px;
+}
+#eod-form .section .pnl input.zip {
+	width: 38px;
+}
+#eod-form .section .pnl input.zip4 {
+	width: 33px;
+}
+
+#eodCaptchaImg {
+	position: relative;
+	display: block;
+	margin: 20px 0px 0px 160px;
+}
+
+/* change left margin on initial form page */
+#eod-form #eodCaptchaImg {
+  margin-left: 35px;
+  margin-bottom: 12px
+}
+
+#eodCaptchaImgTag  {
+	border: solid 1px #ccc;
+}
+
+#eodCaptchaImgRefresh, #eodCaptchaImgRefresh2 { cursor: pointer; 
+	position: absolute;
+	left: 205px;
+	bottom: 48px;
+	border: none;
+}
+
+#eodCaptchaImgRefresh2 { 
+	bottom:51px;
+	color:#4483E0;
+	display:block;
+	font-size:0.8em;
+	left:233px;
+	line-height:0.85em;
+	width:8em;
+}
+
+#eodCaptcha{margin-left:33px;}
+
+#eodForm #eodCaptcha input {
+	margin: 0px 10px 0px 0px;
+	width: 195px;
+}
+
+/* accordian overrides */
+.accordian, .accordian-content {
+	border:1px solid #E7E7E7;
+}
+
+.accordian {
+	background-color:#FFFFFF;
+	margin:10px 41px;
+	padding: 3px 6px 6px 3px;
+}
+
+.accordian.YAHOO-bc-ExpandingPanel-visible .ctrl{
+  background: url('../img/icons/up_arrow.png') no-repeat right center;
+}
+
+.accordian.YAHOO-bc-ExpandingPanel-hidden .pnl{
+}
+
+.accordian .ctrl{
+  background: url('../img/icons/down_arrow.png') no-repeat right center;
+  cursor: pointer;
+	margin: 0px;
+}
+
+.accordian-content {
+	background-color:#fafafa;
+	margin: 10px 0px;
+}
+
+.accordian-sect {
+	border-bottom: 1px solid #ddd;
+}
+
+.accordian-sect dl {
+	margin: 0px;
+}
+
+.accordian-sect.last {
+	border-bottom: none;
+}
+
+.accordian .break, .accordian-sect.last {
+	border: none;
+	width: 100%;
+}
+
+.accordian .break {
+	clear: left;
+}
+
+.accordian-sect h4, .accordian-sect dl dt {
+	float: left;
+	margin: 0px; padding: 8px 10px 2px 10px;
+	width: 40%; height: 1%;
+}
+
+.accordian-sect p, .accordian-sect dl dd {
+	float: left;
+	width: 45%;
+	margin: 0px; padding: 8px 10px 2px 10px;
+}
+
+table.accordian-content {
+	width: 100%;
+	margin: 10px 0px 10px 0px; 
+	padding: 0px;
+	border-collapse: separate;
+}
+
+table.accordian-content td {
+	border-bottom:  1px solid #fff;
+	text-align: center;
+	padding:8px 5px;
+	vertical-align:bottom;
+}
+
+table.accordian-content .first-col {
+	text-align: left;
+	width: 50%;
+}
+
+table.accordian-content .note {
+	text-align: left;
+	font-size: 90%;
+	font-style: italic;
+	line-height: 1.1em;
+	color: #787878;
+	padding: 15px;
+}
+
+table.accordian-content .r0 .first-col {
+	font-weight: bold;
+	color: #891122;
+}
+
+table.accordian-content .r0 {
+	background-color: #fafafa;
+}
+
+table.accordian-content .r0 .odd{
+	background-color: #ffffff;
+}
+
+table.accordian-content .r1 {
+	background-color: #f7f7f7;
+}
+
+table.accordian-content .r1 .odd{
+	background-color: #fcfcfc;
+}
+
+table.accordian-content .r2 {
+	background-color: #f4f4f4;
+}
+
+table.accordian-content .r2 .odd{
+	background-color: #fafafa;
+}
+
+table.accordian-content .r3 {
+	background-color: #f1f1f1;
+}
+
+table.accordian-content .r3 .odd{
+	background-color: #f8f8f8;
+}
+
+table.accordian-content .r4 {
+	background-color: #ededed;
+}
+
+table.accordian-content .r4 .odd {
+	background-color: #f5f5f5;
+}
+
+table.accordian-content .r4 td {
+	border-bottom:  0px solid #fff;
+}
+
+table.election-deadlines td.b-left{
+	border-left: solid 1px #fff;
+}
+
+.required {
+	display: inline;
+	width: auto;
+	float: none;
+	color: #891122;
+}
+
+.search-results dt {
+	font-size:1.1em;
+	font-weight:bold;
+}
+
+.search-results dd p.search-snippet{
+	padding-bottom:0px;
+	margin:0 0 10px 10px;
+}
+
+.election-dates.table-bordered {
+  border-top:none;
+  background-color:#fff;
+}
+
+.election-dates thead .table-type {
+  background-color:#fff;
+  border:solid #fff 1px;
+}
+
+.election-dates.table-bordered>thead>tr.table-type>td{
+  border:solid #fff 1px;
+  background-color:#fff;
+  padding-left:0;
+}
+
+.election-dates .table-type h4{
+  background-color: #002051;
+  color: #fff;
+  font-size: 150%;
+  padding: 10px 15px;
+  display: inline-block;
+  width: auto;
+}
+
+.election-dates.table-bordered>thead>tr>th{
+  background-color:#D8EEFB;
+  border: solid #fff 2px;
+  font-weight:normal;
+  color:#128ac3;
+  padding:12px;
+  font-size: 112%;
+}
+
+.election-dates.table-bordered>thead>tr.table-type-headings>th:first-child { border-left:solid #D8EEFB 1px; }
+.election-dates.table-bordered>thead>tr.table-type-headings>th:last-child { border-right:solid #D8EEFB 1px; }
+
+.election-dates.table-bordered>tbody>tr>td.state-name {
+  background-color:#eaf5fb;
+  border-bottom: solid #128AC2 2px;
+  font-weight:bold;
+}
+
+.election-dates td strong{
+  display:block;
+  margin-bottom:0;
+  padding-bottom:0;
+  margin-top:12px;
+}
+
+.election-dates td strong:first-child { margin-top:0; }
+
+
+
+
+
+
