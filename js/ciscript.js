@@ -47,7 +47,6 @@ $(function(){
 			jsonParser: function (address,GCurl){
 				var $targetInner = $('#pl-targetInner');
 				$.get(GCurl,function(data){
-					alert('test');
 					$targetInner.append(data);
 					if(data.length > 3){ // validate data
 
