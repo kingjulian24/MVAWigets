@@ -20,6 +20,8 @@ $(function(){
 						          </div> \
 						        </div> \
 						      </div> \
+						      </br> \
+						      <div id="accordion" class="panel panel-primary"> </div> \
 						    </div>';
 	  			this.$target.append(layout);
 			},
@@ -29,7 +31,7 @@ $(function(){
 			},
 			sendAjaxRequest: function () {
 				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
-				$('.location-item').remove(); // remove location
+				$('#accordion').empty();// remove location
 				
 				var address = $('#pl-userInput').val(); //get address
 				var getUrl = plWidget.getUrl;
@@ -45,7 +47,7 @@ $(function(){
 				
 			},
 			jsonParser: function (address,GCurl){
-				var $targetInner = $('#pl-targetInner');
+				var $targetInner = $('#accordion');
 				$.get(GCurl,function(data){
 					
 					if(data.length > 3){ // validate data
@@ -59,11 +61,11 @@ $(function(){
 								var electionType = edata.contests[i].type;
 								
 								var office = edata.contests[i].office;
-								$targetInner.append('<h3>'+office+' ('+electionType +')'+'</h3>');
+								$targetInner.append('<h3  class="panel-heading">'+office+' ('+electionType +')'+'</h3>');
 								var district = edata.contests[i].district;
 
 
-								$targetInner.append('<h5>'+ district.name+' ('+district.scope+')'+'</h5>');
+								$targetInner.append('<h5 class="panel-heading">'+ district.name+' ('+district.scope+')'+'</h5>');
 
 								var candidates = edata.contests[i].candidates;
 								for (var j = 0; j <= candidates.length - 1; j++) {
@@ -71,17 +73,20 @@ $(function(){
 									party = party.replace("Democratic", "D");
 									party = party.replace("Republican", "R");
 
-									$targetInner.append('<h4>'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4>');
+									$targetInner.append('<h4  class="panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4>');
 
 								};
 
-								$targetInner.append('<h4>'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>');
+								$targetInner.append('<h4  class="panel-body">'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>');
 							};
 						
 					} else { // if no data
 						$targetInner.append('<h3 class="location-item">invalid input</h3>');
 					}
 					$('.glyphicon-refresh').remove();// remove loading
+
+					
+
 				});
 			},
 			getComma: function (zip){
