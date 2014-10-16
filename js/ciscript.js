@@ -141,6 +141,7 @@ $(function(){
 		
 
 		}; // end of plWidget object
+		
 
 		plWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
