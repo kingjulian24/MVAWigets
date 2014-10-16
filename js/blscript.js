@@ -20,7 +20,7 @@ $(function(){
 						          </div> \
 						        </div> \
 						      </div> \
-						      <div id="accordion"> <h3>Section 1</h3><div><p>hello</p></div></div> \
+						      <div id="accordion"> </div> \
 						    </div>';
 	  			this.$target.append(layout);
 			},
