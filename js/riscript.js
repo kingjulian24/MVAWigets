@@ -94,12 +94,13 @@ $(function(){
 				$('.fa-youtube-play').css({
 				color: 'red'
 				});
+				$('.glyphicon-refresh').remove();// remove loading
 		} else { // if no data
 
 			$targetInner.append('<h1>invalid input</h1>');
 		}
 
-					$('.glyphicon-refresh').remove();// remove loading
+					
 				});
 			},
 			getComma: function (zip){
