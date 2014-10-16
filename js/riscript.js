@@ -9,7 +9,7 @@ $(function(){
 			},
 			buildLayout: function(){
 				var layout = '<div id="pl-targetInner"> \
-						      <h2>Find Your Polling Location</h2> \
+						      <h2>Elected Representative Information by your address</h2> \
 						      <div class="row"> \
 						        <div class="col-xs-12 col-md-6"> \
 						          <div class="input-group"> \
@@ -54,10 +54,9 @@ $(function(){
 
 				for (var i = 0; i < edata.offices.length; i++) {
 					var officeName = edata.offices[i].name;
-					$targetInner.append('<h1>'+officeName+'</h1>');
+					$targetInner.append('<h2> Elected Officials for '+officeName+'</h2>');
 					var officeLevel = edata.offices[i].levels;
 					var officialIndices = edata.offices[i].officialIndices;
-					$targetInner.append('<h2>Election Officials: </h2>');
 					for(var j = 0; j < edata.offices[i].officialIndices.length; j++){
 					var  officialRow = edata.offices[i].officialIndices[j];
 					var  offName = edata.officials[officialRow].name;
@@ -66,6 +65,12 @@ $(function(){
 					$targetInner.append('<h3>'+offParty+'</h3>');
 					var  offPhoto = edata.officials[officialRow].photoUrl;
 					$targetInner.append('<img src="' + offPhoto + '" height="160" width="120">');
+					var  chanels = edata.officials[officialRow].channels;
+					for(var k = 0; k < chanels.length; k++){
+						var type = chanels[k].type;
+						var id = chanels[k].id;
+						$targetInner.append('<i class="fa fa-twitter"></i>' + '<h3>'+type + ': ' + id +'</h3>');
+					};
 					};
 					
 					
