@@ -21,7 +21,7 @@ $(function(){
 						        </div> \
 						      </div> \
 						      </br> \
-						      <div id="accordion" class="panel panel-default"> </div> \
+						      <div id="accordion" class="panel panel-primary"> </div> \
 						    </div>';
 	  			this.$target.append(layout);
 			},
