@@ -145,7 +145,7 @@ $(function(){
 
 		plWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			getUrl: 'http://julian-nworb.com/PollingLocationWidget/server/getcivic.php?a='
+			getUrl: 'http://julian-nworb.com/PollingLocationWidget/server/GCServer2.php?a='
 		});
 
 	})(); // end of self invoking function
