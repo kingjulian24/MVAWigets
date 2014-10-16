@@ -20,6 +20,7 @@ $(function(){
 						          </div> \
 						        </div> \
 						      </div> \
+						      </br> \
 						      <div id="accordion" class="panel panel-default"> </div> \
 						    </div>';
 	  			this.$target.append(layout);
