@@ -20,6 +20,7 @@ $(function(){
 						          </div> \
 						        </div> \
 						      </div> \
+						      <div id="accordion"> <h3>Section 1</h3><div><p>hello</p></div></div> \
 						    </div>';
 	  			this.$target.append(layout);
 			},
@@ -29,7 +30,7 @@ $(function(){
 			},
 			sendAjaxRequest: function () {
 				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
-				$('.location-item').remove(); // remove location
+				$('#accordion').empty();// remove location
 				
 				var address = $('#pl-userInput').val(); //get address
 				var getUrl = plWidget.getUrl;
@@ -45,7 +46,7 @@ $(function(){
 				
 			},
 			jsonParser: function (address,GCurl){
-				var $targetInner = $('#pl-targetInner');
+				var $targetInner = $('#accordion');
 				$.get(GCurl,function(data){
 					
 					if(data.length > 3){ // validate data
