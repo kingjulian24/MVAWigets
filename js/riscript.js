@@ -95,7 +95,7 @@ $(function(){
 		// local testing: getUrl: 'http://sandbox.dev:8080/GC/GCServer.php?a='
 		plWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			getUrl: 'http://julian-nworb.com/PollingLocationWidget/server/GCServer2.php?a='
+			getUrl: 'http://julian-nworb.com/PollingLocationWidget/server/GCServer3.php?a='
 		});
 
 	})(); // end of self invoking function
