@@ -9,7 +9,7 @@ $(function(){
 			},
 			buildLayout: function(){
 				var layout = '<div id="pl-targetInner"> \
-						      <h2>Find Your Polling Location</h2> \
+						      <h2>Find Your Ballot Information</h2> \
 						      <div class="row"> \
 						        <div class="col-xs-12 col-md-6"> \
 						          <div class="input-group"> \
@@ -57,24 +57,29 @@ $(function(){
 							
 							for (var i = edata.contests.length - 1; i >= 0; i--) { // loop through data
 								var electionType = edata.contests[i].type;
-								$targetInner.append('<h1>'+electionType+'</h1>');
+								
 								var office = edata.contests[i].office;
-								$targetInner.append('<h2>'+office+'</h2>');
+								$targetInner.append('<h3>'+office+' ('+electionType +')'+'</h3>');
 								var district = edata.contests[i].district;
 
 
-								$targetInner.append('<h4>'+ district.name+':'+district.scope+':'+district.id+':'+'</h4>');
+								$targetInner.append('<h5>'+ district.name+' ('+district.scope+')'+'</h5>');
 
 								var candidates = edata.contests[i].candidates;
 								for (var j = 0; j <= candidates.length - 1; j++) {
+									var party = candidates[j].party;
+									party = party.replace("Democratic", "D");
+									party = party.replace("Republican", "R");
 
-									$targetInner.append('<h3>'+(j+1) +' : ' + candidates[j].name +'('+candidates[j].party+')</h3>');
+									$targetInner.append('<h4>'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4>');
 
 								};
+
+								$targetInner.append('<h4>'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>');
 							};
 						
 					} else { // if no data
-						$targetInner.append('<h2 class="location-item">invalid input</h1>');
+						$targetInner.append('<h3 class="location-item">invalid input</h3>');
 					}
 					$('.glyphicon-refresh').remove();// remove loading
 				});
