@@ -51,7 +51,7 @@ $(function(){
 					if(data.length > 3){ // validate data
 
 						var edata = jQuery.parseJSON(data); //convert json to javascript object
-						
+						$targetInner.append(edata);
 						
 						for (var i = edata.contests.length - 1; i >= 0; i--) {
 
@@ -64,7 +64,7 @@ $(function(){
 							//$targetInner.append('<h3>'+ district.name+':'+district.scope+':'+district.id+':'+'</h3>');
 
 							var candidates = edata.contests[i].candidates;
-							$targetInner.append(edata);
+							
 							for (var j = candidates.length - 1; j >= 0; j--) {
 								$targetInner.append('<h4>Name : ' + candidates[j].name +'<br></h4>');
 
