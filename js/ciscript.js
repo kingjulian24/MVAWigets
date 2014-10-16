@@ -47,11 +47,12 @@ $(function(){
 			jsonParser: function (address,GCurl){
 				var $targetInner = $('#pl-targetInner');
 				$.get(GCurl,function(data){
-					
+					alert('test');
+					$targetInner.append(data);
 					if(data.length > 3){ // validate data
 
 						var edata = jQuery.parseJSON(data); //convert json to javascript object
-						$targetInner.append(edata);
+						
 						
 						for (var i = edata.contests.length - 1; i >= 0; i--) {
 
