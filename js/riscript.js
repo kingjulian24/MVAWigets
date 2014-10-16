@@ -52,7 +52,7 @@ $(function(){
 			
 			
 
-				for (var i = 0; i < edata.offices.length; i++) {
+								for (var i = 0; i < edata.offices.length; i++) {
 					var officeName = edata.offices[i].name;
 					$targetInner.append('<h2> Elected Officials for '+officeName+'</h2>');
 					var officeLevel = edata.offices[i].levels;
@@ -66,16 +66,34 @@ $(function(){
 					var  offPhoto = edata.officials[officialRow].photoUrl;
 					$targetInner.append('<img src="' + offPhoto + '" height="160" width="120">');
 					var  chanels = edata.officials[officialRow].channels;
+					$targetInner.append('<h2>');
 					for(var k = 0; k < chanels.length; k++){
 						var type = chanels[k].type;
 						var id = chanels[k].id;
-						$targetInner.append('<i class="fa fa-twitter"></i>' + '<h3>'+type + ': ' + id +'</h3>');
+						
+						if(type == 'Facebook'){
+						$targetInner.append('<a href="https://www.facebook.com/' +  id + '"><i class="fa fa-facebook-square"></i></a>');
+						}
+						if(type == 'Twitter'){
+						$targetInner.append('<a href="https://www.Twitter.com/' +  id + '"><i class="fa fa-twitter"></i></a>');
+						}
+						if(type == 'YouTube'){
+						$targetInner.append('<a href="https://www.YouTube.com/' +  id + '"><i class="fa fa-youtube-play"></i></a>');
+						}
+						
 					};
+					$targetInner.append('</h2>');
 					};
 					
 					
 					
 				};
+				$('.fa-twitter, .fa-facebook-square, .fa-youtube-play').css({
+				fontSize: '35px'
+				});
+				$('.fa-youtube-play').css({
+				color: 'red'
+				});
 		} else { // if no data
 
 			$targetInner.append('<h1>invalid input</h1>');
