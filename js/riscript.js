@@ -47,10 +47,8 @@ $(function(){
 			jsonParser: function (address,GCurl){
 				var $targetInner = $('#pl-targetInner');
 				$.get(GCurl,function(data){
-					
-					if(data.offices.length> 0){ // validate data
-
-			var edata = data; //get all contests
+					var edata = jQuery.parseJSON(data)
+					if(edata.offices.length> 0){ // validate data
 			
 			
 
