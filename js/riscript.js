@@ -9,7 +9,7 @@ $(function(){
 			},
 			buildLayout: function(){
 				var layout = '<div id="pl-targetInner"> \
-						      <h2>Find Your Ballot Information</h2> \
+						      <h2>Find Your Polling Location</h2> \
 						      <div class="row"> \
 						        <div class="col-xs-12 col-md-6"> \
 						          <div class="input-group"> \
@@ -47,40 +47,35 @@ $(function(){
 			jsonParser: function (address,GCurl){
 				var $targetInner = $('#pl-targetInner');
 				$.get(GCurl,function(data){
+					var edata = jQuery.parseJSON(data)
+					if(edata.offices.length> 0){ // validate data
+			
+			
+
+				for (var i = 0; i < edata.offices.length; i++) {
+					var officeName = edata.offices[i].name;
+					$targetInner.append('<h1>'+officeName+'</h1>');
+					var officeLevel = edata.offices[i].levels;
+					var officialIndices = edata.offices[i].officialIndices;
+					$targetInner.append('<h2>Election Officials: </h2>');
+					for(var j = 0; j < edata.offices[i].officialIndices.length; j++){
+					var  officialRow = edata.offices[i].officialIndices[j];
+					var  offName = edata.officials[officialRow].name;
+					$targetInner.append('<h3>'+offName+'</h3>');
+					var  offParty = edata.officials[officialRow].party;
+					$targetInner.append('<h3>'+offParty+'</h3>');
+					var  offPhoto = edata.officials[officialRow].photoUrl;
+					$targetInner.append('<img src="' + offPhoto + '" height="160" width="120">');
+					};
 					
-					if(data.length > 3){ // validate data
+					
+					
+				};
+		} else { // if no data
 
-						var edata = jQuery.parseJSON(data); //convert json to javascript object
-						
-						
+			$targetInner.append('<h1>invalid input</h1>');
+		}
 
-							
-							for (var i = edata.contests.length - 1; i >= 0; i--) { // loop through data
-								var electionType = edata.contests[i].type;
-								
-								var office = edata.contests[i].office;
-								$targetInner.append('<h3>'+office+' ('+electionType +')'+'</h3>');
-								var district = edata.contests[i].district;
-
-
-								$targetInner.append('<h5>'+ district.name+' ('+district.scope+')'+'</h5>');
-
-								var candidates = edata.contests[i].candidates;
-								for (var j = 0; j <= candidates.length - 1; j++) {
-									var party = candidates[j].party;
-									party = party.replace("Democratic", "D");
-									party = party.replace("Republican", "R");
-
-									$targetInner.append('<h4>'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4>');
-
-								};
-
-								$targetInner.append('<h4>'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>');
-							};
-						
-					} else { // if no data
-						$targetInner.append('<h3 class="location-item">invalid input</h3>');
-					}
 					$('.glyphicon-refresh').remove();// remove loading
 				});
 			},
@@ -96,9 +91,11 @@ $(function(){
 
 		}; // end of plWidget object
 
+		
+		// local testing: getUrl: 'http://sandbox.dev:8080/GC/GCServer.php?a='
 		plWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			getUrl: 'http://julian-nworb.com/PollingLocationWidget/server/getcivic.php?a='
+			getUrl: 'http://julian-nworb.com/PollingLocationWidget/server/GCServer3.php?a='
 		});
 
 	})(); // end of self invoking function

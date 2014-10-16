@@ -87,7 +87,7 @@ $(function(){
 
 
 								if (candidates[j].hasOwnProperty("photoUrl"))
-									$targetInner.append('<h4>'+'  '+'Photo : 3333333333' + '<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'<br></h4>');
+									$targetInner.append('<h4>'+'  '+'Photo : ' + '<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'<br></h4>');
 								else
 									$targetInner.append('<h4>'+'  '+'Photo : N/A <br></h4>');
 
