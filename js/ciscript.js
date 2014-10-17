@@ -9,7 +9,7 @@ $(function(){
 			},
 			buildLayout: function(){
 				var layout = '<div id="pl-targetInner"> \
-						      <h2>Find Your Polling Location</h2> \
+						      <h2>Find Candidate Information</h2> \
 						      <div class="row"> \
 						        <div class="col-xs-12 col-md-6"> \
 						          <div class="input-group"> \
@@ -47,7 +47,6 @@ $(function(){
 			jsonParser: function (address,GCurl){
 				var $targetInner = $('#pl-targetInner');
 				$.get(GCurl,function(data){
-					$targetInner.append(data);
 					if(data.length > 3){ // validate data
 
 						var edata = jQuery.parseJSON(data); //convert json to javascript object
