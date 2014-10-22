@@ -3,7 +3,11 @@ $(function(){
 		var plWidget = {
 			init: function(config){
 				this.$target = $(config.target); // set target
-				this.getUrl = config.getUrl; // location to server
+				this.apiUrl = config.apiUrl;
+				this.apiKey = config.apiKey;
+				this.electionId = config.electionId;
+				this.mapWidth = config.mapWidth;
+				this.mapHeight = config.mapHeight;
 				this.buildLayout();
 				this.addListener();
 			},
@@ -28,81 +32,92 @@ $(function(){
 				$("#pl-search").on( 'click', this.sendAjaxRequest);
 			},
 			sendAjaxRequest: function () {
-				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
-				$('.location-item').remove(); // remove location
+				plWidget.reset();
 				
 				var address = $('#pl-userInput').val(); //get address
-				var getUrl = plWidget.getUrl;
-				var GCurl = getUrl+address;
 				
+				//built url to retreive data
+				var jsonUrl = plWidget.apiUrl+encodeURIComponent(address)+'&electionId='+plWidget.electionId+'&key='+plWidget.apiKey;
 
 				$.ajax({ // send ajax request
 					type:'GET',
-					url: GCurl,
+					url: jsonUrl,
 					dataType: 'json',
-					success: plWidget.jsonParser(address,GCurl)
+					success: function(data){ plWidget.jsonParser(address,data) },
+					error: function(jqXHR, textStatus, errorThrown,address) {
+						plWidget.dataError();
+					}	
 				});
 				
 			},
-			jsonParser: function (address,GCurl){
+			dataError: function(){
+				$('#pl-targetInner').append('No information found');
+				$('.glyphicon-refresh').remove();// remove loading
+			},
+			reset: function(){
+				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
+				$('.location-item').remove(); // remove location
+				plWidget.$target.find('iframe').remove();// remove map
+
+			},
+			jsonParser: function (address,data){
 				var $targetInner = $('#pl-targetInner');
-				$.get(GCurl,function(data){
 					
-					if(data.length > 3){ // validate data
-
-						var edata = jQuery.parseJSON(data); //convert json to javascript object
 						
-						if(!!edata.pollingLocations){ // check for polling locations
-
-							
-							for (var i = edata.pollingLocations.length - 1; i >= 0; i--) { // loop through data
-								var locationName = edata.pollingLocations[i].address.locationName;
-								var street = edata.pollingLocations[i].address.line1;
-								var city = edata.pollingLocations[i].address.city;
-								var state = edata.pollingLocations[i].address.state;
-								var zip = edata.pollingLocations[i].address.zip || '';
-								var comma = plWidget.getComma(edata.pollingLocations[i].address.zip);
-								var pollingAddress = '<p class="location-item">Address: '+street +' '+city +' '+ state +comma+zip+'</p>';
+						if(!!data.pollingLocations){ // check for polling locations							
+							for (var i = data.pollingLocations.length - 1; i >= 0; i--) { // loop through data
+								var locationName = data.pollingLocations[i].address.locationName;
+								var street = data.pollingLocations[i].address.line1;
+								var city = data.pollingLocations[i].address.city;
+								var state = data.pollingLocations[i].address.state;
+								var zip = data.pollingLocations[i].address.zip || '';
+								var comma = plWidget.getComma(data.pollingLocations[i].address.zip);
+								var pollingAddress = street +' '+city +' '+ state +comma+zip;
 								var pollingAddressLink = street +' '+city +' '+ state + comma + ' '+zip;
 								
 								var $locationName = $('<h2>',{
 									text: locationName,
 									class: 'location-item'
 								});
-								var url = 'https://www.google.com/maps/dir/'+encodeURIComponent(address)+'/'+encodeURIComponent(pollingAddressLink);
-								$locationAddressLink = $('<a href="'+url+'">'+pollingAddressLink+'</a>');
-								$directionBtn = $('<div><a href="'+url+'"><button class="btn btn-danger location-item">Get Directions</button></a></div>');
 
+								var $locationAddress = $('<p>',{
+									text: pollingAddress,
+									class: 'location-item'
+								});
+								
+						
 								$targetInner.append($locationName);
-								$targetInner.append(pollingAddress);
-								$targetInner.append($directionBtn);
+								$targetInner.append($locationAddress);
+								
+								// build map
+								plWidget.setUpMap($targetInner,encodeURIComponent(address),encodeURIComponent(pollingAddressLink));
 							};
 						} else { // if no location
 							$targetInner.append('<h2 class="location-item">location info N/A</h1>');
 						}
-					} else { // if no data
-						$targetInner.append('<h2 class="location-item">invalid input</h1>');
-					}
+					
 					$('.glyphicon-refresh').remove();// remove loading
-				});
+				
 			},
 			getComma: function (zip){
-				if(zip){
-					return ', ';
-				} else {
-					return ' ';
-				}
-
+				return (zip) ? ', ' : ' '; // return comma f zipcode is defined
+			},
+			setUpMap: function($targetInner,fromAddress,toAddress){
+				var map = '<iframe width="'+this.mapWidth+'" height="'+this.mapHeight+'" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+fromAddress+'&destination='+toAddress+'&key=AIzaSyA8ly31cVX35b982KIjeJdvn3rM5sJs3jE"></iframe>';
+				$targetInner.append(map);
 			}
 		
 
 		}; // end of plWidget object
 
-		
-		// local testing: getUrl: 'http://sandbox.dev:8080/GC/GCServer.php?a='
+
 		plWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			getUrl: 'http://julian-nworb.com/PollingLocationWidget/server/GCServer2.php?a='
+			mapWidth:'600',
+			mapHeight: '450',
+			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=',
+			apiKey: 'AIzaSyBS8uptpmeZ4g3QTJ6WbVNKeXY4nnkxVjc',
+			electionId: '2000'
 		});
 
 	})(); // end of self invoking function

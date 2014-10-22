@@ -52,7 +52,7 @@ $(function(){
 			
 			
 
-								for (var i = 0; i < edata.offices.length; i++) {
+					for (var i = 0; i < edata.offices.length; i++) {
 					var officeName = edata.offices[i].name;
 					$targetInner.append('<h2> Elected Officials for '+officeName+'</h2>');
 					var officeLevel = edata.offices[i].levels;
