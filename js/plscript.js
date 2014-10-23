@@ -116,7 +116,7 @@ $(function(){
 			mapWidth:'600',
 			mapHeight: '450',
 			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=',
-			apiKey: 'AIzaSyC-72HlnxjErcnCunfnMRQX-hcO-sklFWk',
+			apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
 			electionId: '2000'
 		});
 
