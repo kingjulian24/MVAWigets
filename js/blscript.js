@@ -66,10 +66,8 @@ $(function(){
 								buildHTML += '<div class="pnl">';
 								buildHTML += '<h5 >'+ district.name+' ('+district.scope+')'+'</h5>';
 								for (var j = 0; j <= candidates.length - 1; j++) {
-									var party = candidates[j].party;
-									party = party.replace("Democratic", "D");
-									party = party.replace("Republican", "R");
-									buildHTML += '<a href="http://localhost:8080/MVAWigets/blwidget.php"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
+ 
+									buildHTML += '<a href="http://localhost:8080/MVAWigets/blwidget.php"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+candidates[j].party+')</h4></a>';
 								};
 								buildHTML += '<h4  class="accordian-content panel-body">'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>';
 								buildHTML += '</div>';
