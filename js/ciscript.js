@@ -8,9 +8,24 @@ $(function(){
 				this.addListener();
 			},
 			buildLayout: function(){
+<<<<<<< Updated upstream
 				var layout = '<div id="pl-targetInner"> \
 						      <h2>Find Candidate Information</h2> \
 						      <div class="row"> \
+=======
+				var layout = '<div class = "candidate-details" id="pl-targetInner"> \
+						      <h1 class = "title">Candidate Details</h1> \
+
+						      <div class="column-right" id ="pl-right"> \
+						        <div class = "candidate-photo">\
+						        </div>\
+						      </div>\
+
+						      <div class = "column-left" id = "pl-left">\
+						      </div>\
+
+						      <div class="row">
+>>>>>>> Stashed changes
 						        <div class="col-xs-12 col-md-6"> \
 						          <div class="input-group"> \
 						            <input type="text" class="form-control" id="pl-userInput" required> \
@@ -19,6 +34,7 @@ $(function(){
 						            </span> \
 						          </div> \
 						        </div> \
+
 						      </div> \
 						    </div>';
 	  			this.$target.append(layout);
@@ -35,6 +51,7 @@ $(function(){
 				var getUrl = plWidget.getUrl;
 				var GCurl = getUrl+address;
 				
+				
 
 				$.ajax({ // send ajax request
 					type:'GET',
@@ -44,8 +61,10 @@ $(function(){
 				});
 				
 			},
-			jsonParser: function (address,GCurl){
+			jsonParser: function (address,GCurl,name){
 				var $targetInner = $('#pl-targetInner');
+				var $left = $('#pl-left');
+				var $right = $('#pl-right');
 				$.get(GCurl,function(data){
 					if(data.length > 3){ // validate data
 
@@ -54,23 +73,15 @@ $(function(){
 						
 						for (var i = edata.contests.length - 1; i >= 0; i--) {
 
-							//$targetInner.append('<h1>'+electionType+'</h1>');
-							//var office = edata.contests[i].office;
-							//$targetInner.append('<h2>'+office+'</h2>');
-							//var district = edata.contests[i].district;
-
-
-							//$targetInner.append('<h3>'+ district.name+':'+district.scope+':'+district.id+':'+'</h3>');
-
 							var candidates = edata.contests[i].candidates;
 							
 							for (var j = candidates.length - 1; j >= 0; j--) {
-								$targetInner.append('<h4>Name : ' + candidates[j].name +'<br></h4>');
+								$left.append('<h4>Name : ' + candidates[j].name +'<br></h4>');
 
 								if (candidates[j].party.length > 0)
-									$targetInner.append('<h4>Party : ' + candidates[j].party +'<br></h4>');
+									$left.append('<h4>Party : ' + candidates[j].party +'<br></h4>');
 								else
-									$targetInner.append('<h4>'+'  '+'Party : N/A <br></h4>');
+									$left.append('<h4>'+'  '+'Party : N/A <br></h4>');
 
 
 								if (candidates[j].hasOwnProperty("candidateUrl"))
