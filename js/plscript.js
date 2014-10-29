@@ -104,7 +104,7 @@ $(function(){
 				return (zip) ? ', ' : ' '; // return comma f zipcode is defined
 			},
 			setUpMap: function($targetInner,fromAddress,toAddress){
-				var map = '<div class="row">\
+				var map = '<div class="map">\
 				<iframe width="'+this.mapWidth+'" height="'+this.mapHeight+'" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+fromAddress+'&destination='+toAddress+'&key='+plWidget.apiKey+'"></iframe>\
 				</div>';
 				$targetInner.append(map);
