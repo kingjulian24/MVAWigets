@@ -89,8 +89,9 @@ $(function(){
 								$targetInner.append($locationName);
 								$targetInner.append($locationAddress);
 								
-								// build map
-								plWidget.setUpMap($targetInner,encodeURIComponent(address),encodeURIComponent(pollingAddressLink));
+			
+								//add direction button
+								plWidget.directionsBtn($targetInner,encodeURIComponent(address),encodeURIComponent(pollingAddressLink));
 							};
 						} else { // if no location
 							$targetInner.append('<h2 class="location-item">location info N/A</h1>');
@@ -103,8 +104,24 @@ $(function(){
 				return (zip) ? ', ' : ' '; // return comma f zipcode is defined
 			},
 			setUpMap: function($targetInner,fromAddress,toAddress){
-				var map = '<iframe width="'+this.mapWidth+'" height="'+this.mapHeight+'" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+fromAddress+'&destination='+toAddress+'&key='+plWidget.apiKey+'"></iframe>';
+				var map = '<div class="row">\
+				<iframe width="'+this.mapWidth+'" height="'+this.mapHeight+'" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+fromAddress+'&destination='+toAddress+'&key='+plWidget.apiKey+'"></iframe>\
+				</div>';
 				$targetInner.append(map);
+			},
+			directionsBtn: function($targetInner,fromAddress,toAddress){
+				var btn = $('<button>',{
+					class: 'btn btn-danger directionsBtn',
+					text: 'Get Directions'
+				});
+
+				$targetInner.append(btn);
+
+				$('.directionsBtn').on('click', function(){
+					// build map
+					plWidget.setUpMap($targetInner,fromAddress,toAddress);
+					$(this).remove();
+				});
 			}
 		
 
@@ -113,10 +130,10 @@ $(function(){
 
 		plWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			mapWidth:'600',
-			mapHeight: '450',
+			mapWidth:'80%',
+			mapHeight: '300',
 			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=',
-			apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
+			apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
 			electionId: '4100'
 		});
 
