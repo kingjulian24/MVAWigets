@@ -3,9 +3,7 @@ $(function(){
 		var plWidget = {
 			init: function(config){
 				this.$target = $(config.target); // set target
-				this.apiUrl = config.apiUrl;
-				this.apiKey = config.apiKey;
-				this.electionId = config.electionId;
+				this.getUrl = config.getUrl; // location to server
 				this.buildLayout();
 				this.addListener();
     				
@@ -34,33 +32,21 @@ $(function(){
 				$("#pl-search").on( 'click', this.sendAjaxRequest);
 			},
 			sendAjaxRequest: function () {
-				plWidget.reset();
+				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
+				$('#accordion').empty(); // remove location
 				
 				var address = $('#pl-userInput').val(); //get address
+				//var getUrl = plWidget.getUrl;
+				var GCurl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=5530%20fifth%20avenue%20pittsburgh&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
 				
-				//built url to retreive data
-				var jsonUrl = plWidget.apiUrl+encodeURIComponent(address)+'&electionId='+plWidget.electionId+'&key='+plWidget.apiKey;
 
 				$.ajax({ // send ajax request
 					type:'GET',
-					url: jsonUrl,
+					url: GCurl,
 					dataType: 'json',
-					success: function(data){ plWidget.jsonParser(address,data) },
-					error: function(jqXHR, textStatus, errorThrown,address) {
-						plWidget.dataError();
-					}	
+					success: plWidget.jsonParser(address,GCurl)
 				});
 				
-			},
-			dataError: function(){
-				$('#pl-targetInner').append('No information found');
-				$('.glyphicon-refresh').remove();// remove loading
-			},
-			reset: function(){
-				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
-				$('.location-item').remove(); // remove location
-				plWidget.$target.find('iframe').remove();// remove map
-
 			},
 			jsonParser: function (address,GCurl){
 				var $targetInner = $('#accordion');
@@ -104,15 +90,21 @@ $(function(){
 				
 				
 			},
+			getComma: function (zip){
+				if(zip){
+					return ', ';
+				} else {
+					return ' ';
+				}
+
+			}
 		
 
 		}; // end of plWidget object
 
 		plWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=',
-			apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
-			electionId: '4100'
+			getUrl: 'http://localhost:8080/AjaxTemplate/server/server.php?a='
 		});
 
 	})(); // end of self invoking function
