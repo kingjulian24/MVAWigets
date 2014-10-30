@@ -53,7 +53,7 @@ $(function(){
 				this.address = this.$inputfield.val(); //get address
 				
 				//built url to retreive data
-				var jsonUrl = this.apiUrl+encodeURIComponent(this.address)+'&electionId='+this.electionId+'&key='+this.apiKey;
+				var jsonUrl = this.apiUrl+'address='+encodeURIComponent(this.address)+'&electionId='+this.electionId+'&key='+this.apiKey;
 
 				$.ajax({ // send ajax request
 					type:'GET',
@@ -149,7 +149,7 @@ $(function(){
 			},
 			displayDirectionsBtn: function(fromAddress,toAddress){
 				var btn = $('<button>',{
-					class: 'btn btn-danger directionsBtn location-item',
+					class: 'btn btn-danger pl-directions-btn location-item',
 					text: 'Get Directions'
 				});
 
@@ -164,12 +164,24 @@ $(function(){
 
 		}; // end of plWidget object
 
+		/*
+		    ============================================
 
+		    Polling Location Widget Config
+		    Target = div to target on page(require id or class)
+		    MapWidth = width of directions map
+		    MapHeight = similar to width
+		    apiUrl = url to google civic api
+		    apiKey = google civic api key (browser key)
+		    electionId = id of interested election(found on google civic website)
+
+		    ============================================
+		*/ 
 		plWidget.init({ 
 			target: '#target-practice',
 			mapWidth:'100%',
 			mapHeight: '300',
-			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=',
+			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
 			apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
 			electionId: '4100'
 		});
