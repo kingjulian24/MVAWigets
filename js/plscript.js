@@ -1,3 +1,12 @@
+/*
+    ============================================
+
+    Required: Jquery & bootstrap css
+    Config Js and the bottom of the file
+
+    ============================================
+*/ 
+
 $(function(){
 	(function(){
 		var plWidget = {
