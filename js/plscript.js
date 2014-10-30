@@ -1,8 +1,10 @@
 /*
     ============================================
 
-    Required: Jquery & bootstrap css
-    Config Js and the bottom of the file
+    -Required: Jquery & bootstrap css
+    -Configuration line 191
+
+    -The widget save the user's address on line 64
 
     ============================================
 */ 
