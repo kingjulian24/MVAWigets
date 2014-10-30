@@ -24,7 +24,7 @@ $(function(){
 
 						        <div class="col-xs-12 col-md-6"> \
 						          <div class="input-group"> \
-						            <input type="text" class="form-control" id="pl-userInput" required> \
+						            <input type="text" class="form-control" id="pl-userInput" placeholder="Enter full registered voting address" required> \
 						            <span class="input-group-btn"> \
 						              <button class="btn btn-danger" type="button" id="pl-search">Search</button> \
 						            </span> \
