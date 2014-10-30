@@ -8,11 +8,7 @@ $(function(){
 				this.addListener();
 			},
 			buildLayout: function(){
-<<<<<<< Updated upstream
-				var layout = '<div id="pl-targetInner"> \
-						      <h2>Find Candidate Information</h2> \
-						      <div class="row"> \
-=======
+
 				var layout = '<div class = "candidate-details" id="pl-targetInner"> \
 						      <h1 class = "title">Candidate Details</h1> \
 
@@ -24,8 +20,8 @@ $(function(){
 						      <div class = "column-left" id = "pl-left">\
 						      </div>\
 
-						      <div class="row">
->>>>>>> Stashed changes
+						      <div class="row">\
+
 						        <div class="col-xs-12 col-md-6"> \
 						          <div class="input-group"> \
 						            <input type="text" class="form-control" id="pl-userInput" required> \
