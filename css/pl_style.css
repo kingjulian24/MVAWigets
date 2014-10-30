@@ -1,0 +1,101 @@
+/*
+    ============================================
+
+    =Loading Animation
+
+    ============================================
+*/ 
+
+    .glyphicon-refresh-animate {
+        -animation: spin .7s infinite linear;
+        -webkit-animation: spin2 .7s infinite linear;
+    }
+
+    @-webkit-keyframes spin2 {
+        from { -webkit-transform: rotate(0deg);}
+        to { -webkit-transform: rotate(360deg);}
+    }
+
+    @keyframes spin {
+        from { transform: scale(1) rotate(0deg);}
+        to { transform: scale(1) rotate(360deg);}
+}
+
+/*
+    ============================================
+
+    =Widget Body(not wrapper) 
+
+    ============================================
+*/ 
+    .pl-body{
+        padding-bottom:50px;
+    }
+
+/*
+    ============================================
+
+    =Title
+
+    ============================================
+*/ 
+    .pl-title{}
+/*
+    ============================================
+
+    =Search Form
+
+    ============================================
+*/ 
+    .pl-form{}
+    .pl-user-input{}
+    #pl-search-btn{}
+
+/*
+    ============================================
+
+    =Results Header
+
+    ============================================
+*/ 
+    h2.pl-vote-head{
+        border-bottom: 5px solid black;
+        padding-bottom: 10px;
+        text-transform:uppercase;
+    }
+/*
+    ============================================
+
+    =Location Name
+
+    ============================================
+*/ 
+    h4.pl-location-name{}
+/*
+    ============================================
+
+    =Location Address
+
+    ============================================
+*/ 
+    p.pl-address{}
+/*
+    ============================================
+
+    =Source
+
+    ============================================
+*/ 
+    p.pl-source{}
+/*
+    ============================================
+
+    =Get Directions Btn
+
+    ============================================
+*/ 
+    .pl-directions-btn{}
+
+
+
+
