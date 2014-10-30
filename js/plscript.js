@@ -29,7 +29,7 @@ $(function(){
 							        <div class="col-xs-12 col-md-6"> \
 							        <form class="pl-form">\
 							          <div class="input-group"> \
-							            <input type="text" class="form-control pl-user-input"  required> \
+							            <input type="text" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required> \
 							            <span class="input-group-btn"> \
 							              <button class="btn btn-danger" type="submit" id="pl-search-btn">Search</button> \
 							            </span> \
