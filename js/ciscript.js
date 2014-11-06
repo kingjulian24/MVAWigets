@@ -65,7 +65,7 @@ $(function(){
 					type:'GET',
 					url: jsonUrl,
 					dataType: 'json',
-					success: ciWidget.jsonParser(address,jsonUrl,name)
+					success: ciWidget.jsonParser(addressCon,jsonUrl,name)
 				});
 
 
