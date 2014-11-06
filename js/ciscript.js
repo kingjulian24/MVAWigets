@@ -65,13 +65,13 @@ $(function(){
 					type:'GET',
 					url: jsonUrl,
 					dataType: 'json',
-					success: ciWidget.jsonParser(address,jsonUrl,name)				
+					success: ciWidget.jsonParser(address,jsonUrl,name)
 				});
 
 
 			},
 			jsonParser: function (address,GCurl,name){
-				
+
 				var $top = $('#top');
 				var $left = $('#leftPart');
 				var $middle = $('#middle');
@@ -79,7 +79,7 @@ $(function(){
 				var candidateName = name;
 
 				$.get(GCurl,function(data){
-					
+
 					console.log(data);
 					if(data.contests.length > 0){ // validate data
 
@@ -179,7 +179,7 @@ $(function(){
 			apiUrl:'http://www.googleapis.com/civicinfo/v2/voterinfo?',
 			apiKey:'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
 			electionId:'2000'
-			getUrl: 'http://localhost:8888/AjaxTemplate/server/server.php?a='
+			//getUrl: 'http://localhost:8888/AjaxTemplate/server/server.php?a='
 		});
 
 	})(); // end of self invoking function
