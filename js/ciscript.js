@@ -4,6 +4,10 @@ $(function(){
 		var ciWidget = {
 			init: function(config){
 				this.$target = $(config.target); // set target
+				this.apiUrl = config.apiUrl;
+				this.apiKey = config.apiKey;
+				this.electionId = config.electionId;
+
 								this.getUrl = config.getUrl; // location to server
 								this.buildLayout();
 
@@ -15,8 +19,8 @@ $(function(){
 								var candidatename = candidatenparam.split('=')[1].split('%20').join(' ');
 								var address = addressparam.split('=')[1].split('%20').join(' ');
 
-								console.log("hello i am in init " + candidatename);
-								console.log("hello i am in init " + address);
+								//console.log("hello i am in init " + candidatename);
+								//console.log("hello i am in init " + address);
 
 								this.sendAjaxRequest(address,candidatename);
 
@@ -52,21 +56,22 @@ $(function(){
 				var name = candidatenameCon;
 				//var getUrl = ciWidget.getUrl;
 				//var GCurl = getUrl+address;
-				var Turl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=5530%20fifth%20avenue%20pittsburgh&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
+				//var Turl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=5530%20fifth%20avenue%20pittsburgh&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
 				//console.log("xxxxxxkkkkkk"+GCurl);
+				var jsonUrl = this.apiUrl+'address='+encodeURIComponent(this.address)+'&electionId='+this.electionId+'&key='+this.apiKey;
 
 
 				$.ajax({ // send ajax request
 					type:'GET',
-					url: Turl,
+					url: jsonUrl,
 					dataType: 'json',
-					success: ciWidget.jsonParser(address,Turl,name)
+					success: ciWidget.jsonParser(address,jsonUrl,name)				
 				});
 
 
 			},
 			jsonParser: function (address,GCurl,name){
-				console.log(GCurl+"  "+address+"  "+name);
+				
 				var $top = $('#top');
 				var $left = $('#leftPart');
 				var $middle = $('#middle');
@@ -74,7 +79,7 @@ $(function(){
 				var candidateName = name;
 
 				$.get(GCurl,function(data){
-					console.log("datadatadata");
+					
 					console.log(data);
 					if(data.contests.length > 0){ // validate data
 
@@ -171,6 +176,9 @@ $(function(){
 
 		ciWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
+			apiUrl:'http://www.googleapis.com/civicinfo/v2/voterinfo?',
+			apiKey:'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
+			electionId:'2000'
 			getUrl: 'http://localhost:8888/AjaxTemplate/server/server.php?a='
 		});
 
