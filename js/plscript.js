@@ -7,7 +7,7 @@
     -The widget save the user's address on line 64
 
     ============================================
-*/ 
+*/
 
 $(function(){
 	(function(){
@@ -19,9 +19,9 @@ $(function(){
 				this.electionId = config.electionId;
 				this.mapWidth = config.mapWidth;
 				this.mapHeight = config.mapHeight;
-				
+
 				this.buildLayout();
-				
+
 				this.$body = $('.pl-body');
 				this.$inputfield = $('.pl-user-input');
 				this.$searchBtn = $('#pl-search');
@@ -29,7 +29,7 @@ $(function(){
 				this.$loading = $('<span>',{
 					class:'glyphicon glyphicon-refresh glyphicon-refresh-animate'
 				});
-				
+
 				this.addListener();
 
 			},
@@ -62,7 +62,7 @@ $(function(){
 				this.$body.append(this.$loading);
 				this.reset();
 				this.address = this.$inputfield.val(); //get address
-				
+
 				//built url to retreive data
 				var jsonUrl = this.apiUrl+'address='+encodeURIComponent(this.address)+'&electionId='+this.electionId+'&key='+this.apiKey;
 
@@ -73,9 +73,9 @@ $(function(){
 					success: function(data){ plWidget.saveData(data) },
 					error: function(jqXHR, textStatus, errorThrown) {
 						plWidget.dataError();
-					}	
+					}
 				});
-				
+
 			},
 			dataError: function(){
 				this.$body.append($('<p>',{
@@ -90,9 +90,9 @@ $(function(){
 				plWidget.$target.find('iframe').remove();// remove map
 
 			},
-			saveData: function (data){	
-						
-				if(!!data.pollingLocations){ // check for polling locations							
+			saveData: function (data){
+
+				if(!!data.pollingLocations){ // check for polling locations
 					var i = 0;
 					var pollingLocationData = { // save data to object
 						locationName: data.pollingLocations[i].address.locationName,
@@ -103,19 +103,19 @@ $(function(){
 						comma: plWidget.getComma(data.pollingLocations[i].address.zip),
 						verified: data.pollingLocations[i].sources[i].name,
 						official: data.pollingLocations[i].sources[i].official,
-					};	
-					
+					};
+
 					this.displayData(pollingLocationData); // append data to html page
 				} else { // if no location
 					this.dataError();
 				}
-			
+
 				this.$loading.remove();// remove loading
-				
+
 			},
 			displayData: function(data){
 				var pollingAddress= data.street +' '+data.city +' '+ data.state +plWidget.getComma(data.zip)+data.zip;
-				
+
 				var $locationName = $('<h4>',{
 					text: data.locationName,
 					class: 'location-item pl-location-name'
@@ -126,7 +126,7 @@ $(function(){
 					class: 'location-item pl-address'
 				});
 
-				
+
 				var $voteHead = $('<h2>',{
 					text: 'Your Voting Location',
 					class: 'pl-vote-head location-item'
@@ -145,7 +145,7 @@ $(function(){
 				this.$body.append($voteHead);
 				this.$body.append($locationName);
 				this.$body.append($locationAddress);
-				data.official ? this.$body.append($verified) : this.$body.append($unverified) ; // add source 			
+				data.official ? this.$body.append($verified) : this.$body.append($unverified) ; // add source
 				//add direction button
 				plWidget.displayDirectionsBtn(encodeURIComponent(this.address),encodeURIComponent(pollingAddress));
 			},
@@ -171,7 +171,7 @@ $(function(){
 					$(this).remove(); // remove get direction button
 				});
 			}
-		
+
 
 		}; // end of plWidget object
 
@@ -187,14 +187,14 @@ $(function(){
 		    electionId = id of interested election(found on google civic website)
 
 		    ============================================
-		*/ 
-		plWidget.init({ 
+		*/
+		plWidget.init({
 			target: '#target-practice',
 			mapWidth:'100%',
 			mapHeight: '300',
 			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
 			apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
-			electionId: '4100'
+			electionId: '2000'
 		});
 
 	})(); // end of self invoking function
