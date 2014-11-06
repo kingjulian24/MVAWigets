@@ -79,7 +79,7 @@ $(function(){
 				var candidateName = name;
 
 				$.get(GCurl,function(data){
-
+					console.log(data);
 					console.log(data);
 					if(data.contests.length > 0){ // validate data
 
