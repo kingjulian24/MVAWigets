@@ -78,7 +78,7 @@ $(function(){
 				var $middle = $('#middle');
 				var $right = $('#rightPart');
 				var candidateName = name;
-
+				console.log(data);
 				$.get(GCurl,function(data){
 					if(data.contests.length > 0){ // validate data
 
@@ -176,7 +176,7 @@ $(function(){
 		ciWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
 			apiUrl:'http://www.googleapis.com/civicinfo/v2/voterinfo?',
-			apiKey:'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
+			apiKey:'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
 			electionId:'2000'
 			//getUrl: 'http://localhost:8888/AjaxTemplate/server/server.php?a='
 		});
