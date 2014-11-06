@@ -71,7 +71,7 @@ $(function(){
 									var party = candidates[j].party;
 									party = party.replace("Democratic", "D");
 									party = party.replace("Republican", "R");
-									buildHTML += '<a href="julian-nworb.com/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+$('#pl-userInput').val()+'"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
+									buildHTML += '<a href="/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+$('#pl-userInput').val()+'"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
 								};
 								buildHTML += '<h4  class="accordian-content panel-body">'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>';
 								buildHTML += '</div>';
