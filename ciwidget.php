@@ -4,7 +4,7 @@
 
 <?php include('layout/footer.php'); ?>
 
-<script type="text/javascript" src="https://raw.githubusercontent.com/kingjulian24/MVAWigets/master/js/ciscript.js"></script>
+<script src="https://raw.githubusercontent.com/kingjulian24/MVAWigets/master/js/ciscript.js"></script>
 
 
 </body></html>
