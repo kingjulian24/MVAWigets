@@ -4,7 +4,7 @@
 
 <?php include('layout/footer.php'); ?>
 
-<script type="text/javascript" src="js/riscript.js"></script>
+<script type="text/javascript" src="js/plscript.js"></script>
 
 
 </body></html>
