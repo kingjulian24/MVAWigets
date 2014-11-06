@@ -6,7 +6,7 @@ $(function(){
 				this.getUrl = config.getUrl; // location to server
 				this.buildLayout();
 				this.addListener();
-    				
+
 
 			},
 			buildLayout: function(){
@@ -34,11 +34,11 @@ $(function(){
 			sendAjaxRequest: function () {
 				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
 				$('#accordion').empty(); // remove location
-				
+
 				var address = $('#pl-userInput').val(); //get address
 				//var getUrl = plWidget.getUrl;
 				var GCurl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=5530%20fifth%20avenue%20pittsburgh&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
-				
+
 
 				$.ajax({ // send ajax request
 					type:'GET',
@@ -46,21 +46,21 @@ $(function(){
 					dataType: 'json',
 					success: plWidget.jsonParser(address,GCurl)
 				});
-				
+
 			},
 			jsonParser: function (address,GCurl){
 				var $targetInner = $('#accordion');
 				$.get(GCurl,function(data){
-					
+
 					var buildHTML = "";
-					
+
 
 					if(data.contests.length > 0){ // validate data
 
 						var edata = data; //convert json to javascript object
-						
+
 							for (var i = edata.contests.length - 1; i >= 0; i--) { // loop through data
-								var electionType = edata.contests[i].type;								
+								var electionType = edata.contests[i].type;
 								var office = edata.contests[i].office;
 								buildHTML += '<h2  class="ctrl">'+office+' ('+electionType +')'+'</h2>';
 								var district = edata.contests[i].district;
@@ -71,32 +71,32 @@ $(function(){
 									var party = candidates[j].party;
 									party = party.replace("Democratic", "D");
 									party = party.replace("Republican", "R");
-									buildHTML += '<a href="http://localhost:8080/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+$('#pl-userInput').val()+'"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
+									buildHTML += '<a href="julian-nworb.com/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+$('#pl-userInput').val()+'"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
 								};
 								buildHTML += '<h4  class="accordian-content panel-body">'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>';
 								buildHTML += '</div>';
 							};
-					
-						
+
+
 					} else { // if no data
 						buildHTML += '<h2 class="location-item">invalid input</h1>';
 					}
 					$('.glyphicon-refresh').remove();// remove loading
-					
-					
+
+
 					$targetInner.append(buildHTML);
-					
+
 					if(firsttime)
 						{$( "#accordion" ).accordion();
 						firsttime = false;}
-					else	
+					else
 						$( "#accordion" ).accordion('destroy').accordion();
-					
+
 				});
 
-				
-				
-				
+
+
+
 			},
 			getComma: function (zip){
 				if(zip){
@@ -106,7 +106,7 @@ $(function(){
 				}
 
 			}
-		
+
 
 		}; // end of plWidget object
 
