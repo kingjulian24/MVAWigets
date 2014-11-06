@@ -3,7 +3,12 @@ $(function(){
 		var plWidget = {
 			init: function(config){
 				this.$target = $(config.target); // set target
-				this.getUrl = config.getUrl; // location to server
+
+				this.apiUrl = config.apiUrl; //
+				this.apiKey = config.apiKey; //
+				this.electionId=config.electionId;
+
+				//this.getUrl = config.getUrl; // location to server
 				this.buildLayout();
 				this.addListener();
 
@@ -37,8 +42,9 @@ $(function(){
 
 				var address = $('#pl-userInput').val(); //get address
 				//var getUrl = plWidget.getUrl;
-				var GCurl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=5530%20fifth%20avenue%20pittsburgh&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
 
+				//var GCurl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=5530%20fifth%20avenue%20pittsburgh&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
+                var GCUrl = this.apiUrl+'address='+encodeURIComponent(this.address)+'&electionId='+this.electionId+'&key='+this.apiKey;
 
 				$.ajax({ // send ajax request
 					type:'GET',
@@ -112,7 +118,10 @@ $(function(){
 
 		plWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			getUrl: 'http://localhost:8080/AjaxTemplate/server/server.php?a='
+			apiUrl:'http://www.googleapis.com/civicinfo/v2/voterinfo?',
+			apiKey:'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
+			electionId:'2000'
+			//getUrl: 'http://localhost:8080/AjaxTemplate/server/server.php?a='
 		});
 
 	})(); // end of self invoking function
