@@ -4,7 +4,7 @@
 
 <?php include('layout/footer.php'); ?>
 
-<script type="text/javascript" src="js/plscript.js"></script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/kingjulian24/MVAWigets/master/js/blscript.js"></script>
 
 
 </body></html>
