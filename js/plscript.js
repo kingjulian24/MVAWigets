@@ -166,7 +166,7 @@ $(function(){
 
 				this.$body.append(btn);
 
-				$('.directionsBtn').on('click', function(){
+				$('.pl-directions-btn').on('click', function(){
 					plWidget.setUpMap(fromAddress,toAddress); // build map
 					$(this).remove(); // remove get direction button
 				});
