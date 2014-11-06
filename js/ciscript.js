@@ -65,12 +65,13 @@ $(function(){
 					type:'GET',
 					url: jsonUrl,
 					dataType: 'json',
-					success: ciWidget.jsonParser(addressCon,jsonUrl,name)
+					//success: ciWidget.jsonParser(addressCon,jsonUrl,name)
+					success: function(data){ ciWidget.jsonParser(addressCon,jsonUrl,name,data) }
 				});
 
 
 			},
-			jsonParser: function (address,GCurl,name){
+			jsonParser: function (address,GCurl,name,data){
 
 				var $top = $('#top');
 				var $left = $('#leftPart');
@@ -79,8 +80,6 @@ $(function(){
 				var candidateName = name;
 
 				$.get(GCurl,function(data){
-					console.log(data);
-					console.log(data);
 					if(data.contests.length > 0){ // validate data
 
 						var edata = data; //convert json to javascript object
