@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<script src="https://raw.githubusercontent.com/kingjulian24/MVAWigets/master/js/blscript.js"></script>
+<script type="javascript" src="https://raw.githubusercontent.com/kingjulian24/MVAWigets/master/js/blscript.js"></script>
 
 
 </body></html>
