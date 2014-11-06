@@ -78,6 +78,7 @@ $(function(){
 				var $middle = $('#middle');
 				var $right = $('#rightPart');
 				var candidateName = name;
+				console.log("data: ");
 				console.log(data);
 				$.get(GCurl,function(data){
 					if(data.contests.length > 0){ // validate data
