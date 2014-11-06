@@ -114,7 +114,7 @@ $(function(){
 								var party = candidates[j].party;
 								party = party.replace("Democratic", "D");
 								party = party.replace("Republican", "R");
-								buildHTML += '<a href="/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+$('#pl-userInput').val()+'"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
+								buildHTML += '<a href="/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+this.address+'"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
 							};
 							buildHTML += '<h4  class="accordian-content panel-body">'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>';
 							buildHTML += '</div>';
@@ -142,28 +142,6 @@ $(function(){
 			displayData: function($targetInner,data){
 				$targetInner.append(data);
 
-			},
-			getComma: function (zip){
-				return (zip) ? ', ' : ' '; // return comma f zipcode is defined
-			},
-			setUpMap: function(fromAddress,toAddress){
-				var map = '<div class="map">\
-				<iframe width="'+this.mapWidth+'" height="'+this.mapHeight+'" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+fromAddress+'&destination='+toAddress+'&key='+blWidget.apiKey+'"></iframe>\
-				</div>';
-				this.$body.append(map);
-			},
-			displayDirectionsBtn: function(fromAddress,toAddress){
-				var btn = $('<button>',{
-					class: 'btn btn-danger pl-directions-btn location-item',
-					text: 'Get Directions'
-				});
-
-				this.$body.append(btn);
-
-				$('.pl-directions-btn').on('click', function(){
-					blWidget.setUpMap(fromAddress,toAddress); // build map
-					$(this).remove(); // remove get direction button
-				});
 			}
 
 
