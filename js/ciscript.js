@@ -95,7 +95,7 @@ $(function(){
 								if(candidates[j].name == candidateName){
 
 								$top.append('<h2>'+candidates[j].name+'</h2>');
-								$top.append('<div id="namePanel" class="panel panel-primary"></div><br>')
+								$top.append('<div id="namePanel" class="panel panel-primary"></div>');
 
 
 								if (candidates[j].party.length > 0)
@@ -140,13 +140,13 @@ $(function(){
 									$left.append('<h4>'+'  '+'Channels : N/A <br><br><br></h4>');
 
 
-								$targetInner.append('<br><br><br>');
+
 							}
 
 
 
 							else{
-								$top.append('<br><br><br>');
+								//$top.append('<br><br><br>');
 							}
 						};
 
@@ -176,8 +176,8 @@ $(function(){
 
 		ciWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			apiUrl:'http://www.googleapis.com/civicinfo/v2/voterinfo?',
-			apiKey:'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
+			apiUrl:'https://www.googleapis.com/civicinfo/v2/voterinfo?',
+			apiKey:'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
 			electionId:'2000'
 			//getUrl: 'http://localhost:8888/AjaxTemplate/server/server.php?a='
 		});
