@@ -52,13 +52,13 @@ $(function(){
 				$('.location-item').remove(); // remove location
 
 				//var address = $('#pl-userInput').val(); //get address
-				var address = addressCon;
+
 				var name = candidatenameCon;
 				//var getUrl = ciWidget.getUrl;
 				//var GCurl = getUrl+address;
 				//var Turl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=5530%20fifth%20avenue%20pittsburgh&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
 				//console.log("xxxxxxkkkkkk"+GCurl);
-				var jsonUrl = this.apiUrl+'address='+encodeURIComponent(this.address)+'&electionId='+this.electionId+'&key='+this.apiKey;
+				var jsonUrl = this.apiUrl+'address='+encodeURIComponent(addressCon)+'&electionId='+this.electionId+'&key='+this.apiKey;
 
 
 				$.ajax({ // send ajax request
