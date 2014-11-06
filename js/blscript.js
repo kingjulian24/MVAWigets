@@ -43,6 +43,9 @@ $(function(){
 				var address = $('#pl-userInput').val(); //get address
 				//var getUrl = plWidget.getUrl;
 
+				//var GCurl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address='+address+'&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
+
+
 				//var GCurl = 'https://www.googleapis.com/civicinfo/v2/voterinfo?address=5530%20fifth%20avenue%20pittsburgh&key=AIzaSyBGtYVq_OZ35H4BY-r4IAx5cYAVTuOG7rQ';
                 var GCUrl = this.apiUrl+'address='+encodeURIComponent(this.address)+'&electionId='+this.electionId+'&key='+this.apiKey;
 
