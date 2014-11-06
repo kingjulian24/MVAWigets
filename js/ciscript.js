@@ -177,7 +177,7 @@ $(function(){
 		ciWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
 			apiUrl:'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-			apiKey:'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
+			apiKey:'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
 			electionId:'2000'
 			//getUrl: 'http://localhost:8888/AjaxTemplate/server/server.php?a='
 		});
