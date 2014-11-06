@@ -23,12 +23,12 @@ $(function(){
 						        </div> \
 						      </div> \
 							  <br> \
-							  <div id="accordion" class="panel panel-primary"> </div> \
+							  <div id="accordion"> </div> \
 						    </div>';
 	  			this.$target.append(layout);
 			},
 			addListener: function() {
-
+				firsttime = true;
 				$("#pl-search").on( 'click', this.sendAjaxRequest);
 			},
 			sendAjaxRequest: function () {
@@ -53,6 +53,8 @@ $(function(){
 				$.get(GCurl,function(data){
 					
 					var buildHTML = "";
+					
+
 					if(data.contests.length > 0){ // validate data
 
 						var edata = data; //convert json to javascript object
@@ -66,8 +68,10 @@ $(function(){
 								buildHTML += '<div class="pnl">';
 								buildHTML += '<h5 >'+ district.name+' ('+district.scope+')'+'</h5>';
 								for (var j = 0; j <= candidates.length - 1; j++) {
- 
-									buildHTML += '<a href="http://localhost:8080/MVAWigets/blwidget.php"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+candidates[j].party+')</h4></a>';
+									var party = candidates[j].party;
+									party = party.replace("Democratic", "D");
+									party = party.replace("Republican", "R");
+									buildHTML += '<a href="http://localhost:8080/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+$('#pl-userInput').val()+'"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
 								};
 								buildHTML += '<h4  class="accordian-content panel-body">'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>';
 								buildHTML += '</div>';
@@ -80,9 +84,13 @@ $(function(){
 					$('.glyphicon-refresh').remove();// remove loading
 					
 					
-				$targetInner.append(buildHTML);
+					$targetInner.append(buildHTML);
 					
-					$( "#accordion" ).accordion();
+					if(firsttime)
+						{$( "#accordion" ).accordion();
+						firsttime = false;}
+					else	
+						$( "#accordion" ).accordion('destroy').accordion();
 					
 				});
 

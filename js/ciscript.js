@@ -1,14 +1,29 @@
 $(function(){
 	(function(){
+
 		var plWidget = {
 			init: function(config){
 				this.$target = $(config.target); // set target
-				this.getUrl = config.getUrl; // location to server
-				this.buildLayout();
-				this.addListener();
+                this.getUrl = config.getUrl; // location to server
+                this.buildLayout();
+                //this.addListener();
+ 
+                var params = document.URL.split('?')[1];
+ 
+                var candidatenparam = params.split('&')[0];
+                var addressparam = params.split('&')[1];
+ 
+                var candidatename = candidatenparam.split('=')[1].split('%20').join(' ');
+                var address = addressparam.split('=')[1].split('%20').join(' ');
+ 
+                console.log("hello i am in init " + candidatename);
+                console.log("hello i am in init " + address);
+                                                               
+                this.sendAjaxRequest(address,candidatename);
 			},
 			buildLayout: function(){
 
+<<<<<<< Updated upstream
 				var layout = '<div class = "candidate-details" id="pl-targetInner"> \
 						      <h1 class = "title">Candidate Details</h1> \
 
@@ -29,21 +44,40 @@ $(function(){
 						              <button class="btn btn-danger" type="button" id="pl-search">Search</button> \
 						            </span> \
 						          </div> \
+=======
+				var layout = '<div id="pl-targetInner"> \
+						      <h2>Candidate Information</h2> \
+						      <br> \
+						      <br> \
+						      <div class="row"> \
+						        <div id="left" class="col-md-8"> \
+						          <h3>Name</h3> \
+						          <div id="accordion" class="panel panel-primary"> </div> \
+						          <h3>Phone</h3> \
 						        </div> \
-
+						        <div id="right" class="col-md-4"> \
+						          <img src="http://thegraphicsfairy.com/wp-content/uploads/2014/01/Valentine-Fairy-Image-GraphicsFairy.jpg"></img> \
+>>>>>>> Stashed changes
+						        </div> \
 						      </div> \
+							  <br> \
+							  <div id="accordion" class="panel panel-primary"> </div> \
 						    </div>';
+
+
 	  			this.$target.append(layout);
 			},
-			addListener: function() {
+			//addListener: function() {
 
-				$("#pl-search").on( 'click', this.sendAjaxRequest);
-			},
-			sendAjaxRequest: function () {
+			//	$("#pl-search").on( 'click', this.sendAjaxRequest);
+			//},
+			sendAjaxRequest: function (addressCon,candidatenameCon) {
 				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
 				$('.location-item').remove(); // remove location
 				
-				var address = $('#pl-userInput').val(); //get address
+				//var address = $('#pl-userInput').val(); //get address
+				var address = addressCon;
+				var name = candidatenameCon;
 				var getUrl = plWidget.getUrl;
 				var GCurl = getUrl+address;
 				
@@ -53,14 +87,15 @@ $(function(){
 					type:'GET',
 					url: GCurl,
 					dataType: 'json',
-					success: plWidget.jsonParser(address,GCurl)
+					success: plWidget.jsonParser(address,GCurl,name)
 				});
 				
 			},
 			jsonParser: function (address,GCurl,name){
-				var $targetInner = $('#pl-targetInner');
-				var $left = $('#pl-left');
-				var $right = $('#pl-right');
+				var $targetInner = $('#left');
+				var $photoPart = $('#right');
+				
+
 				$.get(GCurl,function(data){
 					if(data.length > 3){ // validate data
 
@@ -72,7 +107,11 @@ $(function(){
 							var candidates = edata.contests[i].candidates;
 							
 							for (var j = candidates.length - 1; j >= 0; j--) {
-								$left.append('<h4>Name : ' + candidates[j].name +'<br></h4>');
+								if(candidates[j].name == name){
+
+								$left.append('<h4>Name </h4><br>');
+								$left.append('<div id="accordion" class="panel panel-primary"> </div><br> ')
+								$left.append(candidates[j].name);
 
 								if (candidates[j].party.length > 0)
 									$left.append('<h4>Party : ' + candidates[j].party +'<br></h4>');
@@ -93,9 +132,9 @@ $(function(){
 
 
 								if (candidates[j].hasOwnProperty("photoUrl"))
-									$targetInner.append('<h4>'+'  '+'Photo : ' + '<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'<br></h4>');
+									$photoPart.append('<h4>'+'  '+'Photo : ' + '<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'<br></h4>');
 								else
-									$targetInner.append('<h4>'+'  '+'Photo : N/A <br></h4>');
+									$photoPart.append('<h4>'+'  '+'Photo : N/A <br></h4>');
 
 								if (candidates[j].hasOwnProperty("email"))
 									$targetInner.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a><br></h4>');
@@ -117,9 +156,15 @@ $(function(){
 
 
 								$targetInner.append('<br><br><br>');
+							}
 		 
 
-							};
+							
+							else{
+								$targetInner.append('<h4>Error</h4>');
+								$targetInner.append('<br><br><br>');
+							}
+						};
 
 							
 							
