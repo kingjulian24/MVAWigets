@@ -50,9 +50,9 @@ $(function(){
 
 				$.ajax({ // send ajax request
 					type:'GET',
-					url: GCurl,
+					url: GCUrl,
 					dataType: 'json',
-					success: plWidget.jsonParser(address,GCurl)
+					success: plWidget.jsonParser(address,GCUrl)
 				});
 
 			},
