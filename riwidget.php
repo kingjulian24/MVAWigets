@@ -4,7 +4,7 @@
 
 <?php include('layout/footer.php'); ?>
 
-<script type="text/javascript" src="http://cdn.rawgit.com/kingjulian24/MVAWigets/master/js/riscript.js"></script>
+<script type="text/javascript" src="http://rawgit.com/kingjulian24/MVAWigets/master/js/riscript.js"></script>
 
 
 </body></html>
