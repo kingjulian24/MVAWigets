@@ -49,32 +49,37 @@ $(function(){
 				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
 				$('.location-item').remove(); // remove location
 
+
 				
 				var address = addressCon;
 				var name = candidatenameCon;
 				
-				var jsonUrl = this.apiUrl+'address='+encodeURIComponent(this.address)+'&electionId='+this.electionId+'&key='+this.apiKey;
+				var jsonUrl = this.apiUrl+'address='+encodeURIComponent(address)+'&electionId='+this.electionId+'&key='+this.apiKey;
+
+				
+				var name = candidatenameCon;
+				
 
 
 				$.ajax({ // send ajax request
 					type:'GET',
 					url: jsonUrl,
 					dataType: 'json',
-					success: ciWidget.jsonParser(address,jsonUrl,name)				
+					//success: ciWidget.jsonParser(addressCon,jsonUrl,name)
+					success: function(data){ ciWidget.jsonParser(addressCon,jsonUrl,name,data) }
 				});
 
 
 			},
-			jsonParser: function (address,GCurl,name){
-				
+			jsonParser: function (address,GCurl,name,data){
+
 				var $top = $('#top');
 				var $left = $('#leftPart');
 				var $right = $('#rightPart');
 				var candidateName = name;
-
+				console.log("data: ");
+				console.log(data);
 				$.get(GCurl,function(data){
-					
-					console.log(data);
 					if(data.contests.length > 0){ // validate data
 
 						var edata = data; //convert json to javascript object
@@ -88,6 +93,11 @@ $(function(){
 							for (var j = candidates.length - 1; j >= 0; j--) {
 								if(candidates[j].name == candidateName){
 
+<<<<<<< HEAD
+=======
+								$top.append('<h2>'+candidates[j].name+'</h2>');
+								$top.append('<div id="namePanel" class="panel panel-primary"></div>');
+>>>>>>> FETCH_HEAD
 
 								$top.append('<h2>Candidate Information</h2>');
 								$top.append('<div id="namePanel" class="panel panel-primary"></div><br>')
@@ -136,15 +146,19 @@ $(function(){
 									$right.append('<h4>'+'  '+'Channels : N/A <br><br><br></h4>');
 
 
+<<<<<<< HEAD
                                 $right.append('<input type="button" onclick="history.back();" value="Back">');
                                 $right.append('<br><br><br>');
 								//$targetInner.append('<br><br><br>');
+=======
+
+>>>>>>> FETCH_HEAD
 							}
 
 
 
 							else{
-								$top.append('<br><br><br>');
+								//$top.append('<br><br><br>');
 							}
 						};
 
@@ -175,10 +189,10 @@ $(function(){
 
 		ciWidget.init({ //initialize with target and location to GC server app
 			target: '#target-practice',
-			apiUrl:'http://www.googleapis.com/civicinfo/v2/voterinfo?',
+			apiUrl:'https://www.googleapis.com/civicinfo/v2/voterinfo?',
 			apiKey:'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
 			electionId:'2000'
-			getUrl: 'http://localhost:8888/AjaxTemplate/server/server.php?a='
+			//getUrl: 'http://localhost:8888/AjaxTemplate/server/server.php?a='
 		});
 
 	})(); // end of self invoking function
