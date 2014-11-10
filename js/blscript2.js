@@ -114,9 +114,9 @@ $(function(){
 								var party = candidates[j].party;
 								party = party.replace("Democratic", "D");
 								party = party.replace("Republican", "R");
-								buildHTML += '<a href="/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+this.address+'"><h4  class="accordian-content panel-body">'+'&#x25A2;' +' ' + candidates[j].name +' ('+party+')</h4></a>';
+								buildHTML += '<a href="/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+this.address+'"><h4  class="accordian-content panel-body">'+' ' + candidates[j].name +' ('+party+')</h4></a>';
 							};
-							buildHTML += '<h4  class="accordian-content panel-body">'+ '&#x25A2;' +' ' + '___________ ' +'(Write-in)'+'</h4>';
+							buildHTML += '<h4  class="accordian-content panel-body">'+ ' ' + '___________ ' +'(Write-in)'+'</h4>';
 							buildHTML += '</div>';
 						};
 
@@ -130,10 +130,10 @@ $(function(){
 
 
 				if(firsttime){
-					$( "#accordion" ).accordion();
+					$( "#accordion" ).accordion({ heightStyle: "content"  });
 					firsttime = false;
 				} else {
-					$( "#accordion" ).accordion('destroy').accordion();
+					$( "#accordion" ).accordion('destroy').accordion({ heightStyle: "content"  });
 				}
 
 				this.$loading.remove();// remove loading
