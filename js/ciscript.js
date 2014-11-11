@@ -34,10 +34,10 @@ $(function(){
 									+"<div id='top' class='col-xs-12'>"
 									+"</div>"
 									+"<div class='row'>"
-									
 									+"<div id='leftPart' class='col-xs-12 col-sm-3'>"
 									+"</div>"
 									+"<div id='rightPart' class='col-xs-12 col-sm-8'> </div>"
+									+"</div>"
 									+"</div>"
 									+"</div>"
 									+"</div>"
