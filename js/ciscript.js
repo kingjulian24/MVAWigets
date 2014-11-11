@@ -145,13 +145,11 @@ $(function(){
 									$right.append('<h4>'+'  '+'Channels : N/A <br><br><br></h4>');
 
 
-<<<<<<< HEAD
+
                                 $right.append('<input type="button" onclick="history.back();" value="Back">');
                                 $right.append('<br><br><br>');
 								//$targetInner.append('<br><br><br>');
-=======
 
->>>>>>> FETCH_HEAD
 							}
 
 
