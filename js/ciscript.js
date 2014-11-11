@@ -93,11 +93,10 @@ $(function(){
 							for (var j = candidates.length - 1; j >= 0; j--) {
 								if(candidates[j].name == candidateName){
 
-<<<<<<< HEAD
-=======
-								$top.append('<h2>'+candidates[j].name+'</h2>');
-								$top.append('<div id="namePanel" class="panel panel-primary"></div>');
->>>>>>> FETCH_HEAD
+
+								//$top.append('<h2>'+candidates[j].name+'</h2>');
+								//$top.append('<div id="namePanel" class="panel panel-primary"></div>');
+
 
 								$top.append('<h2>Candidate Information</h2>');
 								$top.append('<div id="namePanel" class="panel panel-primary"></div><br>')
