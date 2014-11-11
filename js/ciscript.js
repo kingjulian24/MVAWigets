@@ -180,7 +180,6 @@ $(function(){
 
 			}
 
-
 		}; // end of ciWidget object
 
 
