@@ -4,7 +4,7 @@
     -Required: Jquery & bootstrap css
     -Configuration line 191
 
-    -The widget save the user's address on line 64
+    -The widget save the user's address on line 66
 
     ============================================
 */
@@ -89,7 +89,6 @@ $(function(){
 			reset: function(){
 				this.$searchBtn.append(this.$loading); //add loading
 				$('.location-item').remove(); // remove location
-				blWidget.$target.find('iframe').remove();// remove map
 
 			},
 			saveData: function (data){
@@ -114,6 +113,7 @@ $(function(){
 								var party = candidates[j].party;
 								party = party.replace("Democratic", "D");
 								party = party.replace("Republican", "R");
+								//link from ballot information to candidate information
 								buildHTML += '<a href="/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&address='+this.address+'"><h4  class="accordian-content panel-body">'+' ' + candidates[j].name +' ('+party+')</h4></a>';
 							};
 							buildHTML += '<h4  class="accordian-content panel-body">'+ ' ' + '___________ ' +'(Write-in)'+'</h4>';
@@ -150,7 +150,7 @@ $(function(){
 		/*
 		    ============================================
 
-		    Polling Location Widget Config
+		    Ballot Information Widget Config
 		    Target = div to target on page(require id or class)
 		    apiUrl = url to google civic api
 		    apiKey = google civic api key (browser key)
@@ -160,8 +160,6 @@ $(function(){
 		*/
 		blWidget.init({
 			target: '#target-practice',
-			mapWidth:'100%',
-			mapHeight: '300',
 			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
 			apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
 			electionId: '2000'
