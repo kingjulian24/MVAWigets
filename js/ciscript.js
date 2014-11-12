@@ -147,8 +147,8 @@ $(function(){
 
 
                                // $right.append('<input type="button" onclick="history.back();" value="Back">');
-                               $right.append('<span class='input-group-btn'>');
-                               $right.append('<button class='btn btn-danger' onclick='history.back()' id='pl-search-btn'>Back</button>');
+                               $right.append('<span class="input-group-btn">');
+                               $right.append('<button class="btn btn-danger" onclick="history.back()" id="pl-search-btn">Back</button>');
                                $right.append('</span>');
                                 $right.append('<br><br><br>');
 								//$targetInner.append('<br><br><br>');
