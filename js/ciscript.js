@@ -34,7 +34,7 @@ $(function(){
 									+"<div id='top' class='col-xs-12'>"
 									+"</div>"
 									+"<div class='row'>"
-									+"<div id='leftPart' class='col-xs-12 col-sm-3'>"
+									+"<div id='leftPart' class='col-xs-12 col-sm-3' style='margin-left:45px' >"
 									+"</div>"
 									+"<div id='rightPart' class='col-xs-12 col-sm-8'> </div>"
 									+"</div>"
@@ -146,7 +146,10 @@ $(function(){
 
 
 
-                                $right.append('<input type="button" onclick="history.back();" value="Back">');
+                               // $right.append('<input type="button" onclick="history.back();" value="Back">');
+                               $right.append('<span class='input-group-btn'>');
+                               $right.append('<button class='btn btn-danger' onclick='history.back()' id='pl-search-btn'>Back</button>');
+                               $right.append('</span>');
                                 $right.append('<br><br><br>');
 								//$targetInner.append('<br><br><br>');
 
