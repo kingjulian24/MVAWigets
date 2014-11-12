@@ -100,44 +100,44 @@ $(function(){
 
 								$top.append('<h2>Candidate Information</h2>');
 								$top.append('<div id="namePanel" class="panel panel-primary"></div><br>')
-								$right.append('<h3 style="color:#064479">'+candidates[j].name+'<br><br><br><br><br></h2>');
+								$right.append('<h3 style="color:#064479">'+candidates[j].name+'<br><br><br></h2>');
 								
 
 								if (candidates[j].party.length > 0)
-									$right.append('<h4>Party : ' + candidates[j].party +'<br></h4>');
+									$right.append('<h4>Party : ' + candidates[j].party +'<br><br></h4>');
 								else
-									$right.append('<h4>'+'  '+'Party : N/A <br></h4>');
+									$right.append('<h4>'+'  '+'Party : N/A <br><br></h4>');
 
 
 								if (candidates[j].hasOwnProperty("candidateUrl"))
-									$right.append('<h4>'+'  '+'Candidate URL : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a><br></h4>');
+									$right.append('<h4>'+'  '+'Candidate URL : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a><br><br></h4>');
 								else
-									$right.append('<h4>'+'  '+'Candidate URL : N/A <br></h4>');
+									$right.append('<h4>'+'  '+'Candidate URL : N/A <br><br></h4>');
 
 
 								if (candidates[j].hasOwnProperty("phone"))
-									$right.append('<h4>'+'  '+'Phone : ' + candidates[j].phone +'<br></h4>');
+									$right.append('<h4>'+'  '+'Phone : ' + candidates[j].phone +'<br><br></h4>');
 								else
-									$right.append('<h4>'+'  '+'Phone : N/A <br></h4>');
+									$right.append('<h4>'+'  '+'Phone : N/A <br><br></h4>');
 
 
 								if (candidates[j].hasOwnProperty("photoUrl"))
-									$left.append('<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'<br></h4>');
+									$left.append('<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'<br><br></h4>');
 								else
 									$left.append('<img src="http://www.dspsjsu.org/wp-content/uploads/2012/07/no-profile-img.gif" alt="noPhoto"/>');
 
 								if (candidates[j].hasOwnProperty("email"))
-									$right.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a><br></h4>');
+									$right.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a><br><br></h4>');
 								else
-									$right.append('<h4>'+'  '+'E-mail : N/A <br></h4>');
+									$right.append('<h4>'+'  '+'E-mail : N/A <br><br></h4>');
 
 								if (candidates[j].hasOwnProperty("channels")){
-									$right.append('<h4>Channels : <br></h4>');
+									$right.append('<h4>Channels : <br><br></h4>');
 									var channels = candidates[j].channels;
 
 										for (var k = 0; k<channels.length; k++){
-											$right.append('<h5>Type: '+channels[k].type+'<br></h5>');
-											$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
+											$right.append('<h5>'+channels[k].type+': <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br><br></h5>');
+											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
 
 								}
