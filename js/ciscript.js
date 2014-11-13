@@ -109,9 +109,9 @@ $(function(){
 
 
 								if (candidates[j].hasOwnProperty("candidateUrl"))
-									$right.append('<h4>'+'  '+'Candidate URL : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a></h4>');
+									$right.append('<h4>'+'  '+'Candidate Website : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a></h4>');
 								else
-									$right.append('<h4>'+'  '+'Candidate URL : N/A </h4>');
+									$right.append('<h4>'+'  '+'Candidate Website : N/A </h4>');
 
 
 								if (candidates[j].hasOwnProperty("phone"))
@@ -135,6 +135,15 @@ $(function(){
 									var channels = candidates[j].channels;
 
 										for (var k = 0; k<channels.length; k++){
+
+											if(channels[k].type == 'facebook')
+											{
+												channels[k].type = '<i class="fa fa-facebook-square"></i>';
+											}
+											else if(channels[k].type == 'twitter')
+											{
+												channels[k].type = '<i class="fa fa-twitter"></i>';
+											}
 											$right.append('<h5>'+channels[k].type+': <a href="'+channels[k].id+'">'+channels[k].id+'"</a></h5>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
