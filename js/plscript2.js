@@ -35,7 +35,7 @@ $(function(){
 			},
 			buildLayout: function(){
 				var layout = '<div class="pl-body"> \
-							      <h2 class="pl-title" alt="Find your polling location via this widget">Find Your Polling Location</h2> \
+							      <h2 class="pl-title">Find Your Polling Location</h2> \
 							      <div class="row"> \
 							        <div class="col-xs-12 col-md-6"> \
 							        <form class="pl-form">\
