@@ -30,12 +30,24 @@ $(function(){
 					class:'glyphicon glyphicon-refresh glyphicon-refresh-animate'
 				});
 
-				var params = document.URL.split('?')[1];
-				var address = params.split('=')[1].split('%20').join(' ');
-				console.log(address);
+				if(paramCheck()){
+					var params = document.URL.split('?')[1];
+					var address = params.split('=')[1].split('%20').join(' ');
+					this.$inputfield.val(address);
+					this.sendAjaxRequest();
+				}
+
+
 
 				this.addListener();
 
+			},
+			paramCheck: function(){
+				if ( document.URL.indexOf('?') > -1 ) {
+				  return true;
+				} else {
+				  return false;
+				}
 			},
 			buildLayout: function(){
 				var layout = '<div class="pl-body"> \
