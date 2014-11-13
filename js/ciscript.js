@@ -145,7 +145,7 @@ $(function(){
 											{
 												logo = '<i class="fa fa-twitter"></i>';
 											}
-											$right.append('<h5>'+logo+': <a href="'+channels[k].id+'">'+channels[k].id+'"</a></h5>');
+											$right.append('<h5>'+': <a href="'+channels[k].id+'">'+logo+'"</a></h5>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
 
