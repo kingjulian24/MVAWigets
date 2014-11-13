@@ -110,7 +110,7 @@ $(function(){
 
 
 								if (candidates[j].hasOwnProperty("candidateUrl"))
-									$right.append('<h4>'+'  '+'Candidate URL : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a><br><br></h4>');
+									$right.append('<h4>'+'  '+'Candidate URL : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a></h4>');
 								else
 									$right.append('<h4>'+'  '+'Candidate URL : N/A </h4>');
 
