@@ -123,7 +123,7 @@ $(function(){
 								if (candidates[j].hasOwnProperty("photoUrl"))
 									$left.append('<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'</h4>');
 								else
-									$left.append('<img src="http://www.dspsjsu.org/wp-content/uploads/2012/07/no-profile-img.gif" alt="noPhoto"/>');
+									$left.append('<img src="../U.S. Vote Foundation   My Voter Account_files/candicon.png" alt="noPhoto"/>');
 
 								if (candidates[j].hasOwnProperty("email"))
 									$right.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a></h4>');
