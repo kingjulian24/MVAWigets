@@ -42,7 +42,7 @@ $(function(){
 				this.addListener();
 
 			},
-			paramCheck: function(){
+			paramCheck: function(){ // Check for query string within url
 				if ( document.URL.indexOf('?') > -1 ) {
 				  return true;
 				} else {
