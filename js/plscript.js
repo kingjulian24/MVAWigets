@@ -31,16 +31,18 @@ $(function(){
 				});
 
 				this.addListener();
+				this.sendAjaxRequest();
+				this.clearInitAddress();
 
 			},
 			buildLayout: function(){
 				var layout = '<div class="pl-body"> \
-							      <h2 class="pl-title">Find Your Polling Location</h2> \
+							      <h2 class="pl-title">Find Another Polling Location</h2> \
 							      <div class="row"> \
 							        <div class="col-xs-12 col-md-6"> \
 							        <form class="pl-form">\
 							          <div class="input-group"> \
-							            <input type="text" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required> \
+							            <input type="text" class="form-control pl-user-input" value="Carnegie Mellon University"  placeholder="Enter full registered voting address" required> \
 							            <span class="input-group-btn"> \
 							              <button class="btn btn-danger" type="submit" id="pl-search-btn">Search</button> \
 							            </span> \
@@ -57,6 +59,9 @@ $(function(){
 					plWidget.sendAjaxRequest();
 					e.preventDefault();
 				});
+			},
+			clearInitAddress: function(){
+				this.$inputfield.val("");
 			},
 			sendAjaxRequest: function () {
 				this.$body.append(this.$loading);
@@ -103,7 +108,13 @@ $(function(){
 						comma: plWidget.getComma(data.pollingLocations[i].address.zip),
 						verified: data.pollingLocations[i].sources[i].name,
 						official: data.pollingLocations[i].sources[i].official,
+
+						userStreet: data.normalizedInput.line1,
+						userCity: data.normalizedInput.city,
+						usersState: data.normalizedInput.state,
+						userZip: data.normalizedInput.zip
 					};
+
 
 					this.displayData(pollingLocationData); // append data to html page
 				} else { // if no location
@@ -114,7 +125,11 @@ $(function(){
 
 			},
 			displayData: function(data){
-				var pollingAddress= data.street +' '+data.city +' '+ data.state +plWidget.getComma(data.zip)+data.zip;
+				var pollingAddress= data.street +' '+data.city +' '+ data.state +plWidget.getComma(data.zip)+data.zip,
+						userAddress= data.userStreet +' '+data.userCity +' '+ data.usersState +' '+data.userZip;
+
+						// update input value
+						this.$inputfield.val(userAddress);
 
 				var $locationName = $('<h4>',{
 					text: data.locationName,
@@ -142,12 +157,20 @@ $(function(){
 					class: 'location-item pl-source'
 				});
 
-				this.$body.append($voteHead);
-				this.$body.append($locationName);
-				this.$body.append($locationAddress);
-				data.official ? this.$body.append($verified) : this.$body.append($unverified) ; // add source
+				var $baseAddress = $('<p>',{
+					text: 'Polling location based on: '+userAddress,
+					class: 'location-item pl-base-address'
+				});
+
 				//add direction button
-				plWidget.displayDirectionsBtn(encodeURIComponent(this.address),encodeURIComponent(pollingAddress));
+				this.displayDirectionsBtn(encodeURIComponent(this.address),encodeURIComponent(pollingAddress));
+				data.official ? this.$body.prepend($verified) : this.$body.append($unverified) ; // add source
+				this.$body.prepend($baseAddress);
+				this.$body.prepend($locationName);
+				this.$body.prepend($locationAddress);
+
+
+				this.$body.prepend($voteHead);
 			},
 			getComma: function (zip){
 				return (zip) ? ', ' : ' '; // return comma f zipcode is defined
@@ -156,18 +179,19 @@ $(function(){
 				var map = '<div class="map">\
 				<iframe width="'+this.mapWidth+'" height="'+this.mapHeight+'" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+fromAddress+'&destination='+toAddress+'&key='+plWidget.apiKey+'"></iframe>\
 				</div>';
-				this.$body.append(map);
+				$(map).insertAfter($('.pl-vote-head')); //add map after header
 			},
 			displayDirectionsBtn: function(fromAddress,toAddress){
+				self = this;
 				var btn = $('<button>',{
 					class: 'btn btn-danger pl-directions-btn location-item',
 					text: 'Get Directions'
 				});
 
-				this.$body.append(btn);
+				self.$body.prepend(btn);
 
 				$('.pl-directions-btn').on('click', function(){
-					plWidget.setUpMap(fromAddress,toAddress); // build map
+					self.setUpMap(fromAddress,toAddress); // build map
 					$(this).remove(); // remove get direction button
 				});
 			}
