@@ -4,7 +4,7 @@
     =Loading Animation
 
     ============================================
-*/ 
+*/
 
     .glyphicon-refresh-animate {
         -animation: spin .7s infinite linear;
@@ -24,10 +24,10 @@
 /*
     ============================================
 
-    =Widget Body(not wrapper) 
+    =Widget Body(not wrapper)
 
     ============================================
-*/ 
+*/
     .pl-body{
         padding-bottom:50px;
     }
@@ -38,7 +38,7 @@
     =Title
 
     ============================================
-*/ 
+*/
     .pl-title{}
 /*
     ============================================
@@ -46,7 +46,7 @@
     =Search Form
 
     ============================================
-*/ 
+*/
     .pl-form{}
     .pl-user-input{}
     #pl-search-btn{}
@@ -57,11 +57,12 @@
     =Results Header
 
     ============================================
-*/ 
+*/
     h2.pl-vote-head{
         border-bottom: 5px solid black;
         padding-bottom: 10px;
-        text-transform:uppercase;
+        text-transform: capitalize;
+}
     }
 /*
     ============================================
@@ -69,23 +70,23 @@
     =Location Name
 
     ============================================
-*/ 
-    h4.pl-location-name{}
+*/
+  h4.pl-location-name{}
 /*
     ============================================
 
     =Location Address
 
     ============================================
-*/ 
-    p.pl-address{}
+*/
+    p.pl-address{text-transform: capitalize;}
 /*
     ============================================
 
     =Source
 
     ============================================
-*/ 
+*/
     p.pl-source{}
 /*
     ============================================
@@ -93,9 +94,8 @@
     =Get Directions Btn
 
     ============================================
-*/ 
+*/
     .pl-directions-btn{}
 
 
-
-
+    h4.pl-location-name{text-transform: capitalize;}

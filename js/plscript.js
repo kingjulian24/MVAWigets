@@ -37,7 +37,7 @@ $(function(){
 			},
 			buildLayout: function(){
 				var layout = '<div class="pl-body"> \
-							      <h2 class="pl-title">Find Another Polling Location</h2> \
+							      <h4 class="pl-title">Find Another Polling Location</h4> \
 							      <div class="row"> \
 							        <div class="col-xs-12 col-md-6"> \
 							        <form class="pl-form">\
@@ -49,6 +49,7 @@ $(function(){
 							          </div> \
 							          </form>\
 							        </div> \
+											<div class="small mute col-xs-12"><p>Disclaimer</p></div>\
 							      </div> \
 						      </div>';
 	  			this.$target.append(layout);
@@ -132,12 +133,12 @@ $(function(){
 						this.$inputfield.val(userAddress);
 
 				var $locationName = $('<h4>',{
-					text: data.locationName,
+					text: data.locationName.toLowerCase(),
 					class: 'location-item pl-location-name'
 				});
 
 				var $locationAddress = $('<p>',{
-					text: pollingAddress,
+					text: pollingAddress.toLowerCase(),
 					class: 'location-item pl-address'
 				});
 
@@ -148,7 +149,7 @@ $(function(){
 				});
 
 				var $verified = $('<p>',{
-					text: 'Source: '+data.verified,
+					text: 'Source: '+data.verified+'(Official)',
 					class: 'location-item pl-source'
 				});
 
