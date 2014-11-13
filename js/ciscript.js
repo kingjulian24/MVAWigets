@@ -50,15 +50,15 @@ $(function(){
 				$('.location-item').remove(); // remove location
 
 
-				
+
 				var address = addressCon;
 				var name = candidatenameCon;
-				
+
 				var jsonUrl = this.apiUrl+'address='+encodeURIComponent(address)+'&electionId='+this.electionId+'&key='+this.apiKey;
 
-				
+
 				var name = candidatenameCon;
-				
+
 
 
 				$.ajax({ // send ajax request
@@ -101,12 +101,12 @@ $(function(){
 								$top.append('<h2>Candidate Information</h2>');
 								$top.append('<div id="namePanel" class="panel panel-primary"></div><br>')
 								$right.append('<h3 style="color:#064479">'+candidates[j].name+'<br><br><br></h2>');
-								
+
 
 								if (candidates[j].party.length > 0)
-									$right.append('<h4>Party : ' + candidates[j].party +'<br><br></h4>');
+									$right.append('<h4>Party : ' + candidates[j].party +'</h4>');
 								else
-									$right.append('<h4>'+'  '+'Party : N/A <br><br></h4>');
+									$right.append('<h4>'+'  '+'Party : N/A </h4>');
 
 
 								if (candidates[j].hasOwnProperty("candidateUrl"))
