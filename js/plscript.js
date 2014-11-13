@@ -149,7 +149,7 @@ $(function(){
 				});
 
 				var $verified = $('<p>',{
-					text: 'Source: '+data.verified,
+					text: 'Source: '+data.verified+'(Official)',
 					class: 'location-item pl-source'
 				});
 
