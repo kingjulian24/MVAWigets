@@ -99,8 +99,8 @@ $(function(){
 
 
 								$top.append('<h2>Candidate Information</h2>');
-								$top.append('<div id="namePanel" class="panel panel-primary"></div><br>')
-								$right.append('<h3 style="color:#064479">'+candidates[j].name+'<br><br><br></h2>');
+								$top.append('<div id="namePanel" class="panel panel-primary"></div>')
+								$right.append('<h3 style="color:#064479">'+candidates[j].name+'</h2>');
 
 
 								if (candidates[j].party.length > 0)
