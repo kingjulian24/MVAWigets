@@ -35,14 +35,14 @@ $(function(){
 			},
 			buildLayout: function(){
 				var layout = '<div class="pl-body"> \
-							      <h2 class="pl-title">Find Your Polling Location</h2> \
+							      <h2 class="pl-title" alt="Find your polling location via this widget">Find Your Polling Location</h2> \
 							      <div class="row"> \
 							        <div class="col-xs-12 col-md-6"> \
 							        <form class="pl-form">\
 							          <div class="input-group"> \
-							            <input type="text" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required> \
+							            <input type="text" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required tabindex = "1" alt="Enter full registered voting address"> \
 							            <span class="input-group-btn"> \
-							              <button class="btn btn-danger" type="submit" id="pl-search-btn">Search</button> \
+							              <button class="btn btn-danger" type="submit" id="pl-search-btn" tabindex = "2" alt="submit button">Search</button> \
 							            </span> \
 							          </div> \
 							          </form>\
