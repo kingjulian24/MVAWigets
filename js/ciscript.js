@@ -147,7 +147,7 @@ $(function(){
 
                                // $right.append('<input type="button" onclick="history.back();" value="Back">');
                                $right.append('<span class="input-group-btn" style="margin-left:500px">');
-                               $right.append('<a href="/MVAWigets/ciwidget.php?address='+address+'"><button class="btn btn-danger" id="pl-search-btn">Back</button></a>');
+                               $right.append('<a href="/MVAWigets/blwidget.php?address='+address+'"><button class="btn btn-danger" id="pl-search-btn">Back</button></a>');
                                $right.append('</span>');
                                 $right.append('<br><br><br>');
 								//$targetInner.append('<br><br><br>');

@@ -30,6 +30,9 @@ $(function(){
 					class:'glyphicon glyphicon-refresh glyphicon-refresh-animate'
 				});
 
+				var params = document.URL.split('?')[1];
+				console.log(params);
+
 				this.addListener();
 
 			},
