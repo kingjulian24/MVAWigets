@@ -136,11 +136,11 @@ $(function(){
 
 										for (var k = 0; k<channels.length; k++){
 
-											if(channels[k].type == 'facebook')
+											if(channels[k].type == 'Facebook')
 											{
 												channels[k].type = '<i class="fa fa-facebook-square"></i>';
 											}
-											else if(channels[k].type == 'twitter')
+											else if(channels[k].type == 'Twitter')
 											{
 												channels[k].type = '<i class="fa fa-twitter"></i>';
 											}
