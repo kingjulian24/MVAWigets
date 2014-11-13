@@ -60,6 +60,7 @@ $(function(){
 
 				var name = candidatenameCon;
 
+				var office = office;
 
 
 				$.ajax({ // send ajax request
@@ -67,12 +68,12 @@ $(function(){
 					url: jsonUrl,
 					dataType: 'json',
 					//success: ciWidget.jsonParser(addressCon,jsonUrl,name)
-					success: function(data){ ciWidget.jsonParser(addressCon,jsonUrl,name,data) }
+					success: function(data){ ciWidget.jsonParser(addressCon,jsonUrl,name,data,office) }
 				});
 
 
 			},
-			jsonParser: function (address,GCurl,name,data){
+			jsonParser: function (address,GCurl,name,data,office){
 
 				var $top = $('#top');
 				var $left = $('#leftPart');
