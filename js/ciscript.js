@@ -15,14 +15,15 @@ $(function(){
 
 				var candidatenparam = params.split('&&')[0];
 				var addressparam = params.split('&&')[1];
+				var officeparam = params.split('&&')[2];
 
 				var candidatename = candidatenparam.split('=')[1].split('%20').join(' ');
 				var address = addressparam.split('=')[1].split('%20').join(' ');
-
+				var office = officeparam.split('=')[1].split('%20').join(' ');
 								//console.log("hello i am in init " + candidatename);
 								//console.log("hello i am in init " + address);
 
-				this.sendAjaxRequest(address,candidatename);
+				this.sendAjaxRequest(address,candidatename,office);
 
 			},
 
@@ -45,7 +46,7 @@ $(function(){
 					this.$target.append(layout);
 			},
 
-			sendAjaxRequest: function (addressCon,candidatenameCon) {
+			sendAjaxRequest: function (addressCon,candidatenameCon,office) {
 				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
 				$('.location-item').remove(); // remove location
 
@@ -101,6 +102,7 @@ $(function(){
 								$top.append('<div id="namePanel" class="panel panel-primary"></div>')
 								$right.append('<h3 style="color:#064479">'+candidates[j].name+'</h2>');
 
+								$right.append('<h4>Office : ' + office +'</h4>');
 
 								if (candidates[j].party.length > 0)
 									$right.append('<h4>Party : ' + candidates[j].party +'</h4>');

@@ -122,7 +122,7 @@ $(function(){
 								party = party.replace("Democratic", "D");
 								party = party.replace("Republican", "R");
 								//link from ballot information to candidate information
-								buildHTML += '<a href="/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&&address='+this.address+'"><h4  class="accordian-content panel-body">'+' ' + candidates[j].name +' ('+party+')</h4></a>';
+								buildHTML += '<a href="/MVAWigets/ciwidget.php?candidatename='+candidates[j].name+'&&address='+this.address+'&&office='+office+'"><h4  class="accordian-content panel-body">'+' ' + candidates[j].name +' ('+party+')</h4></a>';
 							};
 							buildHTML += '<h4  class="accordian-content panel-body">'+ ' ' + '___________ ' +'(Write-in)'+'</h4>';
 							buildHTML += '</div>';
