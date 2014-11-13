@@ -30,7 +30,7 @@ $(function(){
 					class:'glyphicon glyphicon-refresh glyphicon-refresh-animate'
 				});
 
-				if(paramCheck()){
+				if(this.paramCheck()){
 					var params = document.URL.split('?')[1];
 					var address = params.split('=')[1].split('%20').join(' ');
 					this.$inputfield.val(address);
