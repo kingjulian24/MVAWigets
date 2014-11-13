@@ -31,7 +31,8 @@ $(function(){
 				});
 
 				var params = document.URL.split('?')[1];
-				console.log(params);
+				var address = params.split('=')[1].split('%20').join(' ');
+				console.log(address);
 
 				this.addListener();
 
