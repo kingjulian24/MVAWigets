@@ -77,8 +77,7 @@ $(function(){
 				var $left = $('#leftPart');
 				var $right = $('#rightPart');
 				var candidateName = name;
-				console.log("data: ");
-				console.log(data);
+
 				$.get(GCurl,function(data){
 					if(data.contests.length > 0){ // validate data
 
@@ -173,15 +172,8 @@ $(function(){
 					}
 					$('.glyphicon-refresh').remove();// remove loading
 				});
-			},
-			getComma: function (zip){
-				if(zip){
-					return ', ';
-				} else {
-					return ' ';
-				}
-
 			}
+
 
 		}; // end of ciWidget object
 
