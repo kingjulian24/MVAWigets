@@ -40,9 +40,9 @@ $(function(){
 							        <div class="col-xs-12 col-md-6"> \
 							        <form class="pl-form">\
 							          <div class="input-group"> \
-							            <input type="text" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required tabindex = "1" alt="Enter full registered voting address"> \
+							            <input type="text" id="input address" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required tabindex = "1"> \
 							            <span class="input-group-btn"> \
-							              <button class="btn btn-danger" type="submit" id="pl-search-btn" tabindex = "2" alt="submit button">Search</button> \
+							              <button class="btn btn-danger" type="submit" id="pl-search-btn" tabindex = "2" value="submit and search">Search</button> \
 							            </span> \
 							          </div> \
 							          </form>\
