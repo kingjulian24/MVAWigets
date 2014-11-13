@@ -179,7 +179,7 @@ $(function(){
 				var map = '<div class="map">\
 				<iframe width="'+this.mapWidth+'" height="'+this.mapHeight+'" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+fromAddress+'&destination='+toAddress+'&key='+plWidget.apiKey+'"></iframe>\
 				</div>';
-				$(map).insertAfter($('.pl-vote-head')); //add map after header
+				$(map).insertAfter.slideDown($('.pl-vote-head')); //add map after header
 			},
 			displayDirectionsBtn: function(fromAddress,toAddress){
 				self = this;
