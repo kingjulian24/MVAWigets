@@ -40,8 +40,8 @@ $(function(){
 							        <div class="col-xs-12 col-md-6"> \
 							        <form class="pl-form">\
 							          <div class="input-group"> \
-							            <label for="input.address">Please Enter Your Address to Find Your Polling Location</label>
-							            <input type="text" id="input.address" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required tabindex = "1"> \
+							            
+							            <input type="text" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required tabindex = "1"> \
 							            <span class="input-group-btn"> \
 							              <button class="btn btn-danger" type="submit" id="pl-search-btn" tabindex = "2" value="submit and search">Search</button> \
 							            </span> \
