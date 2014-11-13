@@ -109,9 +109,9 @@ $(function(){
 
 
 								if (candidates[j].hasOwnProperty("candidateUrl"))
-									$right.append('<h4>'+'  '+'Candidate URL : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a></h4>');
+									$right.append('<h4>'+'  '+'Candidate Website : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a></h4>');
 								else
-									$right.append('<h4>'+'  '+'Candidate URL : N/A </h4>');
+									$right.append('<h4>'+'  '+'Candidate Website : N/A </h4>');
 
 
 								if (candidates[j].hasOwnProperty("phone"))
@@ -123,7 +123,7 @@ $(function(){
 								if (candidates[j].hasOwnProperty("photoUrl"))
 									$left.append('<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'</h4>');
 								else
-									$left.append('<img src="http://www.dspsjsu.org/wp-content/uploads/2012/07/no-profile-img.gif" alt="noPhoto"/>');
+									$left.append('<img src="https://raw.githubusercontent.com/kingjulian24/MVAWigets/master/U.S.%20Vote%20Foundation%20%20%20My%20Voter%20Account_files/candicon.png" alt="noPhoto"/>');
 
 								if (candidates[j].hasOwnProperty("email"))
 									$right.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a></h4>');
@@ -135,7 +135,17 @@ $(function(){
 									var channels = candidates[j].channels;
 
 										for (var k = 0; k<channels.length; k++){
-											$right.append('<h5>'+channels[k].type+': <a href="'+channels[k].id+'">'+channels[k].id+'"</a></h5>');
+											var logo;
+
+											if(channels[k].type == 'Facebook')
+											{
+												logo = '<i class="fa fa-facebook-square"></i>';
+											}
+											else if(channels[k].type == 'Twitter')
+											{
+												logo = '<i class="fa fa-twitter"></i>';
+											}
+											$right.append('<h5>'+'<a href="'+channels[k].id+'">'+logo+'</a></h5>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
 

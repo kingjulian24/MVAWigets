@@ -17,11 +17,7 @@ $(function(){
 				this.apiUrl = config.apiUrl;
 				this.apiKey = config.apiKey;
 				this.electionId = config.electionId;
-				this.mapWidth = config.mapWidth;
-				this.mapHeight = config.mapHeight;
-
 				this.buildLayout();
-
 				this.$body = $('.pl-body');
 				this.$inputfield = $('.pl-user-input');
 				this.$searchBtn = $('#pl-search');
@@ -36,11 +32,7 @@ $(function(){
 					this.$inputfield.val(address);
 					this.sendAjaxRequest();
 				}
-
-
-
 				this.addListener();
-
 			},
 			paramCheck: function(){ // Check for query string within url
 				if ( document.URL.indexOf('?') > -1 ) {
@@ -51,7 +43,7 @@ $(function(){
 			},
 			buildLayout: function(){
 				var layout = '<div class="pl-body"> \
-							      <h2 class="pl-title">Find Your Ballot Location</h2> \
+							      <h2 class="pl-title">Ballot Information</h2> \
 							      <div class="row"> \
 							        <div class="col-xs-12 col-md-6"> \
 							        <form class="pl-form">\
