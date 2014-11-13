@@ -123,7 +123,7 @@ $(function(){
 								if (candidates[j].hasOwnProperty("photoUrl"))
 									$left.append('<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'</h4>');
 								else
-									$left.append('<img src="../U.S. Vote Foundation   My Voter Account_files/candicon.png" alt="noPhoto"/>');
+									$left.append('<img src="../MVAWigets/U.S. Vote Foundation   My Voter Account_files/candicon.png" alt="noPhoto"/>');
 
 								if (candidates[j].hasOwnProperty("email"))
 									$right.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a></h4>');
@@ -145,7 +145,7 @@ $(function(){
 											{
 												logo = '<i class="fa fa-twitter"></i>';
 											}
-											$right.append('<h5>'+': <a href="'+channels[k].id+'">'+logo+'"</a></h5>');
+											$right.append('<h5>'+'<a href="'+channels[k].id+'">'+logo+'"</a></h5>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
 
