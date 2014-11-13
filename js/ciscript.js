@@ -87,7 +87,7 @@ $(function(){
 						for (var i = edata.contests.length - 1; i >= 0; i--) {
 
 							var candidates = edata.contests[i].candidates;
-							
+
 
 							for (var j = candidates.length - 1; j >= 0; j--) {
 								if(candidates[j].name == candidateName){
@@ -147,7 +147,7 @@ $(function(){
 
                                // $right.append('<input type="button" onclick="history.back();" value="Back">');
                                $right.append('<span class="input-group-btn" style="margin-left:500px">');
-                               $right.append('<button class="btn btn-danger" onclick="history.back()" id="pl-search-btn">Back</button>');
+                               $right.append('<a href="/MVAWigets/ciwidget.php?address='+address+'"><button class="btn btn-danger" id="pl-search-btn">Back</button></a>');
                                $right.append('</span>');
                                 $right.append('<br><br><br>');
 								//$targetInner.append('<br><br><br>');
