@@ -130,10 +130,11 @@ $(function(){
 								else
 									$right.append('<h4>'+'  '+'E-mail : N/A</h4>');
 
+																	
 								if (candidates[j].hasOwnProperty("channels")){
 									//$right.append('<h4>Channels : </h4>');
 									var channels = candidates[j].channels;
-
+										$right.append('<h5>');
 										for (var k = 0; k<channels.length; k++){
 											var logo;
 
@@ -145,10 +146,10 @@ $(function(){
 											{
 												logo = '<i class="fa fa-twitter"></i>';
 											}
-											$right.append('<h5>'+'<a href="'+channels[k].id+'">'+logo+'</a></h5>');
+											$right.append('<a href="'+channels[k].id+'">'+logo+'</a>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
-
+											$right.append('</h5>');
 								}
 								else
 									$right.append('<h4>'+'  '+'Channels : N/A </h4>');
