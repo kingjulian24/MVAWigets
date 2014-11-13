@@ -13,8 +13,8 @@ $(function(){
 
 				var params = document.URL.split('?')[1];
 
-				var candidatenparam = params.split('&')[0];
-				var addressparam = params.split('&')[1];
+				var candidatenparam = params.split('&&')[0];
+				var addressparam = params.split('&&')[1];
 
 				var candidatename = candidatenparam.split('=')[1].split('%20').join(' ');
 				var address = addressparam.split('=')[1].split('%20').join(' ');
