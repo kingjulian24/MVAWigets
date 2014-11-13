@@ -131,7 +131,7 @@ $(function(){
 									$right.append('<h4>'+'  '+'E-mail : N/A</h4>');
 
 								if (candidates[j].hasOwnProperty("channels")){
-									$right.append('<h4>Channels : </h4>');
+									//$right.append('<h4>Channels : </h4>');
 									var channels = candidates[j].channels;
 
 										for (var k = 0; k<channels.length; k++){
