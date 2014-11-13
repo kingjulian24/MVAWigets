@@ -168,8 +168,6 @@ $(function(){
 				this.$body.prepend($baseAddress);
 				this.$body.prepend($locationName);
 				this.$body.prepend($locationAddress);
-
-
 				this.$body.prepend($voteHead);
 			},
 			getComma: function (zip){
