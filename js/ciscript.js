@@ -87,7 +87,7 @@ $(function(){
 						for (var i = edata.contests.length - 1; i >= 0; i--) {
 
 							var candidates = edata.contests[i].candidates;
-							console.log(candidates);
+							
 
 							for (var j = candidates.length - 1; j >= 0; j--) {
 								if(candidates[j].name == candidateName){
