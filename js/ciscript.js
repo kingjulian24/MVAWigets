@@ -112,37 +112,37 @@ $(function(){
 								if (candidates[j].hasOwnProperty("candidateUrl"))
 									$right.append('<h4>'+'  '+'Candidate URL : ' +'<a href="'+ candidates[j].candidateUrl +'">' +candidates[j].candidateUrl+'</a><br><br></h4>');
 								else
-									$right.append('<h4>'+'  '+'Candidate URL : N/A <br><br></h4>');
+									$right.append('<h4>'+'  '+'Candidate URL : N/A </h4>');
 
 
 								if (candidates[j].hasOwnProperty("phone"))
-									$right.append('<h4>'+'  '+'Phone : ' + candidates[j].phone +'<br><br></h4>');
+									$right.append('<h4>'+'  '+'Phone : ' + candidates[j].phone +'</h4>');
 								else
-									$right.append('<h4>'+'  '+'Phone : N/A <br><br></h4>');
+									$right.append('<h4>'+'  '+'Phone : N/A</h4>');
 
 
 								if (candidates[j].hasOwnProperty("photoUrl"))
-									$left.append('<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'<br><br></h4>');
+									$left.append('<img src="'+candidates[j].photoUrl+'" alt="'+candidates[j].name+'"/>' +'</h4>');
 								else
 									$left.append('<img src="http://www.dspsjsu.org/wp-content/uploads/2012/07/no-profile-img.gif" alt="noPhoto"/>');
 
 								if (candidates[j].hasOwnProperty("email"))
-									$right.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a><br><br></h4>');
+									$right.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a></h4>');
 								else
-									$right.append('<h4>'+'  '+'E-mail : N/A <br><br></h4>');
+									$right.append('<h4>'+'  '+'E-mail : N/A</h4>');
 
 								if (candidates[j].hasOwnProperty("channels")){
-									$right.append('<h4>Channels : <br><br></h4>');
+									$right.append('<h4>Channels : </h4>');
 									var channels = candidates[j].channels;
 
 										for (var k = 0; k<channels.length; k++){
-											$right.append('<h5>'+channels[k].type+': <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br><br></h5>');
+											$right.append('<h5>'+channels[k].type+': <a href="'+channels[k].id+'">'+channels[k].id+'"</a></h5>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
 
 								}
 								else
-									$right.append('<h4>'+'  '+'Channels : N/A <br><br><br></h4>');
+									$right.append('<h4>'+'  '+'Channels : N/A </h4>');
 
 
 
