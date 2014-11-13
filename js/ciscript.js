@@ -135,16 +135,17 @@ $(function(){
 									var channels = candidates[j].channels;
 
 										for (var k = 0; k<channels.length; k++){
+											var logo;
 
 											if(channels[k].type == 'Facebook')
 											{
-												channels[k].type = '<i class="fa fa-facebook-square"></i>';
+												logo = '<i class="fa fa-facebook-square"></i>';
 											}
 											else if(channels[k].type == 'Twitter')
 											{
-												channels[k].type = '<i class="fa fa-twitter"></i>';
+												logo = '<i class="fa fa-twitter"></i>';
 											}
-											$right.append('<h5>'+channels[k].type+': <a href="'+channels[k].id+'">'+channels[k].id+'"</a></h5>');
+											$right.append('<h5>'+logo+': <a href="'+channels[k].id+'">'+channels[k].id+'"</a></h5>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
 
