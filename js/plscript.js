@@ -2,9 +2,9 @@
     ============================================
 
     -Required: Jquery & bootstrap css
-    -Configuration line 191
+    -Configuration line 222
 
-    -The widget save the user's address on line 64
+    -The widget save the user's address on line 78
 
     ============================================
 */
@@ -13,6 +13,14 @@ $(function(){
 	(function(){
 		var plWidget = {
 			init: function(config){
+	     	// Config Defaults
+				config = $.extend({
+					mapWidth:'100%',
+					mapHeight: '300',
+					apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
+					electionId: '2000'
+				}, config);
+
 				this.$target = $(config.target); // set target
 				this.apiUrl = config.apiUrl;
 				this.apiKey = config.apiKey;
@@ -221,4 +229,4 @@ $(function(){
 		});
 
 	})(); // end of self invoking function
-});
+}); // end onload function
