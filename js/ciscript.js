@@ -13,16 +13,17 @@ $(function(){
 
 				var params = document.URL.split('?')[1];
 
-				var candidatenparam = params.split('&')[0];
-				var addressparam = params.split('&')[1];
+				var candidatenparam = params.split('&&')[0];
+				var addressparam = params.split('&&')[1];
+				var officeparam = params.split('&&')[2];
 
 				var candidatename = candidatenparam.split('=')[1].split('%20').join(' ');
 				var address = addressparam.split('=')[1].split('%20').join(' ');
-
+				var office = officeparam.split('=')[1].split('%20').join(' ');
 								//console.log("hello i am in init " + candidatename);
 								//console.log("hello i am in init " + address);
 
-				this.sendAjaxRequest(address,candidatename);
+				this.sendAjaxRequest(address,candidatename,office);
 
 			},
 
@@ -45,7 +46,7 @@ $(function(){
 					this.$target.append(layout);
 			},
 
-			sendAjaxRequest: function (addressCon,candidatenameCon) {
+			sendAjaxRequest: function (addressCon,candidatenameCon,office) {
 				$('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
 				$('.location-item').remove(); // remove location
 
@@ -59,6 +60,7 @@ $(function(){
 
 				var name = candidatenameCon;
 
+				var office = office;
 
 
 				$.ajax({ // send ajax request
@@ -66,12 +68,12 @@ $(function(){
 					url: jsonUrl,
 					dataType: 'json',
 					//success: ciWidget.jsonParser(addressCon,jsonUrl,name)
-					success: function(data){ ciWidget.jsonParser(addressCon,jsonUrl,name,data) }
+					success: function(data){ ciWidget.jsonParser(addressCon,jsonUrl,name,data,office) }
 				});
 
 
 			},
-			jsonParser: function (address,GCurl,name,data){
+			jsonParser: function (address,GCurl,name,data,office){
 
 				var $top = $('#top');
 				var $left = $('#leftPart');
@@ -101,6 +103,7 @@ $(function(){
 								$top.append('<div id="namePanel" class="panel panel-primary"></div>')
 								$right.append('<h3 style="color:#064479">'+candidates[j].name+'</h2>');
 
+								$right.append('<h4>Office : ' + office +'</h4>');
 
 								if (candidates[j].party.length > 0)
 									$right.append('<h4>Party : ' + candidates[j].party +'</h4>');
@@ -130,10 +133,11 @@ $(function(){
 								else
 									$right.append('<h4>'+'  '+'E-mail : N/A</h4>');
 
+																	
 								if (candidates[j].hasOwnProperty("channels")){
 									//$right.append('<h4>Channels : </h4>');
 									var channels = candidates[j].channels;
-
+										$right.append('<h5>');
 										for (var k = 0; k<channels.length; k++){
 											var logo;
 
@@ -145,10 +149,10 @@ $(function(){
 											{
 												logo = '<i class="fa fa-twitter"></i>';
 											}
-											$right.append('<h5>'+'<a href="'+channels[k].id+'">'+logo+'</a></h5>');
+											$right.append('<a href="'+channels[k].id+'">'+logo+'</a>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
 										};
-
+											$right.append('</h5>');
 								}
 								else
 									$right.append('<h4>'+'  '+'Channels : N/A </h4>');
