@@ -13,9 +13,10 @@ $(function(){
 						      <div class="row"> \
 						        <div class="col-xs-12 col-md-6"> \
 						          <div class="input-group"> \
-						            <input type="text" class="form-control" id="pl-userInput" required> \
+						          <br><label for="pl-userInput">Please Enter Your Full Registered Address to Find Your Elected Representative Information</label><br> \
+						            <input type="text" class="form-control" id="pl-userInput" required tabindex = "1"> \
 						            <span class="input-group-btn"> \
-						              <button class="btn btn-danger" type="button" id="pl-search">Search</button> \
+						              <button class="btn btn-danger" type="button" id="pl-search" tabindex = "2">Search</button> \
 						            </span> \
 						          </div> \
 						        </div> \
