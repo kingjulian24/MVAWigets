@@ -21,7 +21,7 @@ $(function () {
 				});
 
 				this.addListener();
-				this.sendAjaxRequest();
+				//this.sendAjaxRequest();
 				this.clearInitAddress();
 
             },
