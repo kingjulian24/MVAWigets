@@ -47,6 +47,16 @@ $(function () {
 						      </div>';
                 this.$target.append(layout);
             },
+            addListener: function() {
+
+				this.$form.on( 'submit', function(e){
+					plWidget.sendAjaxRequest();
+					e.preventDefault();
+				});
+			},
+			clearInitAddress: function(){
+				this.$inputfield.val("");
+			},
 
             sendAjaxRequest: function () {
                 $('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
