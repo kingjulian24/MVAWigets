@@ -42,8 +42,20 @@ $(function () {
 							          </form>\
 							        </div> \
 											<div class="small mute col-xs-12"><p>Disclaimer</p></div>\
-							      </div> \
-						      </div>';
+							      </div> \'
+							     + "<div id='pl-targetInner'"
+									+"<div class='row' id='top'>"
+									+"<div id='top' class='col-xs-12'>"
+									+"</div>"
+									+"<div class='row'>"
+									+"<div id='leftPart' class='col-xs-12 col-sm-3' style='margin-left:45px' >"
+									+"</div>"
+									+"<div id='rightPart' class='col-xs-12 col-sm-8'> </div>"
+									+"</div>"
+									+"</div>"
+									+"</div>"
+									+"</div>"
+									+"</div>";
                 this.$target.append(layout);
             },
             addListener: function() {
