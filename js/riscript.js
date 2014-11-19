@@ -11,19 +11,9 @@ $(function () {
                 this.getUrl = config.getUrl; // location to server
                 this.buildLayout();
 
-                var params = document.URL.split('?')[1];
+                
 
-                var candidatenparam = params.split('&&')[0];
-                var addressparam = params.split('&&')[1];
-                var officeparam = params.split('&&')[2];
-
-                var candidatename = candidatenparam.split('=')[1].split('%20').join(' ');
-                var address = addressparam.split('=')[1].split('%20').join(' ');
-                var office = officeparam.split('=')[1].split('%20').join(' ');
-                //console.log("hello i am in init " + candidatename);
-                //console.log("hello i am in init " + address);
-
-                this.sendAjaxRequest(address, candidatename, office);
+                this.sendAjaxRequest();
 
             },
 
