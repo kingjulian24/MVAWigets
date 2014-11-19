@@ -104,6 +104,7 @@ $(function () {
 
                 $.get(GCurl, function (data) {
                 var edata = data;
+                this.$target = '#target-practice';
                     if (edata.offices.length > 0) { // validate data
 
 
