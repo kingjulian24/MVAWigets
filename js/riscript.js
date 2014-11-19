@@ -50,7 +50,7 @@ $(function () {
             addListener: function() {
 
 				this.$form.on( 'submit', function(e){
-					plWidget.sendAjaxRequest();
+					ciWidget.sendAjaxRequest();
 					e.preventDefault();
 				});
 			},
