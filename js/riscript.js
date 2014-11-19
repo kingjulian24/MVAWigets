@@ -114,6 +114,9 @@ $(function () {
                             
                             var topInnerLayout = '<div id="top'+ officeName +'" class="col-xs-12"></div>';
                             this.$target.append(topInnerLayout);
+                            
+                            
+                            
                             var $top = $('#top'+officeName);
                             $top.append('<h2>Official Information for' + officeName + '</h2>');
                             $top.append('<div id="namePanel" class="panel panel-primary"></div>')
