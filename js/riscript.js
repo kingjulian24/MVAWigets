@@ -12,8 +12,17 @@ $(function () {
                 this.buildLayout();
 
                 
+				this.$body = $('.pl-body');
+				this.$inputfield = $('.pl-user-input');
+				this.$searchBtn = $('#pl-search');
+				this.$form = $('.pl-form');
+				this.$loading = $('<span>',{
+					class:'glyphicon glyphicon-refresh glyphicon-refresh-animate'
+				});
 
-                this.sendAjaxRequest();
+				this.addListener();
+				this.sendAjaxRequest();
+				this.clearInitAddress();
 
             },
 
