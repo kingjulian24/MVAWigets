@@ -91,7 +91,7 @@ $(function () {
                 var candidateName = name;
 
                 $.get(GCurl, function (data) {
-                var edata = data;
+                var  edata = data;
                     if (edata.offices.length > 0) { // validate data
 
 
