@@ -25,21 +25,18 @@ $(function () {
                 this.$target.append(layout);
             },
 
-            sendAjaxRequest: function (addressCon, candidatenameCon, office) {
+            sendAjaxRequest: function () {
                 $('#pl-search').append(' <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>'); //add loading
                 $('.location-item').remove(); // remove location
 
 
 
-                var address = addressCon;
-                var name = candidatenameCon;
+              this.address = this.$inputfield.val(); //get address
+               
 
-                var jsonUrl = this.apiUrl + 'address=' + encodeURIComponent(address) + '&key=' + this.apiKey;
+                var jsonUrl = this.apiUrl + 'address=' + encodeURIComponent( this.address ) + '&key=' + this.apiKey;
 
 
-                var name = candidatenameCon;
-
-                var office = office;
 
 
                 $.ajax({ // send ajax request
@@ -48,13 +45,13 @@ $(function () {
                     dataType: 'json',
                     //success: ciWidget.jsonParser(addressCon,jsonUrl,name)
                     success: function (data) {
-                        ciWidget.jsonParser(addressCon, jsonUrl, name, data, office)
+                        ciWidget.jsonParser(jsonUrl)
                     }
                 });
 
 
             },
-            jsonParser: function (address, GCurl, name, data, office) {
+            jsonParser: function (GCurl) {
 
                 var $top = $('#top');
                 var $left = $('#leftPart');
