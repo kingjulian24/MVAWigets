@@ -29,8 +29,22 @@ $(function () {
             buildLayout: function () {
 
 
-                var layout = "<div id='pl-targetInner'" + "<div class='row' id='top'>" + "<div id='top' class='col-xs-12'>" + "</div>" + "<div class='row'>" + "<div id='leftPart' class='col-xs-12 col-sm-3' style='margin-left:45px' >" + "</div>" + "<div id='rightPart' class='col-xs-12 col-sm-8'> </div>" + "</div>" + "</div>" + "</div>" + "</div>"
-
+			var layout = '<div class="pl-body"> \
+							      <h4 class="pl-title">Find Another Polling Location</h4> \
+							      <div class="row"> \
+							        <div class="col-xs-12 col-md-6"> \
+							        <form class="pl-form">\
+							          <div class="input-group"> \
+							            <input type="text" class="form-control pl-user-input" value="Carnegie Mellon University"  placeholder="Enter full registered voting address" required> \
+							            <span class="input-group-btn"> \
+							              <button class="btn btn-danger" type="submit" id="pl-search-btn">Search</button> \
+							            </span> \
+							          </div> \
+							          </form>\
+							        </div> \
+											<div class="small mute col-xs-12"><p>Disclaimer</p></div>\
+							      </div> \
+						      </div>';
                 this.$target.append(layout);
             },
 
