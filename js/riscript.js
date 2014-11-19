@@ -66,7 +66,7 @@ $(function () {
               this.address = this.$inputfield.val(); //get address
                
 
-                var jsonUrl = this.apiUrl + 'address=' + encodeURIComponent( this.address ) + '&key=' + this.apiKey;
+                var jsonUrl = this.apiUrl + '?address=' + encodeURIComponent( this.address ) + '&key=' + this.apiKey;
 
 
 
