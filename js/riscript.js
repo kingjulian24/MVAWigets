@@ -125,7 +125,7 @@ $(function () {
 									</div>\
 									<div id="rightPart' + j +'" class="col-xs-12 col-sm-8"> </div>\
 									</div>\
-									</div>\';
+									</div>';
 								this.$target.append(innerLayot);
                 				var $left = $('#leftPart'+j);
                 				var $right = $('#rightPart'+j);
