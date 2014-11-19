@@ -104,7 +104,7 @@ $(function () {
 
                 $.get(GCurl, function (data) {
                 var edata = data;
-                this.$target = '#target-practice';
+               
                     if (edata.offices.length > 0) { // validate data
 
 
@@ -114,7 +114,7 @@ $(function () {
                             
                             
                             var topInnerLayout = '<div id="top'+ officeName +'" class="col-xs-12"></div>';
-                            this.$target.append(topInnerLayout);
+                            $('#target-practice').append(topInnerLayout);
                             
                             
                             
