@@ -43,6 +43,7 @@ $(function () {
 							        </div> \
 											<div class="small mute col-xs-12"><p>Disclaimer</p></div>\
 							      </div> \
+						      </div>\
 							      <div id="pl-targetInner"\
 									<div class="row" id="top">\
 									<div id="top" class="col-xs-12">\
@@ -54,8 +55,7 @@ $(function () {
 									</div>\
 									</div>\
 									</div>\
-									</div>\
-						      </div>';
+									</div>';
                 this.$target.append(layout);
             },
             addListener: function() {
