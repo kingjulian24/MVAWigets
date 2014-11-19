@@ -58,6 +58,8 @@ $(function () {
 									</div>';
                 this.$target.append(layout);
             },
+            
+
             addListener: function() {
 
 				this.$form.on( 'submit', function(e){
@@ -97,9 +99,7 @@ $(function () {
             },
             jsonParser: function (GCurl) {
 
-                var $top = $('#top');
-                var $left = $('#leftPart');
-                var $right = $('#rightPart');
+               
                 var candidateName = name;
 
                 $.get(GCurl, function (data) {
@@ -110,6 +110,8 @@ $(function () {
 
                         for (var i = 0; i < edata.offices.length; i++) {
                             var officeName = edata.offices[i].name;
+                            this.$target.append('<div id="top'+ officeName +'" class="col-xs-12"></div>');
+                            var $top = $('#top'+officeName);
                             $top.append('<h2>Official Information for' + officeName + '</h2>');
                             $top.append('<div id="namePanel" class="panel panel-primary"></div>')
 
@@ -117,6 +119,16 @@ $(function () {
                             var officeLevel = edata.offices[i].levels;
                             var officialIndices = edata.offices[i].officialIndices;
                             for (var j = 0; j < edata.offices[i].officialIndices.length; j++) {
+                           
+                           var innerLayot = '<div class="row">\
+									<div id="leftPart' + j +'" class="col-xs-12 col-sm-3" style="margin-left:45px" >\
+									</div>\
+									<div id="rightPart' + j +'" class="col-xs-12 col-sm-8"> </div>\
+									</div>\
+									</div>\';
+								this.$target.append(innerLayot);
+                				var $left = $('#leftPart'+j);
+                				var $right = $('#rightPart'+j);
                                 var officialRow = edata.offices[i].officialIndices[j];
                                 var offName = edata.officials[officialRow].name;
                                 $right.append('<h3 style="color:#064479">' + offName + '</h2>');
