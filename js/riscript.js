@@ -133,7 +133,7 @@ $(function () {
 									<div id="rightPart' + j +'" class="col-xs-12 col-sm-8"> </div>\
 									</div>\
 									</div>';
-								this.$target.append(innerLayot);
+								$('#target-practice').append(innerLayot);
                 				var $left = $('#leftPart'+j);
                 				var $right = $('#rightPart'+j);
                                 var officialRow = edata.offices[i].officialIndices[j];
