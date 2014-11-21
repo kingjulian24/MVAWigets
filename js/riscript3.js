@@ -127,8 +127,8 @@ $(function () {
           // offices.levels
 
               if( officesLen > 0 ) {
-                for(var o = 0; o < reps.length; o++){
-                  for ( var i = 0; i < officesLen; i++ ) {
+                for(var o = 0; o < reps.length; o++){ // check each level
+                  for ( var i = 0; i < officesLen; i++ ) { // each office per level
                     officeName = offices[i].name;
 
                     if( this.nameCheck(reps[o].names,officeName) ) {

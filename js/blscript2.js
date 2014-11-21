@@ -46,9 +46,9 @@ $(function(){
 							      <h2 class="pl-title">Ballot Information</h2> \
 							      <div class="row"> \
 							        <div class="col-xs-12 col-md-6"> \
+											<div><label for="input.address">Enter Your Full Registered Address</label></div> \
 							        <form class="pl-form">\
 							          <div class="input-group"> \
-							          <br><label for="input.address">Please Enter Your Full Registered Address to Find Your Ballot Information</label><br> \
 							            <input type="text" id="input.address" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required tabindex = "1"> \
 							            <span class="input-group-btn"> \
 							              <button class="btn btn-danger" type="submit" id="pl-search-btn" tabindex = "2">Search</button> \
@@ -170,7 +170,7 @@ $(function(){
 		blWidget.init({
 			target: '#target-practice',
 			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-			apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
+			apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
 			electionId: '2000'
 		});
 
