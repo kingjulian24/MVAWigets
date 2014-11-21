@@ -99,9 +99,9 @@ $(function () {
 
                 for(var i = 0; i < officials.length; i++){
                   social = '';
-                  var name        = officials[i].name,
+                  var name        = officials[i].name || '',
                       image       = officials[i].photoUrl || 'http://satyaflowyoga.com/satyaflow/wp-content/uploads/2014/06/placeholder1.jpg',
-                      party       = officials[i].party;
+                      party       = officials[i].party || '';
 
 
                   var channels = officials[i].channels || 0;
@@ -126,8 +126,8 @@ $(function () {
                   var rep = '';
                   rep += '<div class="col-xs-12 col-sm-6 col-md-4 rep"> \
                                 <div class="row"> \
-                                  <div class="col-xs-5"> \
-                                    <img src="'+image+'" width="150px" height="200px">\
+                                  <div class="col-xs-5 rep-image"> \
+                                    <img src="'+image+'">\
                                   </div>\
                                   <div class="col-xs-7">\
                                     <div class="row"><h2>'+party+'</h2></div>\
@@ -148,12 +148,16 @@ $(function () {
 
             },
             display: function(rep){
+
               var $rep = $('.rep');
               var $reps = $('.reps');
+
+              $reps.append(rep);
               var $icons = $('.social-fa');
               var $facebook = $('.fa-facebook-square');
               var $youtube = $('.fa-youtube-play');
               var $twitter = $('.fa-twitter');
+              var $repImage = $('.rep-image img');
 
               $reps.css({
                 paddingTop:'20px'
@@ -161,6 +165,11 @@ $(function () {
 
               $rep.css({
                 marginBottom:'20px'
+              });
+
+              $repImage.css({
+                width: '100%',
+                height: '200px'
               });
 
               $icons.css({
@@ -176,7 +185,7 @@ $(function () {
                 color: 'rgb(0,153,153)'
               });
 
-                $reps.append(rep);
+
 
               //replace error image with placeholder
               $("img").error(function () {
