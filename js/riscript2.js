@@ -127,7 +127,7 @@ $(function () {
                   rep += '<div class="col-xs-12 col-sm-6 col-md-4 rep"> \
                                 <div class="row"> \
                                   <div class="col-xs-5"> \
-                                    <img src="'+image+'" width="150" height="200px">\
+                                    <img src="'+image+'" width="150px" height="200px">\
                                   </div>\
                                   <div class="col-xs-7">\
                                     <div class="row"><h2>'+party+'</h2></div>\
