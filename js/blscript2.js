@@ -46,7 +46,7 @@ $(function(){
 							      <h2 class="pl-title">Ballot Information</h2> \
 							      <div class="row"> \
 							        <div class="col-xs-12 col-md-6"> \
-											<div><label for="input.address">Enter Your Full Registered Address</label></div> \
+											<div><label for="input.address" style="text-indent:-10000px;">Enter Your Full Registered Address</label></div> \
 							        <form class="pl-form">\
 							          <div class="input-group"> \
 							            <input type="text" id="input.address" class="form-control pl-user-input"  placeholder="Enter full registered voting address" required tabindex = "1"> \
