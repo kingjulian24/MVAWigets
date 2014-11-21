@@ -11,7 +11,7 @@ $(function () {
                 this.getUrl = config.getUrl; // location to server
                 this.buildLayout();
 
-                
+
 				this.$body = $('.pl-body');
 				this.$inputfield = $('.pl-user-input');
 				this.$searchBtn = $('#pl-search');
@@ -58,7 +58,7 @@ $(function () {
 									</div>';
                 this.$target.append(layout);
             },
-            
+
 
             addListener: function() {
 
@@ -78,7 +78,7 @@ $(function () {
 
 
               this.address = this.$inputfield.val(); //get address
-               
+
 
                 var jsonUrl = this.apiUrl  + '?address=' + encodeURIComponent( this.address ) + '&key=' + this.apiKey;
 
@@ -99,25 +99,25 @@ $(function () {
             },
             jsonParser: function (GCurl) {
 
-               
+
                 var candidateName = name;
 
                 $.get(GCurl, function (data) {
                 var edata = data;
-               
+
                     if (edata.offices.length > 0) { // validate data
 
 
 
                         for (var i = 0; i < edata.offices.length; i++) {
                             var officeName = edata.offices[i].name;
-                            
-                            
+
+
                             var topInnerLayout = '<div id="top'+ officeName +'" class="col-xs-12"></div>';
                             $('#target-practice').append(topInnerLayout);
-                            
-                            
-                            
+
+
+
                             var $top = $('#top'+officeName);
                             $top.append('<h2>Official Information for' + officeName + '</h2>');
                             $top.append('<div id="namePanel" class="panel panel-primary"></div>')
@@ -126,7 +126,7 @@ $(function () {
                             var officeLevel = edata.offices[i].levels;
                             var officialIndices = edata.offices[i].officialIndices;
                             for (var j = 0; j < edata.offices[i].officialIndices.length; j++) {
-                           
+
                            var innerLayot = '<div class="row">\
 									<div id="leftPart' + j +'" class="col-xs-12 col-sm-3" style="margin-left:45px" >\
 									</div>\
