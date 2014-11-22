@@ -128,7 +128,7 @@ $(function(){
 
 
 								if (candidates[j].hasOwnProperty("email"))
-									$right.append('<a href="mailto:'+candidates[j].email+'"><i class="fa fa-envelope"></i></a>');
+									$right.append('<a href="mailto:'+candidates[j].email+'"><i class="fa fa-envelope social-fa"></i></a>');
 
 																	
 								if (candidates[j].hasOwnProperty("channels")){
@@ -140,11 +140,11 @@ $(function(){
 
 											if(channels[k].type == 'Facebook')
 											{
-												logo = '<i class="fa fa-facebook-square"></i>';
+												logo = '<i class="fa fa-facebook-square social-fa"></i>';
 											}
 											else if(channels[k].type == 'Twitter')
 											{
-												logo = '<i class="fa fa-twitter"></i>';
+												logo = '<i class="fa fa-twitter social-fa"></i>';
 											}
 											$right.append('<a href="'+channels[k].id+'">'+logo+'</a>');
 											//$right.append('<h5>ID: <a href="'+channels[k].id+'">'+channels[k].id+'"</a><br></h5>');
