@@ -182,7 +182,30 @@ $(function(){
 						$top.append('<input type="button" onclick="history.back();" value="Back">');
 					}
 					$('.glyphicon-refresh').remove();// remove loading
+
+					var $icons = $('.social-fa');
+					var $facebook = $('.fa-facebook-square');
+					var $youtube = $('.fa-youtube-play');
+					var $twitter = $('.fa-twitter');
+
+					$icons.css({
+					fontSize: '30px',
+					paddingRight: '10px'
+					});
+
+					$youtube.css({
+					color: 'red'
+					});
+
+					$twitter.css({
+					color: 'rgb(0,153,153)'
+					});		
+
+
 				});
+
+
+
 			}
 
 
