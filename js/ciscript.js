@@ -116,11 +116,8 @@ $(function(){
 								else
 									$right.append('<h4>'+'  '+'Candidate Website : N/A </h4>');
 
-
 								if (candidates[j].hasOwnProperty("phone"))
-									$right.append('<h4>'+'  '+'Phone : ' + candidates[j].phone +'</h4>');
-								else
-									$right.append('<h4>'+'  '+'Phone : N/A</h4>');
+									$right.append('<a href="tel:'+candidates[j].phone+'"><i class="fa fa-tty social-fa"></i></a>');
 
 
 								if (candidates[j].hasOwnProperty("photoUrl"))
