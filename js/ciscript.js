@@ -125,10 +125,10 @@ $(function(){
 								else
 									$left.append('<img src="https://raw.githubusercontent.com/kingjulian24/MVAWigets/master/U.S.%20Vote%20Foundation%20%20%20My%20Voter%20Account_files/candicon.png" alt="noPhoto"/>');
 
+
+
 								if (candidates[j].hasOwnProperty("email"))
-									$right.append('<h4>'+'  '+'E-mail : ' +'<a href="'+ candidates[j].email +'">' +candidates[j].email+'</a></h4>');
-								else
-									$right.append('<h4>'+'  '+'E-mail : N/A</h4>');
+									$right.append('<a href="mailto:'+candidates[j].email+'"><i class="fa fa-envelope"></i></a>');
 
 																	
 								if (candidates[j].hasOwnProperty("channels")){
