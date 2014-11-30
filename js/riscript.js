@@ -191,7 +191,7 @@ $(function () {
         ciWidget.init({ //initialize with target and location to GC server app
             target: '#target-practice',
             apiUrl: 'https://www.googleapis.com/civicinfo/v2/representatives',
-            apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
+            apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
 
         });
 

@@ -29,7 +29,7 @@ $(function () {
 
         buildLayout: function () {
 
-
+        /*jshint multistr: true */
 			   var layout = '<div class="pl-body"> \
                         <h4 class="pl-title">Your Elective Representive</h4> \
                           <div class="row"> \
@@ -102,7 +102,7 @@ $(function () {
             });
     			},
     			clearInitAddress: function(){
-    				this.$inputfield.val("");
+    				this.$inputfield.val('');
     			},
           clearReps: function(){
               $('.reps').html('');
@@ -127,13 +127,13 @@ $(function () {
                 });
             },
             jsonParser: function (data) {
-              var officials = data.officials;
+              //var officials = data.officials;
               var normalizedAddress = {
                 userStreet: data.normalizedInput.line1,
                 userCity: data.normalizedInput.city,
                 usersState: data.normalizedInput.state,
                 userZip: data.normalizedInput.zip
-              }
+              };
               this.address = normalizedAddress.userStreet +' '+normalizedAddress.userCity +' '+ normalizedAddress.usersState +' '+normalizedAddress.userZip;
               $('.pl-title').after($('<p>Based on: '+this.address+'</p>'));
 
@@ -167,19 +167,19 @@ $(function () {
 
               ];
 
-              var offices       = data.offices || ''
-                  officesLen    = offices.length,
-                  level         = '',
-                  name          = '',
-                  key           = '',
-                  value         = '',
-                  officeName    = '',
-                  position      = '',
-                  party         = '',
-                  channels      = '',
-                  photoUrl      = '',
-                  urls          = '',
-                  phones        = '';
+              var   offices       = data.offices || '';
+              var   officesLen      = offices.length;
+              //var    level         = '';
+              var    name          = '';
+              var    key           = '';
+              var    value         = '';
+              var    officeName    = '';
+              var    position      = '';
+              var    party         = '';
+              var    channels      = '';
+              var    photoUrl      = '';
+              var    urls          = '';
+              var    phones        = '';
 
 
           // offices.levels
@@ -234,17 +234,18 @@ $(function () {
             },
 
             display: function(reps){
-              var officials     = reps.reps,
-                  name          = '',
-                  officeName    = '',
-                  position      = '',
-                  party         = '',
-                  channels      = '',
-                  photoUrl      = '',
-                  urls          = '',
-                  phones        = '',
-                  repHtml       = '';
-                  phone         = '';
+              var officials     = reps.reps;
+              var    name          = '';
+              var    position      = '';
+              var    party         = '';
+              var    channels      = '';
+              var    photoUrl      = '';
+              var    urls          = '';
+              var    url           = '';
+              var    phones        = '';
+              var    phone         = '';
+              var    type         = '';
+              var    id         = '';
 
                   var $reps = $('.reps');
 
@@ -277,8 +278,8 @@ $(function () {
 
                 //phones
                 if(officials[i].phones) {
-                  for ( var j = 0; j < officials[i].phones.length; j++ ) {
-                    phone = officials[i].phones[j] || '';
+                  for ( var k = 0; k < officials[i].phones.length; k++ ) {
+                    phone = officials[i].phones[k] || '';
                     phones += '<a href="tel:'+phone+'"><i class="fa fa-tty social-fa"></i></a>';
                   }
                 }
@@ -287,12 +288,12 @@ $(function () {
                 //urls
 
                 if(officials[i].urls){
-                  for ( var j = 0; j < officials[i].urls.length; j++ ) {
-                    url = officials[i].urls[j] || '';
+                  for ( var l = 0; l < officials[i].urls.length; l++ ) {
+                    url = officials[i].urls[l] || '';
                     urls += '<a href="'+url+'"><i class="fa fa-bookmark social-fa"></i></a>';
                   }
                 }
-
+                /*jshint multistr: true */
                  $reps.append('<div class="col-xs-12 col-sm-6 col-md-4 rep"> \
                               <div class="row"> \
                                 <div class="col-xs-5 rep-image"> \
@@ -315,7 +316,7 @@ $(function () {
               var $rep = $('.rep');
               var $repsInfo = $('.rep-info p');
               var $icons = $('.social-fa');
-              var $facebook = $('.fa-facebook-square');
+              //var $facebook = $('.fa-facebook-square');
               var $youtube = $('.fa-youtube-play');
               var $twitter = $('.fa-twitter');
               var $repImage = $('.rep-image img');
@@ -353,8 +354,8 @@ $(function () {
 
 
               //replace error image with placeholder
-              $("img").error(function () {
-                $(this).unbind("error").attr("src", "http://satyaflowyoga.com/satyaflow/wp-content/uploads/2014/06/placeholder1.jpg");
+              $('img').error(function () {
+                $(this).unbind('error').attr('src', 'http://satyaflowyoga.com/satyaflow/wp-content/uploads/2014/06/placeholder1.jpg');
               });
             }
 
