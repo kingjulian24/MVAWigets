@@ -1,3 +1,7 @@
+'use strict';
+
+//eof
+
 $(function () {
     (function () {
 
@@ -12,6 +16,7 @@ $(function () {
           this.buildLayout();
 
           // catche dom elments
+          this.$menu = $('.eof-menu');
           this.$body = $('.reps');
           this.$inputfield = $('.pl-user-input');
           this.$searchBtn = $('#pl-search');
@@ -21,8 +26,8 @@ $(function () {
            });
 
 				  this.addListener(); // listen for search
-          this.sendAjaxRequest(); // initialize search
-
+          //this.sendAjaxRequest(); // initialize search
+          this.hideMenu();
 		      this.clearInitAddress();  // clear input value
 
         },
@@ -30,8 +35,8 @@ $(function () {
         buildLayout: function () {
 
         /*jshint multistr: true */
-			   var layout = '<div class="pl-body"> \
-                        <h4 class="pl-title">Your Elective Representive</h4> \
+			   var layout = '<div class="pl-body col-xs-12"> \
+                        <h4 class="pl-title">Find Your Electived Officials</h4> \
                           <div class="row"> \
                             <div class="col-xs-12 col-md-6"> \
                             <form class="pl-form"> \
@@ -44,8 +49,7 @@ $(function () {
                               </form> \
                             </div> \
                             <div class="small mute col-xs-12"> \
-                              <p>Disclaimer</p>\
-                              <div class="btn-group btn-group-justified" role="group" aria-label="...">\
+                              <div class="eof-menu btn-group btn-group-justified" role="group" aria-label="...">\
                                 <div class="btn-group" role="group">\
                                   <button type="button" class="btn btn-default national">National</button>\
                                 </div>\
@@ -67,6 +71,12 @@ $(function () {
                           </div> \
                      </div>';
                 this.$target.append(layout);
+          },
+          hideMenu: function(){
+            this.$menu.hide();
+          },
+          showMenu: function(){
+            this.$menu.show();
           },
 
 
@@ -220,6 +230,7 @@ $(function () {
                 }
               }
               this.reps = reps;
+              this.showMenu();
 
 
             },
@@ -234,6 +245,7 @@ $(function () {
             },
 
             display: function(reps){
+
               var officials     = reps.reps;
               var    name          = '';
               var    position      = '';
@@ -334,8 +346,8 @@ $(function () {
               });
 
               $repImage.css({
-                width: '100%',
-                height: '200px'
+                maxWidth: '100%',
+                //height: '200px'
               });
 
               $icons.css({
@@ -365,7 +377,7 @@ $(function () {
         ciWidget.init({ //initialize with target and location to GC server app
             target: '#target-practice',
             apiUrl: 'https://www.googleapis.com/civicinfo/v2/representatives',
-            apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
+            apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
 
         });
 
