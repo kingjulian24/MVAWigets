@@ -16,6 +16,7 @@ $(function () {
           this.buildLayout();
 
           // catche dom elments
+          this.$basedAddress = $('.pl-title');
           this.$menu = $('.eof-menu');
           this.$body = $('.reps');
           this.$inputfield = $('.pl-user-input');
@@ -26,7 +27,7 @@ $(function () {
            });
 
 				  this.addListener(); // listen for search
-          //this.sendAjaxRequest(); // initialize search
+          this.sendAjaxRequest(); // initialize search
           this.hideMenu();
 		      this.clearInitAddress();  // clear input value
 
@@ -88,29 +89,28 @@ $(function () {
     				});
 
             $('button.national').on('click',function(){
-              self.clearReps();
-              self.display(self.reps[0]);
+              self.preDisplay(self.reps[0]);
             });
 
             $('button.state').on('click',function(){
-              self.clearReps();
-              self.display(self.reps[1]);
+              self.preDisplay(self.reps[1]);
             });
 
             $('button.county').on('click',function(){
-              self.clearReps();
-              self.display(self.reps[2]);
+              self.preDisplay(self.reps[2]);
             });
 
             $('button.city').on('click',function(){
-              self.clearReps();
-              self.display(self.reps[3]);
+              self.preDisplay(self.reps[3]);
             });
             $('button.local').on('click',function(){
-              self.clearReps();
-              self.display(self.reps[4]);
+              self.preDisplay(self.reps[4]);
             });
     			},
+          preDisplay: function(reps) {
+            this.clearReps();
+            this.display(reps);
+          },
     			clearInitAddress: function(){
     				this.$inputfield.val('');
     			},
@@ -144,8 +144,8 @@ $(function () {
                 usersState: data.normalizedInput.state,
                 userZip: data.normalizedInput.zip
               };
-              this.address = normalizedAddress.userStreet +' '+normalizedAddress.userCity +' '+ normalizedAddress.usersState +' '+normalizedAddress.userZip;
-              $('.pl-title').after($('<p>Based on: '+this.address+'</p>'));
+
+              this.displayBaseAddress(normalizedAddress);
 
               var reps = [
                 {
@@ -243,6 +243,13 @@ $(function () {
                 }
                 return false;
             },
+            displayBaseAddress: function(normalizedAddress){
+              this.address = normalizedAddress.userStreet +' '+normalizedAddress.userCity +' '+ normalizedAddress.usersState +' '+normalizedAddress.userZip;
+              // reset based on address
+              this.$basedAddress.next('.based-address').html('');
+              // set based on address
+              this.$basedAddress.after($('<p class="based-address">Based on: '+this.address+'</p>'));
+            },
 
             display: function(reps){
 
@@ -306,13 +313,13 @@ $(function () {
                   }
                 }
                 /*jshint multistr: true */
-                 $reps.append('<div class="col-xs-12 col-sm-6 col-md-4 rep"> \
+                 $reps.append('<div class="col-xs-12 col-sm-6 col-md-3 rep"> \
                               <div class="row"> \
-                                <div class="col-xs-5 rep-image"> \
-                                  <img src="'+photoUrl+'">\
+                                <div class="col-md-12 col-sm-3 col-xs-2">\
+                                  <span class="photo-container"><img src="'+photoUrl+'"></span>\
                                 </div>\
-                                <div class="col-xs-7">\
-                                  <div class="row rep-info"><p>'+position+'</p><p>'+party+'</p><p>'+name+'</p><p>'+phones+urls+'</p><p>'+channels+'</p></div>\
+                                <div class="col-md-12 col-sm-9 col-xs-10">\
+                                  <div class="row rep-info text-center"><p>'+position+'</p><p>'+party+'</p><p>'+name+'</p><p>'+phones+urls+'</p><p>'+channels+'</p></div>\
                                 </div>\
                               </div>\
                             </div>');
@@ -331,30 +338,49 @@ $(function () {
               //var $facebook = $('.fa-facebook-square');
               var $youtube = $('.fa-youtube-play');
               var $twitter = $('.fa-twitter');
-              var $repImage = $('.rep-image img');
+              var $repImage = $('.photo-container img');
+              var $pc = $('.photo-container');
+
+              $pc.css({
+                position: 'relative',
+                display: 'block',
+                width: '90px',
+                height: '90px',
+                border: '3px solid #32e0a6',
+                background: '#32e0a6',
+                borderRadius: '50px',
+                overflow: 'hidden',
+                marginBottom: '20px',
+                color: '#fff',
+                textDecoration: 'none',
+                left: '20%'
+              });
 
 
 
 
               $reps.css({
                 paddingTop:'20px'
+
               });
               $repsInfo.css({
                 fontSize:'15px',
-                lineHeight:'15px'
+                lineHeight:'15px',
               });
 
+
               $rep.css({
-                marginBottom:'20px'
+                marginBottom:'20px',
+                height: '300px'
               });
 
               $repImage.css({
-                maxWidth: '100%',
-                //height: '200px'
+                width: '90px'
+
               });
 
               $icons.css({
-                fontSize: '30px',
+                fontSize: '20px',
                 paddingRight: '10px'
               });
 
