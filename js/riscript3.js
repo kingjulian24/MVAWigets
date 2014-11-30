@@ -27,7 +27,7 @@ $(function () {
            });
 
 				  this.addListener(); // listen for search
-          this.sendAjaxRequest(); // initialize search
+          //this.sendAjaxRequest(); // initialize search
           this.hideMenu();
 		      this.clearInitAddress();  // clear input value
 
@@ -42,7 +42,7 @@ $(function () {
                             <div class="col-xs-12 col-md-6"> \
                             <form class="pl-form"> \
                               <div class="input-group"> \
-                                <input type="text" class="form-control pl-user-input" value="Carnegie Mellon University"  placeholder="Find Reps. Using Another Address" required> \
+                                <input type="text" class="form-control pl-user-input" value="Carnegie Mellon University"  placeholder="Enter full registered voting address" required> \
                                 <span class="input-group-btn">\
                                   <button class="btn btn-danger" type="submit" id="pl-search-btn">Search</button> \
                                 </span> \
@@ -205,13 +205,13 @@ $(function () {
 
                         key       = Object.keys(offices[i].officialIndices)[j];
                         value     = offices[i].officialIndices[j];
-                        name      = data.officials[value].name;
-                        position  = offices[i].name;
-                        party     = data.officials[value].party;
-                        channels  = data.officials[value].channels;
-                        urls      = data.officials[value].urls;
-                        photoUrl  = data.officials[value].photoUrl;
-                        phones    = data.officials[value].phones;
+                        name      = data.officials[value].name || '';
+                        position  = offices[i].name || '';
+                        party     = data.officials[value].party || '';
+                        channels  = data.officials[value].channels || '';
+                        urls      = data.officials[value].urls || '';
+                        photoUrl  = data.officials[value].photoUrl || '';
+                        phones    = data.officials[value].phones || '';
 
                         reps[o].reps.push({
                           name      : name,
