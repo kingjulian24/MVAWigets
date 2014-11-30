@@ -48,7 +48,7 @@ $(function () {
                               </div> \
                               </form> \
                             </div> \
-                            <div class="small mute col-xs-12"> \
+                            <div class="small mute col-xs-12 scope-nav" style="margin-Top:15px"> \
                               <div class="eof-menu btn-group btn-group-justified" role="group" aria-label="...">\
                                 <div class="btn-group" role="group">\
                                   <button type="button" class="btn btn-default national">National</button>\
@@ -332,6 +332,9 @@ $(function () {
               var $youtube = $('.fa-youtube-play');
               var $twitter = $('.fa-twitter');
               var $repImage = $('.rep-image img');
+
+
+
 
               $reps.css({
                 paddingTop:'20px'
