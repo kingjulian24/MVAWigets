@@ -3,7 +3,7 @@
     ============================================
 
     -Required: Jquery & bootstrap css
-    -Configuration at bottom
+    -Configuration line 191
 
     -The widget save the user's address on line 66
 
@@ -21,6 +21,7 @@ $(function(){
 				this.candidates = {};
 				this.buildLayout();
 				this.$body = $('.pl-body');
+
 				this.$inputfield = $('.pl-user-input');
 				this.$searchBtn = $('#pl-search');
 				this.$form = $('.pl-form');
@@ -28,10 +29,21 @@ $(function(){
 					class:'glyphicon glyphicon-refresh glyphicon-refresh-animate'
 				});
 
-
+				// if(this.paramCheck()){
+				// 	var params = document.URL.split('?')[1];
+				// 	var address = params.split('=')[1].split('%20').join(' ');
+				// 	this.$inputfield.val(address);
+				// 	this.sendAjaxRequest();
+				// }
 				this.addListener();
 			},
-
+			paramCheck: function(){ // Check for query string within url
+				if ( document.URL.indexOf('?') > -1 ) {
+				  return true;
+				} else {
+				  return false;
+				}
+			},
 			buildLayout: function(){
 				/*jshint multistr: true */
 				var layout = '<div class="pl-body col-xs-12"> \
@@ -131,6 +143,7 @@ $(function(){
 
 
 
+
 				$icons.css({
 					fontSize: '30px',
 					marginRight: '10px'
@@ -199,7 +212,7 @@ $(function(){
 							buildHTML += '<h5 >'+ district.name+' ('+district.scope+')'+'</h5>';
 							for (var j = 0; j < candidates.length; j++) {
 								var party = candidates[j].party;
-								buildHTML += '<h4 data-candidatename="'+candidates[j].name+'" class="myModal accordian-content panel-body">'+' ' + candidates[j].name +' ('+party+')</h4>';
+								buildHTML += '<h4 data-candidatename="'+candidates[j].name+'" class="myModal accordian-content panel-body" style="cursor: pointer;">'+' ' + candidates[j].name +' ('+party+')</h4>';
 
 								this.candidates[candidates[j].name] = {
 										name:candidates[j].name,
@@ -225,7 +238,6 @@ $(function(){
 
 				this.displayData($targetInner,buildHTML);
 				this.addListener();
-
 
 				if(this.firsttime){
 					$( '#accordion' ).accordion({ heightStyle: 'content'  });
