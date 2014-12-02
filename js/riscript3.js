@@ -4,24 +4,40 @@
 
 $(function () {
     (function () {
-
       var ciWidget = {
-        init: function (config) {
-          this.$target = $(config.target); // set target
-          this.apiUrl = config.apiUrl;
-          this.apiKey = config.apiKey;
-          this.electionId = config.electionId;
+        config: {
+          // DEFAULTS
+          nationalTitles  : ['United States', 'President'] ,
+          stateTitles     : ['Governor','General','State Treasurer'] ,
+          countyTitles    : ['Sheriff','County','District Attorney','Council Member','Tax Collector'] ,
+          cityTitles      : ['Mayor'] ,
+          localTitles     : ['Local']
+        },
 
-          this.getUrl = config.getUrl; // location to google civic api v2
+        init: function (config) {
+          $.extend(this.config, config); //overide config property
+
+          this.$target        = $(config.target); // set target
+          this.apiUrl         = config.apiUrl;
+          this.apiKey         = config.apiKey;
+          this.electionId     = config.electionId;
+
+          this.nationalTitles = this.config.nationalTitles;
+          this.stateTitles    = this.config.stateTitles;
+          this.countyTitles   = this.config.countyTitles;
+          this.cityTitles     = this.config.cityTitles;
+          this.localTitles    = this.config.localTitles;
+
+          this.getUrl         = config.getUrl; // location to google civic api v2
           this.buildLayout();
 
           // catche dom elments
-          this.$basedAddress = $('.pl-title');
-          this.$menu = $('.eof-menu');
-          this.$body = $('.reps');
-          this.$inputfield = $('.pl-user-input');
-          this.$searchBtn = $('#pl-search');
-          this.$form = $('.pl-form');
+          this.$basedAddress  = $('.pl-title');
+          this.$menu          = $('.eof-menu');
+          this.$body          = $('.reps');
+          this.$inputfield    = $('.pl-user-input');
+          this.$searchBtn     = $('#pl-search');
+          this.$form          = $('.pl-form');
 		      this.$loading = $('<span>',{
 					       class:'glyphicon glyphicon-refresh glyphicon-refresh-animate'
            });
@@ -256,29 +272,23 @@ $(function () {
               var reps = [
                 {
                   reps:  [],
-                  names: ['United States', 'President'] //national
-
-
+                  names: this.nationalTitles //national
                 },
                 {
                   reps :[],
-                  names : ['Governor','General','State Treasurer'] //state
-
+                  names : this.stateTitles //state
                 },
                 {
                   reps : [],
-                  names : ['Sheriff','County','District Attorney','Council Member'] //county
-
+                  names : this.countyTitles //county
                 },
                 {
                   reps : [],
-                  names : ['Mayor'] //city
-
+                  names : this.cityTitles //city
                 },
                 {
                   reps : [],
-                  names : ['Local'] //local
-
+                  names : this.localTitles //local
                 },
 
               ];
@@ -298,7 +308,7 @@ $(function () {
               var    phones        = '';
 
 
-          // offices.levels
+          // filter and store reps by title
 
               if( officesLen > 0 ) {
                 for(var o = 0; o < reps.length; o++){ // check each level
@@ -335,7 +345,7 @@ $(function () {
                   }
                 }
               }
-              this.reps = reps;
+              this.reps = reps; // save reps to object
               this.showMenu();
 
 
@@ -483,10 +493,6 @@ $(function () {
 
               });
 
-
-
-
-
               //replace error image with placeholder
               $('img').error(function () {
                 $(this).unbind('error').attr('src', 'http://satyaflowyoga.com/satyaflow/wp-content/uploads/2014/06/placeholder1.jpg');
@@ -496,10 +502,16 @@ $(function () {
         }; // end of ciWidget object
 
 
-        ciWidget.init({ //initialize with target and location to GC server app
-            target: '#target-practice',
-            apiUrl: 'https://www.googleapis.com/civicinfo/v2/representatives',
-            apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
+        ciWidget.init({ // widget configurations
+            target          : '#target-practice',
+            apiUrl          : 'https://www.googleapis.com/civicinfo/v2/representatives',
+            apiKey          : 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
+            nationalTitles  : ['United States', 'President'] ,
+            stateTitles     : ['Governor','General','State Treasurer'] ,
+            countyTitles    : ['Sheriff','County','District Attorney','Council Member','Tax Collector'] ,
+            cityTitles      : ['Mayor'] ,
+            localTitles     : ['Local']
+
 
         });
 
