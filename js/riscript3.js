@@ -68,19 +68,19 @@ $(function () {
                             <div class="small mute col-xs-12 scope-nav" style="margin-Top:15px"> \
                               <div class="eof-menu btn-group btn-group-justified" role="group" aria-label="...">\
                                 <div class="btn-group" role="group">\
-                                  <button type="button" class="btn btn-default national">National</button>\
+                                  <button type="button" class="btn btn-default national rep-btn0">National</button>\
                                 </div>\
                                 <div class="btn-group" role="group">\
-                                  <button type="button" class="btn btn-default state">State</button>\
+                                  <button type="button" class="btn btn-default state rep-btn1">State</button>\
                                 </div>\
                                 <div class="btn-group" role="group">\
-                                  <button type="button" class="btn btn-default county">County</button>\
+                                  <button type="button" class="btn btn-default county rep-btn2">County</button>\
                                 </div>\
                                 <div class="btn-group" role="group">\
-                                  <button type="button" class="btn btn-default city">City</button>\
+                                  <button type="button" class="btn btn-default city rep-btn3">City</button>\
                                 </div>\
                                 <div class="btn-group" role="group">\
-                                  <button type="button" class="btn btn-default local">Local</button>\
+                                  <button type="button" class="btn btn-default local rep-btn4">Local</button>\
                                 </div>\
                               </div>\
                               <div class="row reps"></div> \
@@ -118,6 +118,12 @@ $(function () {
           },
           showMenu: function(){
             this.$menu.show();
+            for(var i = 0; i < this.reps.length; i++){
+              if(this.reps[i].reps.length === 0){
+                $('.rep-btn'+i).prop('disabled',true);
+              }
+            }
+
           },
 
 
@@ -195,11 +201,11 @@ $(function () {
 
 
             $('#myModalLabel').html(position);
-            $('.candidateInfo').append('<h4>'+name+'</h4>').
-            append('<p>'+party+'</p>').
-            append(phoneString).
-            append(urlString).
-            append(chanString);
+            $('.candidateInfo').append('<h4>'+name+'</h4>')
+                                .append('<p>'+party+'</p>')
+                                .append(phoneString)
+                                .append(urlString)
+                                .append(chanString);
 
 
 
