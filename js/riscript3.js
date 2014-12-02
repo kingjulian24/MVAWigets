@@ -195,11 +195,12 @@ $(function () {
 
 
             $('#myModalLabel').html(position);
-            $('.candidateInfo').append('<h4>'+name+'</h4>');
-            $('.candidateInfo').append('<p>'+party+'</p>');
-            $('.candidateInfo').append(phoneString);
-            $('.candidateInfo').append(urlString);
-            $('.candidateInfo').append(chanString);
+            $('.candidateInfo').append('<h4>'+name+'</h4>').
+            append('<p>'+party+'</p>').
+            append(phoneString).
+            append(urlString).
+            append(chanString);
+
 
 
             var photohtml = $('<img>',{
@@ -516,4 +517,4 @@ $(function () {
         });
 
     })(); // end of self invoking function
-});
+}); // end onload function
