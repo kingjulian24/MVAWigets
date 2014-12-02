@@ -118,6 +118,7 @@ $(function () {
           },
           showMenu: function(){
             this.$menu.show();
+
             for(var i = 0; i < this.reps.length; i++){
               if(this.reps[i].reps.length === 0){
                 $('.rep-btn'+i).prop('disabled',true);
