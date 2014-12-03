@@ -52,7 +52,7 @@ $(function () {
         buildLayout: function () {
 
         /*jshint multistr: true */
-			   var layout = '<div class="pl-body col-xs-12"> \
+			   var layout = '<div class="pl-body col-xs-12" style="max-width:730px; margin: 0 auto;"> \
                         <h4 class="pl-title">Find Your Electived Officials</h4> \
                           <div class="row"> \
                             <div class="col-xs-12 col-md-6"> \
@@ -442,7 +442,7 @@ $(function () {
                                   <span class="photo-container"><img data-party="'+party+'" data-name="'+name+'" data-photourl="'+photoUrl+'" data-position="'+position+'" data-channels="'+channels+'" data-phones="'+phones+'" data-urls="'+urls+'"class="rep-img" src="'+photoUrl+'"></span>\
                                 </div>\
                                 <div class="col-md-12 col-sm-9 col-xs-10">\
-                                  <div class="row rep-info text-center"><p>'+party+'</p><p>'+name+'</p></div>\
+                                  <div class="rep-info text-center"><p>'+party+'</p><p>'+name+'</p></div>\
                                 </div>\
                               </div>\
                             </div>');
