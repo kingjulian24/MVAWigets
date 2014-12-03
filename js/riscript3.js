@@ -119,7 +119,7 @@ $(function () {
           showMenu: function(){
             this.$menu.show();
 
-            for(var i = 0; i < this.reps.length; i++){
+            for(var i = 0; i < this.reps.length; i++) {
               if(this.reps[i].reps.length === 0){
                 $('.rep-btn'+i).prop('disabled',true);
               }
@@ -303,7 +303,6 @@ $(function () {
 
               var   offices       = data.offices || '';
               var   officesLen      = offices.length;
-              //var    level         = '';
               var    name          = '';
               var    key           = '';
               var    value         = '';
@@ -354,7 +353,7 @@ $(function () {
                 }
               }
               this.reps = reps; // save reps to object
-              this.showMenu();
+              this.showMenu(); // show level menu
 
 
             },
@@ -377,7 +376,7 @@ $(function () {
 
             display: function(reps){
 
-              var officials     = reps.reps;
+              var    officials     = reps.reps;
               var    name          = '';
               var    position      = '';
               var    party         = '';
@@ -387,12 +386,12 @@ $(function () {
               var    url           = '';
               var    phones        = '';
               var    phone         = '';
-              var    type         = '';
-              var    id         = '';
+              var    type          = '';
+              var    id            = '';
 
-                  var $reps = $('.reps');
+              var $reps = $('.reps');
 
-              //console.log(officials[0].channels.length);
+
 
               for  ( var i = 0; i < officials.length; i++ ){
                 name        = officials[i].name;
