@@ -16,7 +16,7 @@ SEARCH: "NEIDA" TO GET TO CONTENT SECTION
 <!-- saved from url=(0056)http://www.staging.usvotefoundation.org/vote/MyDates.htm -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:fb="http://www.facebook.com/2008/fbml" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="shortcut icon" href="http://www.staging.usvotefoundation.org/vote/img/favicon.ico">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="pragma" content="no-cache">
 
@@ -66,15 +66,15 @@ position: relative;
  <link rel="stylesheet" type="text/css" media="all" href="./U.S. Vote Foundation   My Voter Account_files/main.css">
   <!-- page-specific stylesheet -->
   <link rel="stylesheet" type="text/css" media="screen" href="./U.S. Vote Foundation   My Voter Account_files/eod.css">
-  
+
 
 <style type="text/css"></style><style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
 
 
-  
-    
-  
-  
+
+
+
+
 
 
 <body class="html not-front mva dates logged-in ">
@@ -88,8 +88,8 @@ position: relative;
       <div class="col-xs-4 col-sm-3 col-md-4 hidden-xs">&nbsp;</div>
       <div class="col-xs-12 col-sm-9 col-md-8 site-login">
           <ul class="nav menu site-tools pull-right">
-          
-                
+
+
                 <li class="mva expanded dropdown">
                 <a href="http://www.staging.usvotefoundation.org/vote/MyDates.htm#" data-toggle="dropdown" role="button" id="drop4" class="dropdown-toggle">Voter Account <span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu" id="menu1">
@@ -101,9 +101,9 @@ position: relative;
                     <li role="presentation" class="last leaf"><a href="http://www.staging.usvotefoundation.org/vote/logout" tabindex="-1" role="menuitem">Log Out</a></li>
                 </ul>
                 </li>
-                
-            
-            
+
+
+
           </ul>
       </div>
   </div>
@@ -124,7 +124,7 @@ position: relative;
 
 <div class="row navigation main-menu">
   <div class="container">
-    
+
 
 
 
@@ -154,7 +154,7 @@ position: relative;
               </nav>
       </div>
         </header></div>
-  
+
 </div>
 <div class="visible-xs">
       <header id="navbar" role="banner" class="col-sm-12">
@@ -181,41 +181,41 @@ position: relative;
                   </nav>
         </div>
             </header></div>
-    
+
     </div>
   </div>
 
 
 
-  
+
   <div class="row mva-account">
     <div class="container">
       <div class="col-xs-12 account-nav">
         <div class="row">
         <div class="col-xs-2 col-sm-2 col-md-1">
           <img class="memberBadge" width="97" height="89" src="./U.S. Vote Foundation   My Voter Account_files/membership.png">
-          
-          
-          
-            
-            
-            
+
+
+
+
+
+
               <br>
               <small>Since 2014</small>
-            
-          
+
+
          </div>
         <div class="col-xs-10 col-sm-5 user">
             <h1>My Voter Account</h1>
             <h3>Test User</h3>
         </div>
         <div class="col-xs-12 col-sm-6 thanks hidden-xs hidden-sm">
-            
+
         </div>
         </div>
         <style>
           .active {
-            background:transparent url('/vote/img/icons/mva-arrow.png') bottom center no-repeat; 
+            background:transparent url('/vote/img/icons/mva-arrow.png') bottom center no-repeat;
           }
         </style>
 
@@ -225,7 +225,7 @@ position: relative;
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <ul>
                     <li class="profile"><a href="http://www.staging.usvotefoundation.org/vote/MyVoterAccount.htm">Profile</a></li>
-                    <li class="contacts active"><a href="http://www.staging.usvotefoundation.org/vote/MyKeyContacts.htm">Polling Location</a></li>
+                    <li class="contacts" style="background:#c9302c;"><a href="#"><?php echo $page; ?></a></li>
                     <li class="contacts"><a href="http://www.staging.usvotefoundation.org/vote/MyKeyContacts.htm">Contacts</a></li>
                     <li class="dates"><a href="./U.S. Vote Foundation   My Voter Account_files/U.S. Vote Foundation   My Voter Account.html">Dates &amp; Deadlines</a></li>
                     <li class="my-reps"><a href="http://www.staging.usvotefoundation.org/vote/MyReps.htm">My Reps</a></li>
@@ -239,7 +239,7 @@ position: relative;
 
     </div>
   </div>
-  
+
 
 
 <div class="row content">

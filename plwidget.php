@@ -1,3 +1,4 @@
+<?php $page = "Polling Location Finder"; ?>
 <?php include('layout/header.php'); ?>
 
     <div id="target-practice"></div>
