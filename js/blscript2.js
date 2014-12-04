@@ -234,46 +234,46 @@ $(function(){
 				$('.glyphicon-refresh').remove();// remove loading
 
 				this.displayData($targetInner,buildHTML);
-				if(this.firsttime){this.addListener();}
+				if(this.firsttime){this.addListener();} else {$('.myModal').on('click', this.showCandidate);}
 
-					if(this.firsttime){
-						$( '#accordion' ).accordion({ heightStyle: 'content'  });
-						this.firsttime = false;
-					} else {
-						$( '#accordion' ).accordion('destroy').accordion({ heightStyle: 'content'  });
-					}
-
-					this.$loading.remove();// remove loading
-
-				},
-				displayData: function($targetInner,data){
-					$targetInner.html('');
-					$targetInner.append(data);
-
-
-
+				if(this.firsttime){
+					$( '#accordion' ).accordion({ heightStyle: 'content'  });
+					this.firsttime = false;
+				} else {
+					$( '#accordion' ).accordion('destroy').accordion({ heightStyle: 'content'  });
 				}
 
+				this.$loading.remove();// remove loading
 
-			}; // end of blWidget object
+			},
+			displayData: function($targetInner,data){
+				$targetInner.html('');
+				$targetInner.append(data);
 
-			/*
-			============================================
 
-			Ballot Information Widget Config
-			Target = div to target on page(require id or class)
-			apiUrl = url to google civic api
-			apiKey = google civic api key (browser key)
-			electionId = id of interested election(found on google civic website)
 
-			============================================
-			*/
-			blWidget.init({
-				target: '#target-practice',
-				apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-				apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
-				electionId: '2000'
-			});
+			}
 
-		})(); // end of self invoking function
-	});
+
+		}; // end of blWidget object
+
+		/*
+		============================================
+
+		Ballot Information Widget Config
+		Target = div to target on page(require id or class)
+		apiUrl = url to google civic api
+		apiKey = google civic api key (browser key)
+		electionId = id of interested election(found on google civic website)
+
+		============================================
+		*/
+		blWidget.init({
+			target: '#target-practice',
+			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
+			apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
+			electionId: '2000'
+		});
+
+	})(); // end of self invoking function
+});
