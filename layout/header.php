@@ -225,9 +225,9 @@ position: relative;
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <ul>
                     <li class="profile"><a href="http://www.staging.usvotefoundation.org/vote/MyVoterAccount.htm">Profile</a></li>
-                    <li class="contacts"<?php if($page == 'PLF'){echo 'style="background:#c9302c;"';} ?> ><a href="http://julian-nworb.com/MVAWigets/plwidget.php">Polling Location</a></li>
-                    <li class="contacts"<?php if($page == 'BIF'){echo 'style="background:#c9302c;"';} ?> ><a href="http://julian-nworb.com/MVAWigets/blwidget.php">Ballot Info.</a></li>
-                    <li class="contacts"<?php if($page == 'EOF'){echo 'style="background:#c9302c;"';} ?> ><a href="http://julian-nworb.com/MVAWigets/riwidget.php#">Elected Officials</a></li>
+                    <li class="contacts"<?php if($page == 'PLF'){echo 'style="background:#c9302c;"';} ?> ><a href="http://julian-nworb.com/MVAWigets/plwidget.php">PLF</a></li>
+                    <li class="contacts"<?php if($page == 'BIF'){echo 'style="background:#c9302c;"';} ?> ><a href="http://julian-nworb.com/MVAWigets/blwidget.php">BIF</a></li>
+                    <li class="contacts"<?php if($page == 'EOF'){echo 'style="background:#c9302c;"';} ?> ><a href="http://julian-nworb.com/MVAWigets/riwidget.php#">EOF</a></li>
                     <li class="contacts"><a href="http://www.staging.usvotefoundation.org/vote/MyKeyContacts.htm">Contacts</a></li>
                     <li class="dates"><a href="./U.S. Vote Foundation   My Voter Account_files/U.S. Vote Foundation   My Voter Account.html">Dates &amp; Deadlines</a></li>
                     <li class="my-reps"><a href="http://www.staging.usvotefoundation.org/vote/MyReps.htm">My Reps</a></li>
