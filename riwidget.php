@@ -1,4 +1,4 @@
-<?php $page = "Elected Official Finder"; ?>
+<?php $page = "EOF"; ?>
 <?php include('layout/header.php'); ?>
 
     <div id="target-practice"></div>

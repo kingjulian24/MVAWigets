@@ -1,4 +1,4 @@
-<?php $page = "Ballot Information Finder"; ?>
+<?php $page = "BIF"; ?>
 <?php include('layout/header.php'); ?>
 
     <div id="target-practice"></div>
