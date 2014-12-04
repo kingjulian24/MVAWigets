@@ -136,7 +136,7 @@ $(function () {
         });
 
         $('button.level-btn').on('click',function(){
-          self.clearReps();
+          self.clearReps(); // clear reps that are displayed
           self.display(self.reps[$(this).data('level')]); //display moday with correct rep base on data attr
         });
       },
