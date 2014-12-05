@@ -1,19 +1,20 @@
+'use strict';
 /*
-    ============================================
+============================================
 
-    -Required: Jquery & bootstrap css
-    -Configuration line 222
+-Required: Jquery & bootstrap css
+-Configuration line 222
 
-    -The widget save the user's address on line 78
+-The widget save the user's address on line 78
 
-    ============================================
+============================================
 */
 
 $(function(){
 	(function(){
 		var plWidget = {
 			init: function(config){
-	     	// Config Defaults
+				// Config Defaults
 				config = $.extend({
 					mapWidth:'100%',
 					mapHeight: '300',
@@ -21,12 +22,13 @@ $(function(){
 					electionId: '2000'
 				}, config);
 
-				this.$target = $(config.target); // set target
-				this.apiUrl = config.apiUrl;
-				this.apiKey = config.apiKey;
-				this.electionId = config.electionId;
-				this.mapWidth = config.mapWidth;
-				this.mapHeight = config.mapHeight;
+				this.$target 			= $(config.target); // set target
+				this.apiUrl 			= config.apiUrl;
+				this.apiKey 			= config.apiKey;
+				this.electionId 	= config.electionId;
+				this.mapWidth 		= config.mapWidth;
+				this.mapHeight 		= config.mapHeight;
+				this.initAddress	= config.initAddress;
 
 				this.buildLayout();
 
@@ -44,23 +46,23 @@ $(function(){
 
 			},
 			buildLayout: function(){
-				var layout = '<div class="pl-body"> \
-							      <h4 class="pl-title">Find Another Polling Location</h4> \
-							      <div class="row"> \
-							        <div class="col-xs-12 col-md-6"> \
-							        <form class="pl-form">\
-							          <div class="input-group"> \
-							            <input type="text" class="form-control pl-user-input" value="Carnegie Mellon University"  placeholder="Enter full registered voting address" required> \
-							            <span class="input-group-btn"> \
-							              <button class="btn btn-danger" type="submit" id="pl-search-btn">Search</button> \
-							            </span> \
-							          </div> \
-							          </form>\
-							        </div> \
-											<div class="small mute col-xs-12"><p>Disclaimer</p></div>\
-							      </div> \
-						      </div>';
-	  			this.$target.append(layout);
+				/*jshint multistr: true */
+				var layout = '<div class="pl-body col-xs-12"> \
+				<h4 class="pl-title">Find Your Polling Location</h4> \
+				<div class="row"> \
+				<div class="col-xs-12 col-md-6"> \
+				<form class="pl-form">\
+				<div class="input-group"> \
+				<input type="text" class="form-control pl-user-input" value="'+this.initAddress+'"  placeholder="Enter full registered voting address" required> \
+				<span class="input-group-btn"> \
+				<button class="btn btn-danger" type="submit" id="pl-search-btn">Search</button> \
+				</span> \
+				</div> \
+				</form>\
+				</div> \
+				</div> \
+				</div>';
+				this.$target.append(layout);
 			},
 			addListener: function() {
 
@@ -70,7 +72,7 @@ $(function(){
 				});
 			},
 			clearInitAddress: function(){
-				this.$inputfield.val("");
+				this.$inputfield.val('');
 			},
 			sendAjaxRequest: function () {
 				this.$body.append(this.$loading);
@@ -84,8 +86,8 @@ $(function(){
 					type:'GET',
 					url: jsonUrl,
 					dataType: 'json',
-					success: function(data){ plWidget.saveData(data) },
-					error: function(jqXHR, textStatus, errorThrown) {
+					success: function(data){ plWidget.saveData(data); },
+					error: function() {
 						plWidget.dataError();
 					}
 				});
@@ -135,10 +137,10 @@ $(function(){
 			},
 			displayData: function(data){
 				var pollingAddress= data.street +' '+data.city +' '+ data.state +plWidget.getComma(data.zip)+data.zip,
-						userAddress= data.userStreet +' '+data.userCity +' '+ data.usersState +' '+data.userZip;
+				userAddress= data.userStreet +' '+data.userCity +' '+ data.usersState +' '+data.userZip;
 
-						// update input value
-						this.$inputfield.val(userAddress);
+				// update input value
+				this.$inputfield.val(userAddress);
 
 				var $locationName = $('<h4>',{
 					text: data.locationName.toLowerCase(),
@@ -171,31 +173,39 @@ $(function(){
 					class: 'location-item pl-base-address'
 				});
 
+				this.$body.append($voteHead);
+				this.$body.append($baseAddress);
+				this.$body.append($locationName);
+				this.$body.append($locationAddress);
+
+				// add source
+				if ( data.official ) {
+					this.$body.append($verified);
+				} else {
+					this.$body.append($unverified);
+				}
 				//add direction button
 				this.displayDirectionsBtn(encodeURIComponent(this.address),encodeURIComponent(pollingAddress));
-				data.official ? this.$body.prepend($verified) : this.$body.append($unverified) ; // add source
-				this.$body.prepend($baseAddress);
-				this.$body.prepend($locationName);
-				this.$body.prepend($locationAddress);
-				this.$body.prepend($voteHead);
+
 			},
 			getComma: function (zip){
 				return (zip) ? ', ' : ' '; // return comma f zipcode is defined
 			},
 			setUpMap: function(fromAddress,toAddress){
+				/*jshint multistr: true */
 				var map = '<div class="map">\
 				<iframe width="'+this.mapWidth+'" height="'+this.mapHeight+'" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+fromAddress+'&destination='+toAddress+'&key='+plWidget.apiKey+'"></iframe>\
 				</div>';
 				$(map).insertAfter($('.pl-vote-head')).slideDown(); //add map after header
 			},
 			displayDirectionsBtn: function(fromAddress,toAddress){
-				self = this;
+				var self = this;
 				var btn = $('<button>',{
 					class: 'btn btn-danger pl-directions-btn location-item',
 					text: 'Get Directions'
 				});
 
-				self.$body.prepend(btn);
+				self.$body.append(btn);
 
 				$('.pl-directions-btn').on('click', function(){
 					self.setUpMap(fromAddress,toAddress); // build map
@@ -207,25 +217,26 @@ $(function(){
 		}; // end of plWidget object
 
 		/*
-		    ============================================
+		============================================
 
-		    Polling Location Widget Config
-		    Target = div to target on page(require id or class)
-		    MapWidth = width of directions map
-		    MapHeight = similar to width
-		    apiUrl = url to google civic api
-		    apiKey = google civic api key (browser key)
-		    electionId = id of interested election(found on google civic website)
+		Polling Location Widget Config
+		Target = div to target on page(require id or class)
+		MapWidth = width of directions map
+		MapHeight = similar to width
+		apiUrl = url to google civic api
+		apiKey = google civic api key (browser key)
+		electionId = id of interested election(found on google civic website)
 
-		    ============================================
+		============================================
 		*/
 		plWidget.init({
-			target: '#target-practice',
-			mapWidth:'100%',
-			mapHeight: '300',
-			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-			apiKey: 'AIzaSyDZxb_ROtxLItUxvx8pltmml2T39l6FfsM',
-			electionId: '2000'
+			target 			: '#target-practice',
+			mapWidth		:'100%',
+			mapHeight 	: '300',
+			apiUrl 			: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
+			apiKey  		: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
+			electionId	: '2000',
+			initAddress	: '5000 forbes ave pittsburgh PA 15213'
 		});
 
 	})(); // end of self invoking function

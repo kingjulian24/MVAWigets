@@ -28,6 +28,7 @@ $(function () {
         this.cityTitles     = this.config.cityTitles;
         this.localTitles    = this.config.localTitles;
         this.newSearch      = false;
+        this.initAddress    = config.initAddress;
 
         this.getUrl         = config.getUrl; // location to google civic api v2
         this.buildLayout();
@@ -59,7 +60,7 @@ $(function () {
         <div class="col-xs-12 col-md-6"> \
         <form class="pl-form"> \
         <div class="input-group"> \
-        <input type="text" class="form-control pl-user-input" value="Carnegie Mellon University"  placeholder="Enter full registered voting address" required> \
+        <input type="text" class="form-control pl-user-input" value="'+this.initAddress+'"  placeholder="Enter full registered voting address" required> \
         <span class="input-group-btn">\
         <button class="btn btn-danger" type="submit" id="pl-search-btn">Search</button> \
         </span> \
@@ -515,7 +516,8 @@ $(function () {
         stateTitles     : ['Governor','General','State Treasurer'] ,
         countyTitles    : ['Sheriff','County','District Attorney','Council Member','Tax Collector'] ,
         cityTitles      : ['Mayor'] ,
-        localTitles     : ['Local']
+        localTitles     : ['Local'] ,
+        initAddress     : '5000 forbes ave pittsburgh PA 15213'
       });
 
     })(); // end of self invoking function

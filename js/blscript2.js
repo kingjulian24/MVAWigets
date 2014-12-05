@@ -245,30 +245,18 @@ $(function(){
 				$targetInner.html('');
 				$targetInner.append(data);
 
-
-
 			}
 
 
 		}; // end of blWidget object
 
-		/*
-		============================================
 
-		Ballot Information Widget Config
-		Target = div to target on page(require id or class)
-		apiUrl = url to google civic api
-		apiKey = google civic api key (browser key)
-		electionId = id of interested election(found on google civic website)
-
-		============================================
-		*/
 		blWidget.init({
-			target: '#target-practice',
-			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-			apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
-			electionId: '2000',
-			initAddress: '5000 forbes ave pittsburgh PA 15213'
+			target 			: '#target-practice',
+			apiUrl 			: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
+			apiKey 			: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
+			electionId  : '2000',
+			initAddress	: '5000 forbes ave pittsburgh PA 15213'
 		});
 
 	})(); // end of self invoking function
