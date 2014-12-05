@@ -3,9 +3,6 @@
 ============================================
 
 -Required: Jquery & bootstrap css
--Configuration line 191
-
--The widget save the user's address on line 66
 
 ============================================
 */
@@ -14,17 +11,20 @@ $(function(){
 	(function(){
 		var blWidget = {
 			init: function(config){
-				this.$target = $(config.target); // set target
-				this.apiUrl = config.apiUrl;
-				this.apiKey = config.apiKey;
-				this.electionId = config.electionId;
-				this.candidates = {};
-				this.buildLayout();
-				this.$body = $('.pl-body');
+				this.$target 			= $(config.target); // set target
+				this.apiUrl 			= config.apiUrl;
+				this.apiKey 			= config.apiKey;
+				this.electionId 	= config.electionId;
+				this.initAddress	= config.initAddress;
 
-				this.$inputfield = $('.pl-user-input');
-				this.$searchBtn = $('#pl-search');
-				this.$form = $('.pl-form');
+				this.candidates 	= {};
+
+				this.buildLayout();
+				this.$body 				= $('.pl-body');
+				this.$inputfield 	= $('.pl-user-input');
+				this.$searchBtn 	= $('#pl-search');
+				this.$form 				= $('.pl-form');
+
 				this.$loading = $('<span>',{
 					class:'glyphicon glyphicon-refresh glyphicon-refresh-animate'
 				});
@@ -33,13 +33,7 @@ $(function(){
 
 				this.addListener();
 			},
-			paramCheck: function(){ // Check for query string within url
-				if ( document.URL.indexOf('?') > -1 ) {
-					return true;
-				} else {
-					return false;
-				}
-			},
+
 			buildLayout: function(){
 				/*jshint multistr: true */
 				var layout = '<div class="pl-body col-xs-12"> \
@@ -49,7 +43,7 @@ $(function(){
 				<div><label for="input.address" style="text-indent:-10000px; position:absolute;">Enter Your Full Registered Address</label></div> \
 				<form class="pl-form">\
 				<div class="input-group"> \
-				<input type="text" id="input.address" class="form-control pl-user-input"  value="5000 forbes ave pittsburgh PA 15213" placeholder="Enter full registered voting address" required tabindex = "1"> \
+				<input type="text" id="input.address" class="form-control pl-user-input"  value="'+this.initAddress+'" placeholder="Enter full registered voting address" required tabindex = "1"> \
 				<span class="input-group-btn"> \
 				<button class="btn btn-danger" type="submit" id="pl-search-btn" tabindex = "2">Search</button> \
 				</span> \
@@ -101,15 +95,15 @@ $(function(){
 				$('.candidateInfo').html('');
 				$('.photoUrl img').attr('scr','http://satyaflowyoga.com/satyaflow/wp-content/uploads/2014/06/placeholder1.jpg');
 				$('.modal-header').html('');
-				var name = $(this).data('candidatename');
-				var party = blWidget.candidates[name].party;
-				var url = blWidget.candidates[name].candidateUrl;
-				var photo = blWidget.candidates[name].photoUrl;
-				var office = blWidget.candidates[name].office;
-				var email = (url !== '') ? '<span><a href="'+url+'"><i class="fa fa-bookmark social-fa"></i></a></span>' : '';
-				var info = '<h3>'+name+'</h3><h4>'+party+'</h4>'+email;
-				var type = '';
-				var id = '';
+				var name 		= $(this).data('candidatename');
+				var party   = blWidget.candidates[name].party;
+				var url 		= blWidget.candidates[name].candidateUrl;
+				var photo 	= blWidget.candidates[name].photoUrl;
+				var office 	= blWidget.candidates[name].office;
+				var email 	= (url !== '') ? '<span><a href="'+url+'"><i class="fa fa-bookmark social-fa"></i></a></span>' : '';
+				var info 		= '<h3>'+name+'</h3><h4>'+party+'</h4>'+email;
+				var type 		= '';
+				var id 			= '';
 
 				$('.modal-header').append('<h4>'+office+'</h4>');
 				// channels
@@ -129,14 +123,15 @@ $(function(){
 
 				$('.candidateInfo').append(info);
 
+				// add photo if exist
 				if(photo !== ''){
-					$('.photoUrl img').attr('scr',photo);
+					$('.photoUrl img').attr('src',photo);
 				}
 
 				//styles
-				var $icons = $('.social-fa');
-				var $youtube = $('.fa-youtube-play');
-				var $twitter = $('.fa-twitter');
+				var $icons 		= $('.social-fa');
+				var $youtube 	= $('.fa-youtube-play');
+				var $twitter 	= $('.fa-twitter');
 
 
 
@@ -272,7 +267,8 @@ $(function(){
 			target: '#target-practice',
 			apiUrl: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
 			apiKey: 'AIzaSyDqyAn7yBGwWyZsFs5zWSh6zArNcQJDaAw',
-			electionId: '2000'
+			electionId: '2000',
+			initAddress: '5000 forbes ave pittsburgh PA 15213'
 		});
 
 	})(); // end of self invoking function
