@@ -5,7 +5,7 @@
 
 <?php include('layout/footer.php'); ?>
 
-<script type="text/javascript" src="http://rawgit.com/kingjulian24/MVAWigets/master/js/plscript.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kingjulian24/MVAWigets@master/js/plscript.js"></script>
 
 
 </body></html>

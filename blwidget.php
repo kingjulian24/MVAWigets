@@ -10,7 +10,7 @@
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://rawgit.com/kingjulian24/MVAWigets/master/js/blscript2.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kingjulian24/MVAWigets@master/js/blscript2.js"></script>
 
 
 </body></html>
